@@ -1,0 +1,39 @@
+# Made using Asset Forge (2.4.1)
+
+:materials
+
+[name:stone;color:RGBA(0.571, 0.559, 0.736, 1.000);scale:(1.0, 1.0);shader:Default;mapping:0;valueA:0.5;valueB:0;]
+[name:stoneDark;color:RGBA(0.403, 0.390, 0.594, 1.000);scale:(1.0, 1.0);shader:Default;mapping:0;valueA:0.5;valueB:0;]
+[name:wood;color:RGBA(0.840, 0.435, 0.305, 1.000);scale:(1.0, 1.0);shader:Default;mapping:0;valueA:0.35;valueB:0;]
+[name:woodDark;color:RGBA(0.698, 0.316, 0.194, 1.000);scale:(1.0, 1.0);shader:Default;mapping:0;valueA:0.35;valueB:0;]
+[name:woodLight;color:RGBA(0.816, 0.580, 0.420, 1.000);scale:(1.0, 1.0);shader:Default;mapping:0;valueA:0.35;valueB:0;]
+[name:house-Counters;color:RGBA(0.478, 0.478, 0.478, 1.000);scale:(1.0, 1.0);shader:Default;mapping:1;valueA:0.5;valueB:0;]
+[name:house-Medium_Wood;color:RGBA(0.761, 0.577, 0.439, 1.000);scale:(1.0, 1.0);shader:Default;mapping:1;valueA:0.5;valueB:0;]
+[name:house-Dark_Wood;color:RGBA(0.592, 0.447, 0.318, 1.000);scale:(1.0, 1.0);shader:Default;mapping:1;valueA:0.5;valueB:0;]
+[name:house-Silver;color:RGBA(0.792, 0.796, 0.773, 1.000);scale:(1.0, 1.0);shader:Default;mapping:1;valueA:0.5;valueB:0;]
+[name:house-Beige;color:RGBA(0.863, 0.828, 0.761, 1.000);scale:(1.0, 1.0);shader:Default;mapping:1;valueA:0.5;valueB:0;]
+[name:house-White;color:RGBA(1.000, 1.000, 1.000, 1.000);scale:(1.0, 1.0);shader:Default;mapping:1;valueA:0.5;valueB:0;]
+[name:dark;color:RGBA(0.224, 0.235, 0.275, 1.000);scale:(1.0, 1.0);shader:Default;mapping:0;valueA:0.35;valueB:0;]
+[name:_defaultMat;color:RGBA(0.939, 0.953, 1.000, 1.000);scale:(1.0, 1.0);shader:Default;mapping:0;valueA:0.35;valueB:0.25;]
+[name:metalOrange;color:RGBA(1.000, 0.702, 0.000, 1.000);scale:(1.0, 1.0);shader:Default;mapping:0;valueA:0.5;valueB:0.2;]
+[name:house-Exterior_Wall;color:RGBA(0.710, 0.612, 0.510, 1.000);scale:(1.0, 1.0);shader:Default;mapping:1;valueA:0.5;valueB:0;]
+[name:house-Brass;color:RGBA(0.851, 0.820, 0.800, 1.000);scale:(1.0, 1.0);shader:Default;mapping:1;valueA:0.5;valueB:0;]
+[name:custom16;color:RGBA(0.000, 0.000, 0.000, 0.000);scale:(1.0, 1.0);shader:Default;mapping:0;valueA:0.5;valueB:0.15;]
+
+:models
+
+[name:;collection:Castles;type:furniture_table;position:(0.4000, -0.2000, 0.8600);rotation:(0.0000, 0.0000, 0.0000);scale:(1.0000, 2.4000, 1.8000);group:;locked:False;hidden:False;materials:woodLight+wood;]
+[name:;collection:Mech;type:body_platform;position:(0.4000, 0.7000, 0.9000);rotation:(0.0000, 180.0000, 0.0000);scale:(0.8000, 0.7000, 0.8000);group:;locked:False;hidden:False;materials:_defaultMat+metalOrange;]
+[name:;collection:House;type:Wall_Inner_Joint_Main;position:(1.0000, -0.2900, 0.9000);rotation:(0.0000, 0.0000, 0.0000);scale:(1.0000, 3.1900, 1.0000);group:;locked:False;hidden:False;materials:house-White+house-Beige+house-Dark_Wood;]
+[name:;collection:House;type:Wall_Straight_Main;position:(-1.3550, -0.1800, -2.0000);rotation:(0.0000, 0.0000, 0.0000);scale:(5.5100, 3.0800, 1.0000);group:;locked:False;hidden:False;materials:house-Dark_Wood+house-Beige+house-White;]
+[name:;collection:House;type:Kitchen_Cabinet_Base_Full;position:(-1.0000, 0.0000, -2.0000);rotation:(0.0000, 0.0000, 0.0000);scale:(1.0000, 1.0000, 1.0000);group:;locked:False;hidden:False;materials:house-Silver+house-Medium_Wood+house-Dark_Wood+house-Counters;]
+[name:;collection:House;type:Kitchen_Cabinet_Base_Sink;position:(0.0000, 0.0000, -2.0000);rotation:(0.0000, 0.0000, 0.0000);scale:(1.0000, 1.0000, 1.0000);group:;locked:False;hidden:False;materials:house-Counters+house-Medium_Wood+house-Dark_Wood+house-Silver;]
+[name:;collection:House;type:Wall_Inner_Joint_Main;position:(1.0000, -0.2900, -3.0000);rotation:(0.0000, 0.0000, 0.0000);scale:(1.0000, 3.1900, 1.0000);group:;locked:False;hidden:False;materials:house-White+house-Beige+house-Dark_Wood;]
+[name:;collection:House;type:Exterior_Doorway;position:(-4.6388, -0.2000, -0.4388);rotation:(0.0000, 270.0000, 0.0000);scale:(1.0000, 1.0000, 1.0000);group:;locked:False;hidden:False;materials:house-White+house-Exterior_Wall+house-Beige+house-Dark_Wood;]
+[name:;collection:House;type:Wall_Straight_Main;position:(-1.3550, -0.1800, 1.9000);rotation:(0.0000, 0.0000, 0.0000);scale:(5.5100, 3.0800, 1.0000);group:;locked:False;hidden:False;materials:house-Dark_Wood+house-Beige+house-White;]
+[name:;collection:Castles;type:furniture_table;position:(-1.6000, -0.2000, 0.8600);rotation:(0.0000, 0.0000, 0.0000);scale:(1.0000, 2.4000, 1.8000);group:;locked:False;hidden:False;materials:woodLight+wood;]
+[name:;collection:House;type:Kitchen_Cabinet_Wall_Open;position:(-0.6000, -2.2480, 0.9531);rotation:(0.0000, 180.0000, 0.0000);scale:(1.0000, 1.3200, 1.0000);group:;locked:False;hidden:False;materials:house-Dark_Wood+house-Medium_Wood+house-Silver;]
+[name:;collection:House;type:Kitchen_Cabinet_Wall_Open;position:(-0.6000, -0.8480, 0.9531);rotation:(0.0000, 180.0000, 0.0000);scale:(1.0000, 1.3200, 1.0000);group:;locked:False;hidden:False;materials:house-Dark_Wood+house-Medium_Wood+house-Silver;]
+[name:;collection:House;type:Wall_Straight_Main;position:(2.1450, -0.1800, -0.5286);rotation:(0.0000, 90.0000, 0.0000);scale:(3.9672, 3.0800, 1.0000);group:;locked:False;hidden:False;materials:house-Dark_Wood+house-Beige+house-White;]
+[name:;collection:House;type:Kitchen_Cabinet_Base_Full;position:(-2.0000, 0.0000, -2.0000);rotation:(0.0000, 0.0000, 0.0000);scale:(1.0000, 1.0000, 1.0000);group:;locked:False;hidden:False;materials:house-Silver+house-Medium_Wood+house-Dark_Wood+house-Counters;]
+[name:;collection:House;type:Kitchen_Cabinet_Wall_Open;position:(0.0000, 0.0000, -2.0000);rotation:(0.0000, 0.0000, 0.0000);scale:(1.0000, 1.0000, 1.0000);group:;locked:False;hidden:False;materials:house-Dark_Wood+house-Medium_Wood+house-Silver;]

@@ -1,0 +1,55 @@
+[gd_scene load_steps=8 format=3 uid="uid://bk6o71k28ylnk"]
+
+[ext_resource type="PackedScene" uid="uid://dche8yqoo6cce" path="res://assets'/darkroom_placeholder.glb" id="1_37kl0"]
+[ext_resource type="Script" uid="uid://jvs1d3rmn8pl" path="res://character_body_3d.gd" id="2_8uh7m"]
+[ext_resource type="ArrayMesh" uid="uid://cb5gdw6aapjxy" path="res://assets'/darkroom_placeholder.obj" id="3_6uqi0"]
+[ext_resource type="Material" uid="uid://bsgpr43eeqnag" path="res://sketch_shader.tres" id="4_ppyta"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8uh7m"]
+size = Vector3(6.38159, 1, 5.08838)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_6uqi0"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ppyta"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="floor" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="floor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.67978, -0.454594, 1.78813)
+shape = SubResource("BoxShape3D_8uh7m")
+
+[node name="darkroom_placeholder" parent="." instance=ExtResource("1_37kl0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.67512, 0.221953, 1.34063)
+visible = false
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+transform = Transform3D(0.66, 0, 0, 0, 0.66, 0, 0, 0, 0.66, 0, 0.774742, 2.03739)
+script = ExtResource("2_8uh7m")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D"]
+mesh = SubResource("CapsuleMesh_6uqi0")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+shape = SubResource("CapsuleShape3D_ppyta")
+
+[node name="Camera3D" type="Camera3D" parent="CharacterBody3D"]
+transform = Transform3D(0.029852, 0.585414, -1.39717, -0.0125051, 1.39749, 0.58528, 1.51481, 0, 0.0323655, -1.12404, 1.5729, 0.0479243)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.37097, 3.06917, 2.20274)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2.95759, 0, 1.28262)
+mesh = ExtResource("3_6uqi0")
+
+[node name="PostProcess" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="PostProcess"]
+material = ExtResource("4_ppyta")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

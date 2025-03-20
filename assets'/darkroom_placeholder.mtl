@@ -1,0 +1,35 @@
+# Created by Kenney (www.kenney.nl)
+
+newmtl woodLight(Clone)
+Kd 0.816 0.58 0.42
+
+newmtl wood(Clone)
+Kd 0.84 0.435 0.305
+
+newmtl _defaultMat(Clone)
+Kd 0.939 0.953 1
+
+newmtl metalOrange(Clone)
+Kd 1 0.702 0
+
+newmtl house-White(Clone)
+Kd 1 1 1
+
+newmtl house-Beige(Clone)
+Kd 0.863 0.828 0.761
+
+newmtl house-Dark_Wood(Clone)
+Kd 0.592 0.447 0.318
+
+newmtl house-Silver(Clone)
+Kd 0.792 0.796 0.773
+
+newmtl house-Medium_Wood(Clone)
+Kd 0.761 0.577 0.439
+
+newmtl house-Counters(Clone)
+Kd 0.478 0.478 0.478
+
+newmtl house-Exterior_Wall(Clone)
+Kd 0.71 0.612 0.51
+
