@@ -35,10 +35,12 @@ mesh = SubResource("CapsuleMesh_6uqi0")
 shape = SubResource("CapsuleShape3D_ppyta")
 
 [node name="Camera3D" type="Camera3D" parent="CharacterBody3D"]
-transform = Transform3D(0.029852, 0.585414, -1.39717, -0.0125051, 1.39749, 0.58528, 1.51481, 0, 0.0323655, -1.12404, 1.5729, 0.0479243)
+transform = Transform3D(-1.51515, -1.15445e-08, -1.31955e-07, 0, 1.50939, -0.132054, 1.32459e-07, -0.132054, -1.50939, 0, 1.193, -1.434)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.37097, 3.06917, 2.20274)
+light_color = Color(1, 0.309804, 0.294118, 1)
+omni_attenuation = 1.945
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2.95759, 0, 1.28262)
@@ -47,6 +49,7 @@ mesh = ExtResource("3_6uqi0")
 [node name="PostProcess" type="CanvasLayer" parent="."]
 
 [node name="ColorRect" type="ColorRect" parent="PostProcess"]
+visible = false
 material = ExtResource("4_ppyta")
 anchors_preset = 15
 anchor_right = 1.0
