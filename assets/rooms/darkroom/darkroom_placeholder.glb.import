@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dche8yqoo6cce"
-path="res://.godot/imported/darkroom_placeholder.glb-43ccd70b67e80ac3716f114572afd61f.scn"
+path="res://.godot/imported/darkroom_placeholder.glb-043094f570b11c636c57bc130ae3ee31.scn"
 
 [deps]
 
-source_file="res://assets'/darkroom_placeholder.glb"
-dest_files=["res://.godot/imported/darkroom_placeholder.glb-43ccd70b67e80ac3716f114572afd61f.scn"]
+source_file="res://assets/rooms/darkroom/darkroom_placeholder.glb"
+dest_files=["res://.godot/imported/darkroom_placeholder.glb-043094f570b11c636c57bc130ae3ee31.scn"]
 
 [params]
 

@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://bk6o71k28ylnk"]
 
-[ext_resource type="PackedScene" uid="uid://dche8yqoo6cce" path="res://assets'/darkroom_placeholder.glb" id="1_37kl0"]
-[ext_resource type="ArrayMesh" uid="uid://cb5gdw6aapjxy" path="res://assets'/darkroom_placeholder.obj" id="3_6uqi0"]
-[ext_resource type="Material" uid="uid://bsgpr43eeqnag" path="res://sketch_shader.tres" id="4_ppyta"]
-[ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://addons/proto_controller/proto_controller.tscn" id="4_ykrsh"]
+[ext_resource type="PackedScene" uid="uid://dche8yqoo6cce" path="res://assets/rooms/darkroom/darkroom_placeholder.glb" id="1_to3ui"]
+[ext_resource type="ArrayMesh" uid="uid://cb5gdw6aapjxy" path="res://assets/rooms/darkroom/darkroom_placeholder.obj" id="2_3ytll"]
+[ext_resource type="Material" uid="uid://bsgpr43eeqnag" path="res://sketch_shader.tres" id="3_n6u8r"]
+[ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://addons/proto_controller/proto_controller.tscn" id="4_xq3ny"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8uh7m"]
 size = Vector3(6.38159, 1, 5.08838)
@@ -16,7 +16,7 @@ size = Vector3(6.38159, 1, 5.08838)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.67978, -0.454594, 1.78813)
 shape = SubResource("BoxShape3D_8uh7m")
 
-[node name="darkroom_placeholder" parent="." instance=ExtResource("1_37kl0")]
+[node name="darkroom_placeholder" parent="." instance=ExtResource("1_to3ui")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.67512, 0.221953, 1.34063)
 visible = false
 
@@ -27,20 +27,20 @@ omni_attenuation = 1.945
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2.95759, 0, 1.28262)
-mesh = ExtResource("3_6uqi0")
+mesh = ExtResource("2_3ytll")
 
 [node name="PostProcess" type="CanvasLayer" parent="."]
 
 [node name="ColorRect" type="ColorRect" parent="PostProcess"]
 visible = false
-material = ExtResource("4_ppyta")
+material = ExtResource("3_n6u8r")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ProtoController" parent="." instance=ExtResource("4_ykrsh")]
+[node name="ProtoController" parent="." instance=ExtResource("4_xq3ny")]
 transform = Transform3D(0.8, 0, 0, 0, 0.8, 0, 0, 0, 0.8, 0, 0, 1.41296)
 base_speed = 3.0
 freefly_speed = 15.0
