@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://c8h1qv0tc62dh"]
+
+[ext_resource type="Texture2D" uid="uid://vi5lk6ftgf43" path="res://assets/social_media/Minimalistic/Discord.png" id="1_yx4k8"]
+[ext_resource type="Texture2D" uid="uid://dmj6uwcj0l2f2" path="res://assets/social_media/discord_hover.png" id="2_bdak0"]
+[ext_resource type="Texture2D" uid="uid://4h4ppme4bbf0" path="res://assets/social_media/Minimalistic_Shaded/Discord.png" id="3_eixva"]
+[ext_resource type="Script" uid="uid://das7ytk2n3xgn" path="res://scripts/entities/buttons/social_button/social_button.gd" id="4_bdak0"]
+
+[node name="SocialButton" type="TextureButton"]
+texture_filter = 1
+custom_minimum_size = Vector2(60, 60)
+texture_normal = ExtResource("1_yx4k8")
+texture_pressed = ExtResource("2_bdak0")
+texture_hover = ExtResource("3_eixva")
+stretch_mode = 0
+script = ExtResource("4_bdak0")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]

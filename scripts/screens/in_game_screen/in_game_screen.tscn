@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://cym2vheag6wb4"]
+
+[ext_resource type="PackedScene" uid="uid://bk6o71k28ylnk" path="res://scripts/rooms/test_room.tscn" id="2_ve4ci"]
+
+[node name="Game" type="Node3D"]
+
+[node name="Level" type="Node" parent="."]
+
+[node name="TestRoom" parent="Level" instance=ExtResource("2_ve4ci")]
