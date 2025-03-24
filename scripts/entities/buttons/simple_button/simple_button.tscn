@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://c1nffk3tj8ieg"]
+
+[ext_resource type="Script" uid="uid://cq3qpdokh7qam" path="res://scripts/entities/buttons/simple_button/simple_button.gd" id="1_he3m2"]
+
+[node name="SimpleButton" type="Button"]
+texture_filter = 1
+offset_right = 164.0
+offset_bottom = 50.0
+theme_override_font_sizes/font_size = 30
+text = "Press Here"
+script = ExtResource("1_he3m2")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]

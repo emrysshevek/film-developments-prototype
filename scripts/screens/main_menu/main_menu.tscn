@@ -1,0 +1,108 @@
+[gd_scene load_steps=5 format=3 uid="uid://xh3y2hg08tav"]
+
+[ext_resource type="Script" uid="uid://cfnftjbgmmdkv" path="res://scripts/screens/main_menu/main_menu.gd" id="1_emnt5"]
+[ext_resource type="PackedScene" uid="uid://c1nffk3tj8ieg" path="res://scripts/entities/buttons/simple_button/simple_button.tscn" id="1_xhgxx"]
+[ext_resource type="PackedScene" uid="uid://c8h1qv0tc62dh" path="res://scripts/entities/buttons/social_button/social_button.tscn" id="3_5bxjj"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_b61cn"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_emnt5")
+
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CanvasTexture_b61cn")
+
+[node name="TitleText" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -44.0
+offset_top = 50.0
+offset_right = 44.0
+offset_bottom = 73.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 120
+text = "Film Development"
+
+[node name="Container" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -105.0
+offset_top = -6.0
+offset_right = 102.0
+offset_bottom = 154.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 5
+alignment = 1
+
+[node name="StartButton" parent="Container" instance=ExtResource("1_xhgxx")]
+layout_mode = 2
+text = "Start Game"
+
+[node name="OptionsButton" parent="Container" instance=ExtResource("1_xhgxx")]
+layout_mode = 2
+text = "Options"
+
+[node name="QuitButton" parent="Container" instance=ExtResource("1_xhgxx")]
+layout_mode = 2
+text = "Quit"
+is_back_button = true
+
+[node name="SocialBlade" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -252.0
+offset_top = -148.0
+offset_right = -45.0
+offset_bottom = -56.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="BladeLabel" type="Label" parent="SocialBlade"]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "Follow our socials"
+horizontal_alignment = 1
+
+[node name="SocialHbox" type="HBoxContainer" parent="SocialBlade"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="SocialButton" parent="SocialBlade/SocialHbox" instance=ExtResource("3_5bxjj")]
+layout_mode = 2
+
+[node name="SocialButton2" parent="SocialBlade/SocialHbox" instance=ExtResource("3_5bxjj")]
+layout_mode = 2
+
+[node name="SocialButton3" parent="SocialBlade/SocialHbox" instance=ExtResource("3_5bxjj")]
+layout_mode = 2
+
+[connection signal="pressed" from="Container/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="Container/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="Container/QuitButton" to="." method="_on_quit_button_pressed"]

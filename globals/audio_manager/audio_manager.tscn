@@ -1,0 +1,57 @@
+[gd_scene load_steps=11 format=3 uid="uid://c7ihnfhh5io7d"]
+
+[ext_resource type="Script" uid="uid://dibwqkgxo8dbv" path="res://globals/audio_manager/audio_manager.gd" id="1_gqfen"]
+[ext_resource type="AudioStream" uid="uid://by5o6kxisupvw" path="res://assets/audio/sfx/select_1.wav" id="2_1d2wt"]
+[ext_resource type="AudioStream" uid="uid://ba2l3fmth3kyv" path="res://assets/audio/sfx/sfx_menu_hover.ogg" id="2_fdt5a"]
+[ext_resource type="AudioStream" uid="uid://cj2xxlawa4xvg" path="res://assets/audio/music/Concept_10_Youth_Mix_02.wav" id="2_uf7k3"]
+[ext_resource type="AudioStream" uid="uid://beo37jy02b4ia" path="res://assets/audio/music/Concept_01_Title_Mix.ogg" id="3_qnhhb"]
+[ext_resource type="AudioStream" uid="uid://dq4ykb0vjh7tp" path="res://assets/audio/sfx/sfx_menu_select.ogg" id="3_uf7k3"]
+[ext_resource type="AudioStream" uid="uid://dfcdpq6ax0eug" path="res://assets/audio/sfx/text_1.wav" id="3_ulrmu"]
+[ext_resource type="AudioStream" uid="uid://vnmvc7b7vb3q" path="res://assets/audio/sfx/confirm_1.wav" id="4_fdt5a"]
+[ext_resource type="AudioStream" uid="uid://vp83hvxefsx5" path="res://assets/audio/music/Concept_02_Youth - Outro_Mix.ogg" id="4_qv0hg"]
+[ext_resource type="AudioStream" uid="uid://bmvd4fcby6nkj" path="res://assets/audio/sfx/cancel_1.wav" id="5_uf7k3"]
+
+[node name="AudioManager" type="Node"]
+script = ExtResource("1_gqfen")
+
+[node name="Music" type="Node" parent="."]
+
+[node name="Concept10YouthMix02" type="AudioStreamPlayer" parent="Music"]
+stream = ExtResource("2_uf7k3")
+bus = &"MenuMusic"
+
+[node name="Concept01TitleMix" type="AudioStreamPlayer" parent="Music"]
+stream = ExtResource("3_qnhhb")
+bus = &"MenuMusic"
+parameters/looping = true
+
+[node name="ExitSong" type="AudioStreamPlayer" parent="Music"]
+stream = ExtResource("4_qv0hg")
+bus = &"MenuMusic"
+parameters/looping = true
+
+[node name="SFX" type="Node" parent="."]
+
+[node name="MenuHover" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("2_fdt5a")
+bus = &"MenuSFX"
+
+[node name="MenuSelect" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("3_uf7k3")
+bus = &"MenuSFX"
+
+[node name="Select1" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("2_1d2wt")
+bus = &"MenuSFX"
+
+[node name="Text1" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("3_ulrmu")
+bus = &"MenuSFX"
+
+[node name="Confirm1" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("4_fdt5a")
+bus = &"MenuSFX"
+
+[node name="Cancel1" type="AudioStreamPlayer" parent="SFX"]
+stream = ExtResource("5_uf7k3")
+bus = &"MenuSFX"
