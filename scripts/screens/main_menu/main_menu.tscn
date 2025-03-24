@@ -99,9 +99,11 @@ layout_mode = 2
 
 [node name="SocialButton2" parent="SocialBlade/SocialHbox" instance=ExtResource("3_5bxjj")]
 layout_mode = 2
+link = "https://youtu.be/k4hjX6ZsplU"
 
 [node name="SocialButton3" parent="SocialBlade/SocialHbox" instance=ExtResource("3_5bxjj")]
 layout_mode = 2
+link = "https://www.youtube.com/watch?v=ZTidn2dBYbY"
 
 [connection signal="pressed" from="Container/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="Container/OptionsButton" to="." method="_on_options_button_pressed"]
