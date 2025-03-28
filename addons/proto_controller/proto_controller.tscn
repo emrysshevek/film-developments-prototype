@@ -1,9 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bs72ogkvdd7d6"]
+[gd_scene load_steps=8 format=3 uid="uid://bs72ogkvdd7d6"]
 
 [ext_resource type="Script" uid="uid://blykqj2bjo1pn" path="res://addons/proto_controller/proto_controller.gd" id="1_ucva2"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iof21"]
-albedo_color = Color(0.91806, 0.575202, 0.222449, 1)
+[ext_resource type="Material" uid="uid://bponglif3lwnj" path="res://scripts/rooms/animated_shader.tres" id="2_5hfox"]
+[ext_resource type="Shader" uid="uid://cs1xq8f2ofjny" path="res://assets/shaders/sketch_post_process/sketch_post_process.gdshader" id="2_wr06p"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_ucva2"]
 radius = 0.4
@@ -13,12 +12,22 @@ height = 1.8
 radius = 0.4
 height = 1.8
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wr06p"]
+render_priority = 0
+shader = ExtResource("2_wr06p")
+shader_parameter/depth_threshold = 0.5
+
+[sub_resource type="QuadMesh" id="QuadMesh_g2uji"]
+material = SubResource("ShaderMaterial_wr06p")
+flip_faces = true
+size = Vector2(2, 2)
+
 [node name="ProtoController" type="CharacterBody3D"]
 script = ExtResource("1_ucva2")
 
 [node name="Mesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
-material_override = SubResource("StandardMaterial3D_iof21")
+material_override = ExtResource("2_5hfox")
 cast_shadow = 0
 mesh = SubResource("CapsuleMesh_ucva2")
 
@@ -30,3 +39,7 @@ shape = SubResource("CapsuleShape3D_iof21")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Head"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Head/Camera3D"]
+extra_cull_margin = 16384.0
+mesh = SubResource("QuadMesh_g2uji")

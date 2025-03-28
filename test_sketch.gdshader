@@ -35,7 +35,7 @@ vec4 getPatternColor(vec2 uv, float intensity)
 	vec4 pCol2 = texture(u_patternTexture, patternUV2);
 	vec4 pCol3 = texture(u_patternTexture, patternUV3);
 	vec4 pCol4 = texture(u_patternTexture, patternUV4);
-	
+
 	if(intensity > u_threshold1)
 		return vec4(1.0, 1.0, 1.0, 1.0);
 	if(intensity > u_threshold2)

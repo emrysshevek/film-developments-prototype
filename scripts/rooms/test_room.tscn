@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://c77341lctqtx7" path="res://scripts/rooms/test_room.gd" id="1_772rp"]
 [ext_resource type="PackedScene" uid="uid://dche8yqoo6cce" path="res://scripts/rooms/darkroom/darkroom_placeholder.glb" id="1_to3ui"]
 [ext_resource type="ArrayMesh" uid="uid://cb5gdw6aapjxy" path="res://scripts/rooms/darkroom/darkroom_placeholder.obj" id="2_3ytll"]
-[ext_resource type="Material" uid="uid://bsgpr43eeqnag" path="res://assets/shaders/text_sketch/sketch_shader.tres" id="3_n6u8r"]
+[ext_resource type="Material" uid="uid://bponglif3lwnj" path="res://scripts/rooms/animated_shader.tres" id="3_772rp"]
 [ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://addons/proto_controller/proto_controller.tscn" id="4_xq3ny"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8uh7m"]
@@ -24,23 +24,13 @@ visible = false
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.37097, 3.06917, 2.20274)
-light_color = Color(1, 0.309804, 0.294118, 1)
+light_color = Color(1, 0.298039, 0.188235, 1)
 omni_attenuation = 1.945
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2.95759, 0, 1.28262)
+material_override = ExtResource("3_772rp")
 mesh = ExtResource("2_3ytll")
-
-[node name="PostProcess" type="CanvasLayer" parent="."]
-
-[node name="ColorRect" type="ColorRect" parent="PostProcess"]
-visible = false
-material = ExtResource("3_n6u8r")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
 
 [node name="ProtoController" parent="." instance=ExtResource("4_xq3ny")]
 transform = Transform3D(0.0413668, 0, -0.79893, 0, 0.8, 0, 0.79893, 0, 0.0413668, 0, 0, 1.41296)
