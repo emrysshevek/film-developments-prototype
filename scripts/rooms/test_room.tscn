@@ -3,11 +3,12 @@
 [ext_resource type="Script" uid="uid://c77341lctqtx7" path="res://scripts/rooms/test_room.gd" id="1_772rp"]
 [ext_resource type="PackedScene" uid="uid://dche8yqoo6cce" path="res://scripts/rooms/darkroom/darkroom_placeholder.glb" id="1_to3ui"]
 [ext_resource type="ArrayMesh" uid="uid://cb5gdw6aapjxy" path="res://scripts/rooms/darkroom/darkroom_placeholder.obj" id="2_3ytll"]
-[ext_resource type="Material" uid="uid://bponglif3lwnj" path="res://scripts/rooms/animated_shader.tres" id="3_772rp"]
 [ext_resource type="PackedScene" uid="uid://bs72ogkvdd7d6" path="res://addons/proto_controller/proto_controller.tscn" id="4_xq3ny"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8uh7m"]
 size = Vector3(6.38159, 1, 5.08838)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5hfox"]
 
 [node name="TestRoom" type="Node3D"]
 script = ExtResource("1_772rp")
@@ -29,7 +30,7 @@ omni_attenuation = 3.222
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2.95759, 0, 1.28262)
-material_override = ExtResource("3_772rp")
+material_override = SubResource("ShaderMaterial_5hfox")
 mesh = ExtResource("2_3ytll")
 
 [node name="ProtoController" parent="." instance=ExtResource("4_xq3ny")]

@@ -1,9 +1,10 @@
 [gd_scene load_steps=13 format=3 uid="uid://bs72ogkvdd7d6"]
 
 [ext_resource type="Script" uid="uid://blykqj2bjo1pn" path="res://addons/proto_controller/proto_controller.gd" id="1_ucva2"]
-[ext_resource type="Material" uid="uid://bponglif3lwnj" path="res://scripts/rooms/animated_shader.tres" id="2_5hfox"]
 [ext_resource type="Shader" uid="uid://ctmpjr30nb0th" path="res://assets/shaders/sketch_post_process/sketch_post_process_sobel.gdshader" id="3_5hfox"]
-[ext_resource type="Texture2D" uid="uid://cu6vw7surjt4j" path="res://assets/shaders/text_sketch/lines.png" id="4_6dqce"]
+[ext_resource type="Texture2D" uid="uid://cu6vw7surjt4j" path="res://assets/shaders/sketch_post_process/lines.png" id="4_6dqce"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5hfox"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_ucva2"]
 radius = 0.4
@@ -49,7 +50,7 @@ script = ExtResource("1_ucva2")
 
 [node name="Mesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
-material_override = ExtResource("2_5hfox")
+material_override = SubResource("ShaderMaterial_5hfox")
 cast_shadow = 0
 mesh = SubResource("CapsuleMesh_ucva2")
 
