@@ -1,11 +1,68 @@
-[gd_scene format=3 uid="uid://g2hsvc8chapq"]
+[gd_scene load_steps=3 format=3 uid="uid://g2hsvc8chapq"]
+
+[ext_resource type="PackedScene" uid="uid://c1nffk3tj8ieg" path="res://scripts/entities/buttons/simple_button/simple_button.tscn" id="1_gfnad"]
+[ext_resource type="Script" uid="uid://deoc3cjd5wcxa" path="res://scripts/screens/pause_screen/pause_menu.gd" id="1_tkk3j"]
 
 [node name="PauseMenu" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_tkk3j")
 
-[node name="Control" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+[node name="PauseLabel" type="Label" parent="."]
+texture_filter = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -176.0
+offset_top = 100.0
+offset_right = 176.0
+offset_bottom = 237.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 100
+text = "Paused"
+horizontal_alignment = 1
+
+[node name="ResumeButton" parent="." instance=ExtResource("1_gfnad")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -82.0
+offset_top = -25.0
+offset_right = 82.0
+offset_bottom = 25.0
 grow_horizontal = 2
 grow_vertical = 2
+text = "Resume"
+
+[node name="OptionsButton" parent="." instance=ExtResource("1_gfnad")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -82.0
+offset_top = 35.0
+offset_right = 82.0
+offset_bottom = 85.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Options"
+
+[node name="QuitButton" parent="." instance=ExtResource("1_gfnad")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -82.0
+offset_top = 95.0
+offset_right = 82.0
+offset_bottom = 145.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Quit"
+
+[connection signal="pressed" from="ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="QuitButton" to="." method="_on_quit_button_pressed"]
