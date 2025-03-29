@@ -25,6 +25,12 @@ GameManager="*res://globals/game_manager/GameManager.tscn"
 AudioManager="*res://globals/audio_manager/audio_manager.tscn"
 MenuManager="*res://globals/menu_manager/menu_manager.tscn"
 
+[debug]
+
+settings/stdout/print_fps=true
+settings/stdout/print_gpu_profile=true
+settings/stdout/verbose_stdout=true
+
 [dotnet]
 
 project/assembly_name="Film Developments Prototype"

@@ -1,15 +1,3 @@
-[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://bponglif3lwnj"]
-
-[ext_resource type="Shader" uid="uid://dw287mn7g5xk8" path="res://scripts/rooms/sketch_shader.gdshader" id="1_wal5m"]
-[ext_resource type="Texture2D" uid="uid://dgchjql4gb2os" path="res://assets/shaders/sketch_post_process/stipple.png" id="2_7tomv"]
+[gd_resource type="ShaderMaterial" format=3 uid="uid://bponglif3lwnj"]
 
 [resource]
-render_priority = 0
-shader = ExtResource("1_wal5m")
-shader_parameter/size = 0.4
-shader_parameter/intensity = 0.01
-shader_parameter/frame_time = 0.3
-shader_parameter/light_direction = Vector3(-0.483, 0.866, -0.129)
-shader_parameter/hatch = ExtResource("2_7tomv")
-shader_parameter/color = Color(1, 1, 1, 1)
-shader_parameter/hatch_size = 1.0

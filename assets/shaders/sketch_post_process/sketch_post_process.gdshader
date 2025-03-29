@@ -4,8 +4,32 @@ render_mode unshaded, fog_disabled;
 uniform sampler2D screen_texture : source_color, hint_screen_texture;
 uniform sampler2D depth_texture : hint_depth_texture;
 uniform sampler2D normal_texture : hint_normal_roughness_texture;
+uniform sampler2D noise_texture;
 
-uniform float depth_threshold;
+uniform float outline_thickness = 1.0;
+uniform float depth_threshold = .5;
+uniform float rgb_threshold = .5;
+uniform float normal_threshold = .5;
+
+uniform float frame_time = .35;
+
+const vec2 sobel_sample_points[9] = {
+	vec2(-1,1),vec2(0,1),vec2(1,1),
+	vec2(-1,0),vec2(0,0),vec2(1,1),
+	vec2(-1,-1),vec2(0,-1),vec2(1,-1)
+};
+
+const float[9] sobel_x = {
+	1.0, 0.0, -1.0,
+	2.0, 0.0, -2.0,
+	1.0, 0.0, -1.0
+};
+
+const float[9] sobel_y = {
+	1.0, 2.0, 1.0,
+	0.0, 0.0, 0.0,
+	-1.0, -2.0, -1.0
+};
 
 vec3 get_original(vec2 screen_uv)
 {
@@ -27,16 +51,17 @@ float get_depth(vec2 screen_uv, mat4 inv_projection_matrix)
 	#endif
 	vec4 view = inv_projection_matrix * vec4(ndc, 1.0);
 	view.xyz /= -view.w;
-	return view.z;
+	//view.xyz /= 100.0;
+	return -view.z;
 }
 
-float get_outline(vec2 screen_uv, mat4 inv_projection_matrix, vec2 viewport_size)
+float get_outline(vec2 screen_uv, mat4 inv_projection_matrix, mat4 inv_view_matrix, vec2 viewport_size)
 {
 	float depth = get_depth(screen_uv, inv_projection_matrix);
 	vec3 normal = get_normal(screen_uv);
 	
 	// GET SURROUNDING TEXEL
-	vec2 texel_size = 1.0 / viewport_size.xy;
+	vec2 texel_size = outline_thickness / viewport_size.xy;
 	vec2 uvs[4]; // array containing the uvs of the surrounding pixels
 	uvs[0] = vec2(screen_uv.x, screen_uv.y + texel_size.y);
 	uvs[1] = vec2(screen_uv.x, screen_uv.y - texel_size.y);
@@ -62,9 +87,10 @@ float get_outline(vec2 screen_uv, mat4 inv_projection_matrix, vec2 viewport_size
 		normal_sum += dot(normal_diff, normal_diff) * normal_indicator;
 	}
 	float depth_edge = step(depth_threshold, depth_diff);
+	float normal_edge = step(normal_threshold, normal_sum);
 	
 	
-	return depth_edge + normal_sum;
+	return depth_edge + normal_edge;
 }
 
 void vertex() {
@@ -77,16 +103,16 @@ void fragment() {
 	vec3 original = get_original(SCREEN_UV);
 	
 	// NORMAL
-	vec3 normal = get_normal(SCREEN_UV);
+	//vec3 normal = get_normal(SCREEN_UV);
 	
 	// DEPTH
-	float depth = get_depth(SCREEN_UV, INV_PROJECTION_MATRIX);
+	//float depth = get_depth(SCREEN_UV, INV_PROJECTION_MATRIX);
 
 	// EDGE
-	float outline = get_outline(SCREEN_UV, INV_PROJECTION_MATRIX, VIEWPORT_SIZE);
-
-	ALBEDO = mix(original, vec3(0.0), outline);
-	//ALBEDO = vec3(ossssutline);
+	float rounded_time = round(TIME / frame_time) * frame_time;
+	vec2 noise = texture(noise_texture, UV + rounded_time).xy / 200.0;
+	float outline = get_outline(SCREEN_UV + noise, INV_PROJECTION_MATRIX, INV_VIEW_MATRIX, VIEWPORT_SIZE);
+	ALBEDO = mix(vec3(1.0), vec3(0.0), outline);
 }
 
 //void light() {

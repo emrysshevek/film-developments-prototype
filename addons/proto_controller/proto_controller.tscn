@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://bs72ogkvdd7d6"]
+[gd_scene load_steps=13 format=3 uid="uid://bs72ogkvdd7d6"]
 
 [ext_resource type="Script" uid="uid://blykqj2bjo1pn" path="res://addons/proto_controller/proto_controller.gd" id="1_ucva2"]
 [ext_resource type="Material" uid="uid://bponglif3lwnj" path="res://scripts/rooms/animated_shader.tres" id="2_5hfox"]
-[ext_resource type="Shader" uid="uid://cs1xq8f2ofjny" path="res://assets/shaders/sketch_post_process/sketch_post_process.gdshader" id="2_wr06p"]
+[ext_resource type="Shader" uid="uid://ctmpjr30nb0th" path="res://assets/shaders/sketch_post_process/sketch_post_process_sobel.gdshader" id="3_5hfox"]
+[ext_resource type="Texture2D" uid="uid://cu6vw7surjt4j" path="res://assets/shaders/text_sketch/lines.png" id="4_6dqce"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_ucva2"]
 radius = 0.4
@@ -12,10 +13,31 @@ height = 1.8
 radius = 0.4
 height = 1.8
 
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_5hfox"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_6dqce"]
+noise = SubResource("FastNoiseLite_5hfox")
+
+[sub_resource type="Gradient" id="Gradient_5hfox"]
+offsets = PackedFloat32Array(0.436508, 0.52381)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_6dqce"]
+gradient = SubResource("Gradient_5hfox")
+
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_wr06p"]
 render_priority = 0
-shader = ExtResource("2_wr06p")
+shader = ExtResource("3_5hfox")
+shader_parameter/background_color = Color(0.0605303, 0.0605303, 0.0605303, 1)
+shader_parameter/line_color = Color(0.516124, 0.0906327, 4.81308e-08, 1)
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_6dqce")
+shader_parameter/value_gradient = SubResource("GradientTexture1D_6dqce")
+shader_parameter/hatch = ExtResource("4_6dqce")
+shader_parameter/hatch_density = 4.26
+shader_parameter/outline_thickness = 0.4
 shader_parameter/depth_threshold = 0.5
+shader_parameter/rgb_threshold = 0.5
+shader_parameter/normal_threshold = 0.5
+shader_parameter/frame_time = 0.33
 
 [sub_resource type="QuadMesh" id="QuadMesh_g2uji"]
 material = SubResource("ShaderMaterial_wr06p")
