@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://bk6o71k28ylnk"]
+[gd_scene load_steps=8 format=3 uid="uid://bk6o71k28ylnk"]
 
 [ext_resource type="Script" uid="uid://c77341lctqtx7" path="res://scripts/rooms/test_room.gd" id="1_772rp"]
 [ext_resource type="PackedScene" uid="uid://dche8yqoo6cce" path="res://scripts/rooms/darkroom/darkroom_placeholder.glb" id="1_to3ui"]
 [ext_resource type="ArrayMesh" uid="uid://cb5gdw6aapjxy" path="res://scripts/rooms/darkroom/darkroom_placeholder.obj" id="2_3ytll"]
 [ext_resource type="Material" uid="uid://bsgpr43eeqnag" path="res://assets/shaders/text_sketch/sketch_shader.tres" id="3_n6u8r"]
 [ext_resource type="PackedScene" uid="uid://buthajlvbxwn0" path="res://scripts/entities/player/Player.tscn" id="5_772rp"]
+[ext_resource type="PackedScene" uid="uid://d0i77b8dl70ar" path="res://scripts/entities/interactables/test_object/test_object.tscn" id="6_ppl2e"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8uh7m"]
 size = Vector3(6.38159, 1, 5.08838)
@@ -46,3 +47,6 @@ grow_vertical = 2
 transform = Transform3D(0.0418688, 0, -0.798904, 0, 0.8, 0, 0.798904, 0, 0.0418688, 0, 0, 1.413)
 base_speed = 3.0
 freefly_speed = 15.0
+
+[node name="TestObject" parent="." instance=ExtResource("6_ppl2e")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 1.01924, 0.803996, 0.830111)

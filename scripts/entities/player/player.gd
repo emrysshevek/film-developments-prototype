@@ -1,5 +1,7 @@
 extends CharacterBody3D
 
+@onready var see_cast: RayCast3D = $Head/SeeCast
+
 @export_group("Player Stats")
 @export var health: int = 100
 @export var score: int = 0
@@ -82,6 +84,17 @@ func _physics_process(delta):
 		velocity.z = 0
 
 	move_and_slide()
+
+	if see_cast.is_colliding():
+		var hit = see_cast.get_collider()
+		if hit is InteractableObject:
+			if Input.is_action_just_pressed("interact"):
+				hit.interact()
+			see_cast.debug_shape_custom_color = Color(0, 1, 0, .2) 
+		else:
+			see_cast.debug_shape_custom_color = Color(1, 0, 0, .2) 
+	else:
+		see_cast.debug_shape_custom_color = Color(0, 0, 1, .2) 
 
 func _rotate_look(mouse_delta: Vector2):
 	look_rotation.x = clamp(look_rotation.x - mouse_delta.y * look_speed, deg_to_rad(-85), deg_to_rad(85))
