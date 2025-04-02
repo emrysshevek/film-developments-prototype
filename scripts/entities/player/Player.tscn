@@ -1,6 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://buthajlvbxwn0"]
+[gd_scene load_steps=13 format=3 uid="uid://buthajlvbxwn0"]
 
 [ext_resource type="Script" uid="uid://c4lxii56ucocm" path="res://scripts/entities/player/player.gd" id="1_4f3np"]
+[ext_resource type="Shader" uid="uid://ctmpjr30nb0th" path="res://assets/shaders/sketch_post_process/sketch_post_process_sobel.gdshader" id="2_f0hkg"]
+[ext_resource type="Texture2D" uid="uid://cu6vw7surjt4j" path="res://assets/shaders/sketch_post_process/lines.png" id="3_82rqh"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iof21"]
 albedo_color = Color(0.91806, 0.575202, 0.222449, 1)
@@ -13,8 +15,41 @@ height = 1.8
 radius = 0.4
 height = 1.8
 
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_5hfox"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_v6anq"]
+noise = SubResource("FastNoiseLite_5hfox")
+
+[sub_resource type="Gradient" id="Gradient_5hfox"]
+offsets = PackedFloat32Array(0.436508, 0.52381)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_kwahd"]
+gradient = SubResource("Gradient_5hfox")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wr06p"]
+render_priority = 0
+shader = ExtResource("2_f0hkg")
+shader_parameter/background_color = Color(0.0605303, 0.0605303, 0.0605303, 1)
+shader_parameter/line_color = Color(0.516124, 0.0906327, 4.81308e-08, 1)
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_v6anq")
+shader_parameter/value_gradient = SubResource("GradientTexture1D_kwahd")
+shader_parameter/hatch = ExtResource("3_82rqh")
+shader_parameter/hatch_density = 4.26
+shader_parameter/outline_thickness = 0.4
+shader_parameter/depth_threshold = 0.5
+shader_parameter/rgb_threshold = 0.5
+shader_parameter/normal_threshold = 0.5
+shader_parameter/frame_time = 0.33
+
+[sub_resource type="QuadMesh" id="QuadMesh_vhbqh"]
+material = SubResource("ShaderMaterial_wr06p")
+flip_faces = true
+size = Vector2(2, 2)
+
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_4f3np")
+base_speed = 5.0
+sprint_speed = 7.0
 
 [node name="Mesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
@@ -30,6 +65,11 @@ shape = SubResource("CapsuleShape3D_iof21")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
 
 [node name="Camera3D" type="Camera3D" parent="Head"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Head/Camera3D"]
+visible = false
+extra_cull_margin = 16384.0
+mesh = SubResource("QuadMesh_vhbqh")
 
 [node name="SeeCast" type="RayCast3D" parent="Head"]
 transform = Transform3D(1.91069e-15, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, 0, 0, 0)
