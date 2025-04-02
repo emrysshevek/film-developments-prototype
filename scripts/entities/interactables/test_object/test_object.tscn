@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://d0i77b8dl70ar"]
+
+[ext_resource type="Script" uid="uid://brjd4k07ay68g" path="res://scripts/entities/interactables/test_object/test_object.gd" id="1_cxqq4"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_fefed"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_cxqq4"]
+
+[node name="TestObject" type="Area3D"]
+script = ExtResource("1_cxqq4")
+
+[node name="Shape" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_fefed")
+
+[node name="Mesh" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_cxqq4")

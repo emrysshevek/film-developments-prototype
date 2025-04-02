@@ -44,7 +44,6 @@ extends CharacterBody3D
 ## Name of Input Action to toggle freefly mode.
 @export var input_freefly : String = "freefly"
 
-var mouse_captured : bool = false
 var look_rotation : Vector2
 var move_speed : float = 0.0
 var freeflying : bool = false
@@ -67,7 +66,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		release_mouse()
 	
 	# Look around
-	if mouse_captured and event is InputEventMouseMotion:
+	if GameManager.mouse_captured and event is InputEventMouseMotion:
 		rotate_look(event.relative)
 	
 	# Toggle freefly mode
@@ -145,12 +144,12 @@ func disable_freefly():
 
 func capture_mouse():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
-	mouse_captured = true
+	GameManager.mouse_captured = true
 
 
 func release_mouse():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-	mouse_captured = false
+	GameManager.mouse_captured = false
 
 
 ## Checks if some Input Actions haven't been created.
