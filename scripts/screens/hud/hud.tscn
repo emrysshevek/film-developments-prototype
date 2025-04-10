@@ -30,4 +30,3 @@ theme_override_font_sizes/font_size = 30
 text = "Photos Developed: 0/12"
 
 [node name="PauseMenu" parent="." instance=ExtResource("2_eqdjy")]
-visible = false

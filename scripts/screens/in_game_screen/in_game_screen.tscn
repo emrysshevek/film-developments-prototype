@@ -10,3 +10,10 @@
 [node name="TestRoom" parent="Level" instance=ExtResource("2_ve4ci")]
 
 [node name="Hud" parent="Level" instance=ExtResource("1_ve4ci")]
+
+[node name="MiniGames" type="Control" parent="Level" groups=["Minigame"]]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0

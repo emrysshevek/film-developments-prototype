@@ -14,3 +14,6 @@ shape = SubResource("BoxShape3D_fefed")
 
 [node name="Mesh" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_cxqq4")
+
+[node name="MiniGameScreen" type="CanvasLayer" parent="."]
+process_mode = 3

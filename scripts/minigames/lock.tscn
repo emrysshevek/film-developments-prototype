@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=3 uid="uid://b3nvqiwmtpyij"]
+
+[ext_resource type="Script" uid="uid://dp36oitl80xlv" path="res://scripts/minigames/lock.gd" id="1_4t2ag"]
+[ext_resource type="Texture2D" uid="uid://dnxwqih146qyf" path="res://scripts/minigames/inner.png" id="1_f38j8"]
+[ext_resource type="Texture2D" uid="uid://uv0uwa038psu" path="res://scripts/minigames/outer.png" id="2_5fc2k"]
+[ext_resource type="Script" uid="uid://c4fyepiur3fgl" path="res://scripts/minigames/rotation_button.gd" id="2_b5ox3"]
+[ext_resource type="Texture2D" uid="uid://cupfjg3islhas" path="res://scripts/minigames/lock_bg.png" id="2_htog2"]
+
+[node name="LockNode" type="CanvasLayer"]
+script = ExtResource("1_4t2ag")
+
+[node name="Lock_BG" type="TextureRect" parent="."]
+texture_filter = 1
+offset_left = 11.0
+offset_top = 12.0
+offset_right = 308.0
+offset_bottom = 309.0
+texture = ExtResource("2_htog2")
+
+[node name="Lock_Key" type="TextureRect" parent="."]
+texture_filter = 1
+offset_right = 320.0
+offset_bottom = 320.0
+rotation = 1.39626
+pivot_offset = Vector2(160, 160)
+texture = ExtResource("2_5fc2k")
+metadata/_edit_lock_ = true
+
+[node name="Tumbler" type="TextureButton" parent="."]
+z_index = 1
+anchors_preset = -1
+anchor_left = 0.16
+anchor_top = 0.278
+anchor_right = 0.16
+anchor_bottom = 0.278
+offset_left = -60.32
+offset_top = -100.144
+offset_right = 11.68
+offset_bottom = 3.85599
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 6.28319
+pivot_offset = Vector2(36, 69)
+size_flags_horizontal = 4
+action_mode = 0
+texture_normal = ExtResource("1_f38j8")
+script = ExtResource("2_b5ox3")
+seconds_per_rotation = 2.0
+
+[connection signal="pressed" from="Tumbler" to="." method="_on_tumbler_pressed"]

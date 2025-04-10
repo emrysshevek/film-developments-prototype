@@ -48,7 +48,6 @@ grow_vertical = 2
 
 [node name="Player" parent="." instance=ExtResource("5_772rp")]
 transform = Transform3D(0.0418688, 0, -0.798904, 0, 0.8, 0, 0.798904, 0, 0.0418688, 0, 0, 1.413)
-look_speed = 0.001
 base_speed = 3.0
 
 [node name="TestObject" parent="." instance=ExtResource("6_ppl2e")]
