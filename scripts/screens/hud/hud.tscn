@@ -8,6 +8,7 @@ process_mode = 3
 script = ExtResource("1_p0fid")
 
 [node name="DayLabel" type="Label" parent="."]
+modulate = Color(0.694118, 0, 0, 1)
 texture_filter = 1
 offset_left = 20.0
 offset_right = 183.0

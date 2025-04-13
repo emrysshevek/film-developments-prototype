@@ -23,6 +23,7 @@ func _process(_delta):
 		
 	if all_locks_locked():
 		minigame_completed = true
+		hide()
 
 func all_locks_locked() -> bool:
 	for lock_instance in lock_nodes:

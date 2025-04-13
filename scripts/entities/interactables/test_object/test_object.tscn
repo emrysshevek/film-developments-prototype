@@ -7,6 +7,9 @@
 [sub_resource type="BoxMesh" id="BoxMesh_cxqq4"]
 
 [node name="TestObject" type="Area3D"]
+process_mode = 3
+process_priority = 1
+process_physics_priority = 1
 script = ExtResource("1_cxqq4")
 
 [node name="Shape" type="CollisionShape3D" parent="."]
