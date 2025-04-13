@@ -49,7 +49,7 @@ func _unhandled_input(event):
 	elif Input.is_key_pressed(KEY_ESCAPE):
 		_release_mouse()
 
-	if event is InputEventMouseMotion:
+	if event is InputEventMouseMotion and not get_tree().paused:
 		_rotate_look(event.relative)
 
 	if can_freefly and Input.is_action_just_pressed(input_freefly):

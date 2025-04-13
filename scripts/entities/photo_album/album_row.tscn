@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://djvxt3l48cxs5"]
+
+[node name="Row_1" type="HBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+size_flags_vertical = 3
+
+[node name="Column_1" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Column_2" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3

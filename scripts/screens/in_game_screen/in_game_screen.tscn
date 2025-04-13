@@ -1,6 +1,5 @@
-[gd_scene load_steps=3 format=3 uid="uid://cym2vheag6wb4"]
+[gd_scene load_steps=2 format=3 uid="uid://cym2vheag6wb4"]
 
-[ext_resource type="PackedScene" uid="uid://td8fbrod1sge" path="res://scripts/screens/hud/hud.tscn" id="1_ve4ci"]
 [ext_resource type="PackedScene" uid="uid://bk6o71k28ylnk" path="res://scripts/rooms/test_room.tscn" id="2_ve4ci"]
 
 [node name="Game" type="Node3D"]
@@ -9,4 +8,8 @@
 
 [node name="TestRoom" parent="Level" instance=ExtResource("2_ve4ci")]
 
-[node name="Hud" parent="Level" instance=ExtResource("1_ve4ci")]
+[node name="MiniGames" type="Control" parent="Level" groups=["Minigame"]]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
