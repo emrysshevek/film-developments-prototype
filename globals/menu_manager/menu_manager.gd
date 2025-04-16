@@ -6,6 +6,8 @@ var default_menu_scene: String = GameManager.start_menu_scene_path
 var scene_stack: Array = []
 
 func _ready():
+	#if get_tree().current_scene and get_tree().current_scene != self:
+		#return
 	if default_menu_scene:
 		push_scene(default_menu_scene)
 
