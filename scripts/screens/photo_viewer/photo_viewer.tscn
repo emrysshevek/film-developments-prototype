@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://ctuwlm53mtptw"]
+
+[ext_resource type="Script" uid="uid://6nflq5l4ruur" path="res://scripts/screens/photo_viewer/photo_viewer.gd" id="1_3yv7l"]
+[ext_resource type="Texture2D" uid="uid://h04eyf2e7h0p" path="res://assets/photos/chapter 2/NK7A2261.jpg" id="2_3yv7l"]
+
+[node name="PhotoViewer" type="Node2D"]
+script = ExtResource("1_3yv7l")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_3yv7l")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.14, 0.14)
