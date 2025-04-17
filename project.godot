@@ -11,8 +11,8 @@ config_version=5
 [application]
 
 config/name="Film Developments Prototype"
-run/main_scene="uid://c6vs5y6hmqcim"
-config/features=PackedStringArray("4.4", "C#", "GL Compatibility")
+run/main_scene="uid://xynkiv87uu38"
+config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://globals/icons/icon.svg"
 
 [audio]

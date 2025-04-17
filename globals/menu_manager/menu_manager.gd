@@ -1,19 +1,18 @@
 extends Node
 
-var default_menu_scene: String = GameManager.start_menu_scene_path
-
 # Store both the path and the instance
 var scene_stack: Array = []
 
-func _ready():
+#func _ready():
 	#if get_tree().current_scene and get_tree().current_scene != self:
 		#return
-	if default_menu_scene:
-		push_scene(default_menu_scene)
+	#if default_menu_scene:
+		#push_scene(default_menu_scene)
 
-func push_scene(scene_path: String) -> Node:
-	var scene = load(scene_path)
-	var new_scene: Node = scene.instantiate()
+func push_scene(scene_path: String, scene:Node=null) -> Node:
+	if scene == null:
+		scene = load(scene_path).instantiate()
+	#var new_scene: Node = scene.instantiate()
 
 	# Remove the current top scene
 	if scene_stack.size() > 0:
@@ -21,9 +20,9 @@ func push_scene(scene_path: String) -> Node:
 		if top_entry.scene:
 			top_entry.scene.queue_free()
 
-	add_child(new_scene)
-	scene_stack.append({ "scene_path": scene_path, "scene": new_scene })
-	return new_scene
+	add_child(scene)
+	scene_stack.append({ "scene_path": scene_path, "scene": scene })
+	return scene
 
 func pop_scene():
 	if scene_stack.size() > 0:

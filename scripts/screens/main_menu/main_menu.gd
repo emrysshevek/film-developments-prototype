@@ -1,6 +1,7 @@
 extends Control
 
 func _ready():
+	#MenuManager.push_scene(GameManager.start_menu_scene_path, self)
 	AudioManager.c1tm_song.play()
 
 func _on_start_button_pressed():
