@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://b3nvqiwmtpyij"]
 
-[ext_resource type="Script" uid="uid://dp36oitl80xlv" path="res://scripts/minigames/lock.gd" id="1_4t2ag"]
-[ext_resource type="Texture2D" uid="uid://dnxwqih146qyf" path="res://scripts/minigames/inner.png" id="1_f38j8"]
-[ext_resource type="Texture2D" uid="uid://uv0uwa038psu" path="res://scripts/minigames/outer.png" id="2_5fc2k"]
-[ext_resource type="Script" uid="uid://c4fyepiur3fgl" path="res://scripts/minigames/rotation_button.gd" id="2_b5ox3"]
-[ext_resource type="Texture2D" uid="uid://cupfjg3islhas" path="res://scripts/minigames/lock_bg.png" id="2_htog2"]
+[ext_resource type="Script" uid="uid://dp36oitl80xlv" path="res://scripts/minigames/film_dev/lock.gd" id="1_4t2ag"]
+[ext_resource type="Texture2D" uid="uid://dnxwqih146qyf" path="res://scripts/minigames/film_dev/inner.png" id="1_f38j8"]
+[ext_resource type="Texture2D" uid="uid://uv0uwa038psu" path="res://scripts/minigames/film_dev/outer.png" id="2_5fc2k"]
+[ext_resource type="Script" uid="uid://c4fyepiur3fgl" path="res://scripts/minigames/film_dev/rotation_button.gd" id="2_b5ox3"]
+[ext_resource type="Texture2D" uid="uid://cupfjg3islhas" path="res://scripts/minigames/film_dev/lock_bg.png" id="2_htog2"]
 
 [node name="LockNode" type="CanvasLayer"]
 script = ExtResource("1_4t2ag")

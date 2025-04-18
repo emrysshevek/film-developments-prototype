@@ -8,7 +8,7 @@ var minigame_completed = false
 func _ready():
 	if locks_in_game > 6:
 		locks_in_game = 6
-		
+
 	for i in range(locks_in_game):
 		var lock_instance = lock_node_scene.instantiate()
 		$Window.add_child(lock_instance)
@@ -20,7 +20,7 @@ func _ready():
 
 func _process(_delta):
 	get_tree().paused = true
-		
+
 	if all_locks_locked():
 		minigame_completed = true
 		hide()

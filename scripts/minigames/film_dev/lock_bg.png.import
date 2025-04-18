@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://uv0uwa038psu"
-path="res://.godot/imported/outer.png-775eb996b1501f4598a1c04ed0b85f7b.ctex"
+uid="uid://cupfjg3islhas"
+path="res://.godot/imported/lock_bg.png-2d5883c1eb5b225a67bff77f4e7aa898.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scripts/minigames/outer.png"
-dest_files=["res://.godot/imported/outer.png-775eb996b1501f4598a1c04ed0b85f7b.ctex"]
+source_file="res://scripts/minigames/film_dev/lock_bg.png"
+dest_files=["res://.godot/imported/lock_bg.png-2d5883c1eb5b225a67bff77f4e7aa898.ctex"]
 
 [params]
 

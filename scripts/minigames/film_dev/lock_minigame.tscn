@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bgxt6ql3jj68g"]
 
-[ext_resource type="Script" uid="uid://cswrsncaogflp" path="res://scripts/minigames/lock_minigame.gd" id="1_p7ol7"]
+[ext_resource type="Script" uid="uid://cswrsncaogflp" path="res://scripts/minigames/film_dev/lock_minigame.gd" id="1_p7ol7"]
 
 [node name="Screen" type="CanvasLayer"]
 script = ExtResource("1_p7ol7")

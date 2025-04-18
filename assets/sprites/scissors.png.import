@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dnxwqih146qyf"
-path="res://.godot/imported/inner.png-3be6ea7264cb37cf8e9f901a89fa64f4.ctex"
+uid="uid://drs5bqypimxl6"
+path="res://.godot/imported/scissors.png-b29b7507601a7a06aa9b058b974dbc77.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scripts/minigames/inner.png"
-dest_files=["res://.godot/imported/inner.png-3be6ea7264cb37cf8e9f901a89fa64f4.ctex"]
+source_file="res://assets/sprites/scissors.png"
+dest_files=["res://.godot/imported/scissors.png-b29b7507601a7a06aa9b058b974dbc77.ctex"]
 
 [params]
 

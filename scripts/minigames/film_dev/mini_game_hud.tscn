@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://ct0odt4nf83yb"]
 
-[ext_resource type="Script" uid="uid://cylf6cx0dbqb2" path="res://scripts/minigames/mini_game_hud.gd" id="1_jejqc"]
+[ext_resource type="Script" uid="uid://cylf6cx0dbqb2" path="res://scripts/minigames/film_dev/mini_game_hud.gd" id="1_jejqc"]
 
 [node name="MiniGameHud" type="Control"]
 layout_mode = 3
