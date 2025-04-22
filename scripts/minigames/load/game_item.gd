@@ -6,8 +6,6 @@ var placing := true
 var mouse_over := false
 var timestamp := 0
 
-#func _process(delta: float) -> void:
-	#pass
 
 func select(count: int) -> void:
 	selected.emit(self)
