@@ -2,18 +2,16 @@ class_name GameItem extends Area2D
 
 signal selected(which_item: GameItem)
 
-var placing = true
-var mouse_over = false
+var placing := true
+var mouse_over := false
+var timestamp := 0
 
-func _process(delta: float) -> void:
-	#if placing and Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
-		#print("dragging")
-		#global_position = get_global_mouse_position()
-	#elif Input.is_action_just_pressed("interact"):
-		#selected.emit(self)
-		#print("selected item")
-	pass
+#func _process(delta: float) -> void:
+	#pass
 
+func select(count: int) -> void:
+	selected.emit(self)
+	z_index = count
 
 func _on_mouse_entered() -> void:
 	mouse_over = true

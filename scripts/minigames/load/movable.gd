@@ -1,6 +1,11 @@
 class_name Movable
 extends ItemState
 
-func physics_update(_delta: float) -> void:
-	if item.mouse_over and Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
-		finished.emit(CLICK)
+func enter(_previous_state_path: String, _data := {}) -> void:
+	item.selected.connect(_on_item_selected)
+	
+func exit() -> void:
+	item.selected.disconnect(_on_item_selected)
+
+func _on_item_selected(_item: GameItem) -> void:
+	finished.emit(CLICK)

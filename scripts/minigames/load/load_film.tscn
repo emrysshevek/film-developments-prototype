@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://box3yb76v8u01"]
+[gd_scene load_steps=5 format=3 uid="uid://box3yb76v8u01"]
 
 [ext_resource type="Script" uid="uid://chki1ehcsml3j" path="res://scripts/minigames/load/load_film.gd" id="1_0ikjp"]
 [ext_resource type="PackedScene" uid="uid://bgd4n0g2b8rw0" path="res://scripts/minigames/load/items/scissors_item.tscn" id="2_mnfvd"]
+[ext_resource type="Script" uid="uid://320xe1yl20nb" path="res://scripts/minigames/load/mouse_area.gd" id="3_y8tjj"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_s1u7v"]
 
 [node name="LoadFilm" type="Node2D"]
 script = ExtResource("1_0ikjp")
@@ -10,4 +13,11 @@ script = ExtResource("1_0ikjp")
 position = Vector2(163, 95)
 
 [node name="ScissorsItem" parent="Items" instance=ExtResource("2_mnfvd")]
-scale = Vector2(0.07, 0.07)
+
+[node name="ScissorsItem2" parent="Items" instance=ExtResource("2_mnfvd")]
+
+[node name="MouseArea" type="Area2D" parent="."]
+script = ExtResource("3_y8tjj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MouseArea"]
+shape = SubResource("CircleShape2D_s1u7v")

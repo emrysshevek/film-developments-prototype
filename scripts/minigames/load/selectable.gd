@@ -3,12 +3,11 @@ extends ItemState
 
 var mouse_down = false
 
-func physics_update(_delta: float) -> void:
-	if mouse_down and not Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
-		finished.emit(CLICK)
-		return
-
-	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
-		mouse_down = true
-	else:
-		mouse_down = false
+func enter(_previous_state_path: String, _data := {}) -> void:
+	item.selected.connect(_on_item_selected)
+	
+func exit() -> void:
+	item.selected.disconnect(_on_item_selected)
+		
+func _on_item_selected(item: GameItem) -> void:
+	finished.emit(CLICK)
