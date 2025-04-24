@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://chki1ehcsml3j" path="res://scripts/minigames/load/load_film.gd" id="1_0ikjp"]
 [ext_resource type="PackedScene" uid="uid://b133n0xdkmyty" path="res://scripts/minigames/load/game_item.tscn" id="3_suxb8"]
-[ext_resource type="Script" uid="uid://320xe1yl20nb" path="res://scripts/minigames/load/mouse_area.gd" id="3_y8tjj"]
+[ext_resource type="Script" path="res://scripts/minigames/load/mouse_area.gd" id="3_y8tjj"]
 [ext_resource type="Texture2D" uid="uid://beyodwifmdb1q" path="res://assets/sprites/film.jpg" id="4_8pexb"]
 [ext_resource type="Texture2D" uid="uid://dv72u5shi32q3" path="res://assets/sprites/opener.jpg" id="4_s8uro"]
 [ext_resource type="Texture2D" uid="uid://drs5bqypimxl6" path="res://assets/sprites/scissors.png" id="5_gms64"]
@@ -98,6 +98,11 @@ script = ExtResource("3_y8tjj")
 shape = SubResource("CircleShape2D_s1u7v")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="InputBlock" type="ColorRect" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(1, 1, 1, 0)
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 visible = false
