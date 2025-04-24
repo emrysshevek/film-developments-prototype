@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://dfs060n7a48af"]
+
+[ext_resource type="Texture2D" uid="uid://bfe14if167n1n" path="res://assets/sprites/circle.svg" id="1_n6usq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3dmyw"]
+radius = 42.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_n6usq"]
+radius = 23.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3u3gv"]
+radius = 3.0
+
+[node name="Tracker" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_n6usq")
+
+[node name="Good" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_3dmyw")
+
+[node name="Great" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_n6usq")
+
+[node name="Perfect" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_3u3gv")

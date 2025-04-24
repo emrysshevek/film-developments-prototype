@@ -10,7 +10,7 @@ var timestamp := 0
 func select(count: int) -> void:
 	selected.emit(self)
 	z_index = count
-	
+
 func _on_mouse_entered() -> void:
 	mouse_over = true
 	print("mouse entered")

@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dqs0em8l7u041"]
+
+[ext_resource type="PackedScene" uid="uid://dfs060n7a48af" path="res://scripts/minigames/film_dev/tracker.tscn" id="1_4r6qj"]
+[ext_resource type="Script" uid="uid://bf42sqr5gcqkt" path="res://scripts/minigames/film_dev/target.gd" id="1_weovr"]
+
+[node name="Target" instance=ExtResource("1_4r6qj")]
+modulate = Color(0.57, 0.57, 0.57, 1)
+script = ExtResource("1_weovr")
+
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]
