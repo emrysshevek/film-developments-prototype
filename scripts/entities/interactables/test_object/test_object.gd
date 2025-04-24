@@ -1,6 +1,6 @@
 class_name TestObject extends InteractableObject
 
-var lock_minigame_scene = preload("res://scripts/minigames/lock_minigame.tscn")
+var lock_minigame_scene = preload("res://scripts/minigames/film_dev/lock_minigame.tscn")
 var minigames: Array = []
 func interact():
 	super.interact()

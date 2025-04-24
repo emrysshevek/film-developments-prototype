@@ -2,11 +2,11 @@
 
 [ext_resource type="Script" uid="uid://ckelctwcv44q" path="res://scripts/minigames/load/game_item.gd" id="1_qa5a5"]
 [ext_resource type="Script" uid="uid://16pxkp42t3kd" path="res://scripts/components/state_machine/state_machine.gd" id="2_va7te"]
-[ext_resource type="Script" uid="uid://c4ev4ml1cas16" path="res://scripts/minigames/load/movable.gd" id="3_il7gk"]
-[ext_resource type="Script" uid="uid://8f5ixm55rac8" path="res://scripts/minigames/load/selectable.gd" id="4_qan5u"]
-[ext_resource type="Script" uid="uid://clethodqmcunm" path="res://scripts/minigames/load/click.gd" id="5_nn1ov"]
-[ext_resource type="Script" uid="uid://bq1t0fssji1jw" path="res://scripts/minigames/load/drag.gd" id="6_qan5u"]
-[ext_resource type="Script" uid="uid://kcd7qpqr740a" path="res://scripts/minigames/load/place.gd" id="7_qan5u"]
+[ext_resource type="Script" uid="uid://c4ev4ml1cas16" path="res://scripts/minigames/load/states/movable.gd" id="3_il7gk"]
+[ext_resource type="Script" uid="uid://8f5ixm55rac8" path="res://scripts/minigames/load/states/selectable.gd" id="4_qan5u"]
+[ext_resource type="Script" uid="uid://clethodqmcunm" path="res://scripts/minigames/load/states/click.gd" id="5_nn1ov"]
+[ext_resource type="Script" uid="uid://bq1t0fssji1jw" path="res://scripts/minigames/load/states/drag.gd" id="6_qan5u"]
+[ext_resource type="Script" uid="uid://kcd7qpqr740a" path="res://scripts/minigames/load/states/place.gd" id="7_qan5u"]
 
 [node name="GameItem" type="Area2D"]
 script = ExtResource("1_qa5a5")
