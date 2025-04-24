@@ -11,6 +11,8 @@ var hit = ""
 
 func _ready() -> void:
 	window_radius = (tracker.get_node("Good").shape as CircleShape2D).radius + good.radius
+	window_radius *= 1.1
+	print("Window Radius: ", window_radius)
 	hit = ""
 
 func _physics_process(delta: float) -> void:
@@ -36,12 +38,12 @@ func set_color(status) -> void:
 func process_interaction() -> void:
 	if hit == "" and len(get_overlapping_areas()) > 0:
 		var tracker = get_overlapping_areas()[0]
-		var dist = global_position.distance_to(tracker.global_position)
-		if dist < perfect.radius:
+		var dist = global_position.distance_to(tracker.global_position) / 2.0
+		if dist <= perfect.radius:
 			set_color("perfect")
-		elif dist < great.radius:
+		elif dist <= great.radius:
 			set_color("great")
-		elif dist < good.radius:
+		else:
 			set_color("good")
 	else:
 		set_color("miss")

@@ -6,10 +6,9 @@
 radius = 42.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_n6usq"]
-radius = 23.0
+radius = 30.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3u3gv"]
-radius = 3.0
 
 [node name="Tracker" type="Area2D"]
 
