@@ -1,7 +1,7 @@
 class_name FilmDevMinigame
 extends Node2D
 
-@export var seconds_per_rotation := 3.0
+@export var seconds_per_rotation := 2.0
 
 @onready var outer: Sprite2D = $Outer
 @onready var inner: Sprite2D = $Inner
@@ -10,4 +10,4 @@ extends Node2D
 
 var radius: float = 0
 
-var targets_per_round := 1
+var targets_per_round := 2

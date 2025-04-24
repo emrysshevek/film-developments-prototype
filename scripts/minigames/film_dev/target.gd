@@ -12,12 +12,12 @@ var hit = ""
 func _ready() -> void:
 	window_radius = (tracker.get_node("Good").shape as CircleShape2D).radius + good.radius
 	window_radius *= 1.1
-	print("Window Radius: ", window_radius)
+	#print("Window Radius: ", window_radius)
 	hit = ""
 
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed(&"interact"):
-		print(global_position.distance_to(tracker.global_position))
+		#print(global_position.distance_to(tracker.global_position))
 		if global_position.distance_to(tracker.global_position) <= window_radius:
 			process_interaction()
 
