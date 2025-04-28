@@ -31,19 +31,15 @@ func enter(previous_state_path: String, _data := {}) -> void:
 	
 	setup_targets()
 	
-	
 	wait_for_input = previous_state_path != SPIN
 		
 func setup_minigame() -> void:
-	var base_size: float = 100.0
+	var circle_radius: float = minigame.tracker.get_node("Sprite2D").texture.get_size().x / 2.0
+	var ring_radius:  float = minigame.outer.texture.get_size().x / 2.0
 
-	var outer_radius = (minigame.outer.scale.x * base_size) / 2.0
-	minigame.radius = outer_radius - 75.0
-	var inner_radius = outer_radius - 100
-
-	minigame.inner.global_position = minigame.outer.global_position
-	var inner_width = (inner_radius * 2.0)
-	minigame.inner.scale = Vector2(inner_width / base_size, inner_width / base_size)
+	minigame.radius = ring_radius - circle_radius
+	
+	print(circle_radius, " ", ring_radius, " ", minigame.radius)
 
 	minigame.tracker.global_position = minigame.outer.global_position + Vector2(0, -minigame.radius)
 	setup = true

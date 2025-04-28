@@ -5,11 +5,9 @@ var total_targets := 0
 
 var spinning := true
 
-func enter(previous_state_path: String, _data := {}) -> void:
-	angle = 0
-
 func physics_update(delta: float) -> void:
 	if angle >= 2.0 * PI:
+		angle -= 2.0 * PI
 		finished.emit(RESET)
 		return
 
