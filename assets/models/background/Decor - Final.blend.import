@@ -32,7 +32,25 @@ animation/trimming=false
 animation/remove_immutable_tracks=true
 animation/import_rest_as_RESET=false
 import_script/path=""
-_subresources={}
+_subresources={
+"nodes": {
+"PATH:Main light": {
+"import/skip_import": true
+},
+"PATH:Oven_floor light": {
+"import/skip_import": true
+},
+"PATH:Rim light": {
+"import/skip_import": true
+},
+"PATH:Rolling storage rimlight": {
+"import/skip_import": true
+},
+"PATH:Wet side light": {
+"import/skip_import": true
+}
+}
+}
 blender/nodes/visible=0
 blender/nodes/active_collection_only=false
 blender/nodes/punctual_lights=true

@@ -1,3 +1,48 @@
-[gd_scene format=3 uid="uid://dom6we8rx3y34"]
+[gd_scene load_steps=11 format=3 uid="uid://bl12f71x7m4mh"]
 
-[node name="Darkroom" type="Node3D"]
+[ext_resource type="PackedScene" uid="uid://bm48klsc2hw0p" path="res://assets/models/background/Decor - Final.blend" id="1_p2pqj"]
+[ext_resource type="Script" uid="uid://deahtj51nwg1l" path="res://scripts/rooms/darkroom/darkroom.gd" id="2_ha0e5"]
+[ext_resource type="Shader" uid="uid://ctmpjr30nb0th" path="res://assets/shaders/sketch_post_process/sketch_post_process_sobel.gdshader" id="3_3bh8m"]
+[ext_resource type="Texture2D" uid="uid://cu6vw7surjt4j" path="res://assets/shaders/sketch_post_process/lines.png" id="4_vmdkf"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_5hfox"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_bl72m"]
+noise = SubResource("FastNoiseLite_5hfox")
+
+[sub_resource type="Gradient" id="Gradient_5hfox"]
+offsets = PackedFloat32Array(0.436508, 0.52381)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_n1rh8"]
+gradient = SubResource("Gradient_5hfox")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wr06p"]
+render_priority = 0
+shader = ExtResource("3_3bh8m")
+shader_parameter/background_color = Color(0.0605303, 0.0605303, 0.0605303, 1)
+shader_parameter/line_color = Color(0.6048, 0.113245, 0, 1)
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_bl72m")
+shader_parameter/value_gradient = SubResource("GradientTexture1D_n1rh8")
+shader_parameter/hatch = ExtResource("4_vmdkf")
+shader_parameter/hatch_density = 4.275
+shader_parameter/outline_thickness = 0.4
+shader_parameter/depth_threshold = 0.5
+shader_parameter/rgb_threshold = 0.5
+shader_parameter/normal_threshold = 0.5
+shader_parameter/frame_time = 0.33
+
+[sub_resource type="QuadMesh" id="QuadMesh_uuyns"]
+material = SubResource("ShaderMaterial_wr06p")
+flip_faces = true
+size = Vector2(2, 2)
+
+[node name="Decor - Final" node_paths=PackedStringArray("cameras") instance=ExtResource("1_p2pqj")]
+script = ExtResource("2_ha0e5")
+cameras = [NodePath("Global view"), NodePath("Dry side"), NodePath("Photos"), NodePath("Wet side")]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Global view" index="0"]
+extra_cull_margin = 16384.0
+mesh = SubResource("QuadMesh_uuyns")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." index="79"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.34793, 0)

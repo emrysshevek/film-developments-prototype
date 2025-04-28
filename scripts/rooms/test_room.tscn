@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://bk6o71k28ylnk"]
+[gd_scene load_steps=11 format=3 uid="uid://bk6o71k28ylnk"]
 
 [ext_resource type="Script" uid="uid://c77341lctqtx7" path="res://scripts/rooms/test_room.gd" id="1_772rp"]
 [ext_resource type="PackedScene" uid="uid://dche8yqoo6cce" path="res://scripts/rooms/darkroom/darkroom_placeholder.glb" id="1_to3ui"]
 [ext_resource type="ArrayMesh" uid="uid://cb5gdw6aapjxy" path="res://scripts/rooms/darkroom/darkroom_placeholder.obj" id="2_3ytll"]
+[ext_resource type="PackedScene" uid="uid://bl12f71x7m4mh" path="res://scripts/rooms/darkroom/darkroom.tscn" id="2_atio6"]
 [ext_resource type="Material" uid="uid://bsgpr43eeqnag" path="res://assets/shaders/text_sketch/sketch_shader.tres" id="3_n6u8r"]
 [ext_resource type="PackedScene" uid="uid://buthajlvbxwn0" path="res://scripts/entities/player/Player.tscn" id="5_772rp"]
 [ext_resource type="PackedScene" uid="uid://td8fbrod1sge" path="res://scripts/screens/hud/hud.tscn" id="6_4m1s3"]
@@ -22,17 +23,20 @@ script = ExtResource("1_772rp")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.67978, -0.454594, 1.78813)
 shape = SubResource("BoxShape3D_8uh7m")
 
+[node name="Decor - Final" parent="." instance=ExtResource("2_atio6")]
+
 [node name="darkroom_placeholder" parent="." instance=ExtResource("1_to3ui")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.67512, 0.221953, 1.34063)
 visible = false
 
 [node name="OmniLight3D" type="OmniLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.68347, 3.06917, 2.20274)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.68347, 4.48854, 2.20274)
 light_energy = 16.0
 omni_attenuation = 3.222
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 2.95759, 0, 1.28262)
+visible = false
 material_override = SubResource("ShaderMaterial_5hfox")
 mesh = ExtResource("2_3ytll")
 
@@ -54,4 +58,4 @@ base_speed = 3.0
 [node name="Hud" parent="." instance=ExtResource("6_4m1s3")]
 
 [node name="TestObject" parent="." instance=ExtResource("6_ppl2e")]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 1.01924, 0.803996, 0.830111)
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 1.01924, 2.27321, -0.91943)

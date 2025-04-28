@@ -15,18 +15,18 @@ height = 1.8
 radius = 0.4
 height = 1.8
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_5hfox"]
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_f0hkg"]
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_v6anq"]
-noise = SubResource("FastNoiseLite_5hfox")
+noise = SubResource("FastNoiseLite_f0hkg")
 
-[sub_resource type="Gradient" id="Gradient_5hfox"]
+[sub_resource type="Gradient" id="Gradient_82rqh"]
 offsets = PackedFloat32Array(0.436508, 0.52381)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_kwahd"]
-gradient = SubResource("Gradient_5hfox")
+gradient = SubResource("Gradient_82rqh")
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_wr06p"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_v6anq"]
 render_priority = 0
 shader = ExtResource("2_f0hkg")
 shader_parameter/background_color = Color(0.0605303, 0.0605303, 0.0605303, 1)
@@ -42,7 +42,7 @@ shader_parameter/normal_threshold = 0.5
 shader_parameter/frame_time = 0.33
 
 [sub_resource type="QuadMesh" id="QuadMesh_vhbqh"]
-material = SubResource("ShaderMaterial_wr06p")
+material = SubResource("ShaderMaterial_v6anq")
 flip_faces = true
 size = Vector2(2, 2)
 
@@ -67,7 +67,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
 [node name="Camera3D" type="Camera3D" parent="Head"]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Head/Camera3D"]
-visible = false
 extra_cull_margin = 16384.0
 mesh = SubResource("QuadMesh_vhbqh")
 
