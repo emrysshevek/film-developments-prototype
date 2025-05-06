@@ -1,14 +1,15 @@
 [gd_scene load_steps=11 format=3 uid="uid://box3yb76v8u01"]
 
-[ext_resource type="Script" uid="uid://chki1ehcsml3j" path="res://scripts/minigames/load/load_film_minigame.gd" id="1_mpemh"]
-[ext_resource type="PackedScene" uid="uid://b133n0xdkmyty" path="res://scripts/minigames/load/game_item.tscn" id="2_g38ul"]
-[ext_resource type="Texture2D" uid="uid://beyodwifmdb1q" path="res://assets/sprites/film.jpg" id="3_fy8nd"]
-[ext_resource type="Texture2D" uid="uid://dv72u5shi32q3" path="res://assets/sprites/opener.jpg" id="4_0kgig"]
-[ext_resource type="Texture2D" uid="uid://drs5bqypimxl6" path="res://assets/sprites/scissors.png" id="5_77l6m"]
-[ext_resource type="Texture2D" uid="uid://0hw0m3n172so" path="res://assets/sprites/reel.jpg" id="6_0gipi"]
-[ext_resource type="Texture2D" uid="uid://cu3f10v6wc3i2" path="res://assets/sprites/tank.jpg" id="7_c6x37"]
-[ext_resource type="Texture2D" uid="uid://c1y865p4ydmg7" path="res://assets/sprites/lid.jpg" id="8_j0hgy"]
-[ext_resource type="Script" uid="uid://320xe1yl20nb" path="res://scripts/minigames/load/mouse_area.gd" id="9_t7g35"]
+
+[ext_resource type="Script" uid="uid://chki1ehcsml3j" path="res://scripts/minigames/load/load_film.gd" id="1_0ikjp"]
+[ext_resource type="PackedScene" uid="uid://b133n0xdkmyty" path="res://scripts/minigames/load/game_item.tscn" id="3_suxb8"]
+[ext_resource type="Script" path="res://scripts/minigames/load/mouse_area.gd" id="3_y8tjj"]
+[ext_resource type="Texture2D" uid="uid://beyodwifmdb1q" path="res://assets/sprites/film.jpg" id="4_8pexb"]
+[ext_resource type="Texture2D" uid="uid://dv72u5shi32q3" path="res://assets/sprites/opener.jpg" id="4_s8uro"]
+[ext_resource type="Texture2D" uid="uid://drs5bqypimxl6" path="res://assets/sprites/scissors.png" id="5_gms64"]
+[ext_resource type="Texture2D" uid="uid://0hw0m3n172so" path="res://assets/sprites/reel.jpg" id="6_n4lwr"]
+[ext_resource type="Texture2D" uid="uid://cu3f10v6wc3i2" path="res://assets/sprites/tank.jpg" id="7_es2sc"]
+[ext_resource type="Texture2D" uid="uid://c1y865p4ydmg7" path="res://assets/sprites/lid.jpg" id="8_v2g7a"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_s1u7v"]
 
@@ -98,6 +99,11 @@ script = ExtResource("9_t7g35")
 shape = SubResource("CircleShape2D_s1u7v")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="InputBlock" type="ColorRect" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(1, 1, 1, 0)
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 visible = false

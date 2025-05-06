@@ -24,6 +24,9 @@ func _on_item_selected(item: GameItem) -> void:
 	if item == current_item:
 		if len(items) <= 0:
 			print("You win!")
+			return
+		if item == reel:
+			state = "reeling"
 		else:
 			next_item()
 
