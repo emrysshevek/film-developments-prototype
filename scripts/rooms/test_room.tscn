@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://c77341lctqtx7" path="res://scripts/rooms/test_room.gd" id="1_772rp"]
 [ext_resource type="PackedScene" uid="uid://dche8yqoo6cce" path="res://scripts/rooms/darkroom/darkroom_placeholder.glb" id="1_to3ui"]
 [ext_resource type="ArrayMesh" uid="uid://cb5gdw6aapjxy" path="res://scripts/rooms/darkroom/darkroom_placeholder.obj" id="2_3ytll"]
-[ext_resource type="PackedScene" uid="uid://bl12f71x7m4mh" path="res://scripts/rooms/darkroom/darkroom.tscn" id="2_atio6"]
+[ext_resource type="PackedScene" uid="uid://dom6we8rx3y34" path="res://scripts/rooms/darkroom/darkroom.tscn" id="2_atio6"]
 [ext_resource type="Material" uid="uid://bsgpr43eeqnag" path="res://assets/shaders/text_sketch/sketch_shader.tres" id="3_n6u8r"]
 [ext_resource type="PackedScene" uid="uid://buthajlvbxwn0" path="res://scripts/entities/player/Player.tscn" id="5_772rp"]
 [ext_resource type="PackedScene" uid="uid://td8fbrod1sge" path="res://scripts/screens/hud/hud.tscn" id="6_4m1s3"]
