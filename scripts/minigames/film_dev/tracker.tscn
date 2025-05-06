@@ -1,14 +1,15 @@
 [gd_scene load_steps=5 format=3 uid="uid://dfs060n7a48af"]
 
-[ext_resource type="Texture2D" uid="uid://bfe14if167n1n" path="res://assets/sprites/circle.svg" id="1_n6usq"]
+[ext_resource type="Texture2D" uid="uid://b36nhi0ghym8d" path="res://assets/sprites/circle.png" id="1_n6usq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3dmyw"]
-radius = 42.0
+radius = 49.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_n6usq"]
-radius = 30.0
+radius = 33.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3u3gv"]
+radius = 14.0
 
 [node name="Tracker" type="Area2D"]
 
