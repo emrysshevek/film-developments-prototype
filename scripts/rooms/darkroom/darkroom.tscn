@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://dom6we8rx3y34"]
 
 [ext_resource type="PackedScene" uid="uid://bm48klsc2hw0p" path="res://assets/models/background/Decor - Final.blend" id="1_p2pqj"]
-[ext_resource type="Script" path="res://scripts/rooms/darkroom/darkroom.gd" id="2_ha0e5"]
+[ext_resource type="Script" uid="uid://deahtj51nwg1l" path="res://scripts/rooms/darkroom/darkroom.gd" id="2_ha0e5"]
 [ext_resource type="Shader" uid="uid://ctmpjr30nb0th" path="res://assets/shaders/sketch_post_process/sketch_post_process_sobel.gdshader" id="3_3bh8m"]
 [ext_resource type="Texture2D" uid="uid://cu6vw7surjt4j" path="res://assets/shaders/sketch_post_process/lines.png" id="4_vmdkf"]
 
