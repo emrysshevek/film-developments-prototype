@@ -45,6 +45,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="Player" parent="." instance=ExtResource("5_772rp")]
 transform = Transform3D(0.0418688, 0, -0.798904, 0, 0.8, 0, 0.798904, 0, 0.0418688, 0, 0, 1.413)
