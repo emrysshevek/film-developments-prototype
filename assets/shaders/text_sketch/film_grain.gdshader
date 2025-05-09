@@ -8,15 +8,18 @@ uniform float grain_size : hint_range(0.1, 10.0) = 1.0; // Adjust the size of th
 void fragment() {
     // Sample the original screen texture
     vec4 original_color = texture(screen_texture, SCREEN_UV);
+	float bw_val = (original_color.r + original_color.g + original_color.b) / 3.0;
+	vec4 bw = vec4(bw_val, bw_val, bw_val, original_color.a);
+	float intensity = 1.0 - abs(bw_val * 2.0 - 1.0);
 
     // Generate random noise
-    float noise = (fract(sin(dot(UV, vec2(12.9898, 78.233))) * 43758.5453) - 0.5) * 2.0;
+    float noise = (fract(sin(dot(UV, vec2(12.9898, 78.233))) * 43758.5453));
 
     // Add noise to the original color
-    original_color.rgb += noise * grain_amount * grain_size;
-
+    bw.rgb += noise * grain_amount * intensity;
+	
     // Clamp the final color to make sure it stays in the valid range
-    COLOR = clamp(original_color, 0.0, 1.0);
+    COLOR = clamp(bw, 0.0, 1.0);
 }
 
 //void light() {
