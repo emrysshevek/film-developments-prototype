@@ -67,6 +67,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
 [node name="Camera3D" type="Camera3D" parent="Head"]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Head/Camera3D"]
+visible = false
 extra_cull_margin = 16384.0
 mesh = SubResource("QuadMesh_vhbqh")
 

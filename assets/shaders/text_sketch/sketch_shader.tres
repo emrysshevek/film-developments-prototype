@@ -1,15 +1,8 @@
 [gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://bsgpr43eeqnag"]
 
-[ext_resource type="Shader" path="res://assets/shaders/text_sketch/test_sketch.gdshader" id="1_u7f7q"]
+[ext_resource type="Shader" uid="uid://bpuv35bxb4t6a" path="res://assets/shaders/text_sketch/film_grain.gdshader" id="1_7x0wl"]
 
 [resource]
-shader = ExtResource("1_u7f7q")
-shader_parameter/u_bgColor = Color(0.566134, 0, 0.143672, 1)
-shader_parameter/u_bgColorFactor = 1.0
-shader_parameter/u_patternColor = Color(0, 0, 0, 1)
-shader_parameter/u_threshold1 = 0.315
-shader_parameter/u_threshold2 = 0.315
-shader_parameter/u_threshold3 = 0.292
-shader_parameter/u_threshold4 = 0.432
-shader_parameter/u_bgTiling = Vector2(1, 1)
-shader_parameter/u_patternTiling = Vector2(1, 1)
+shader = ExtResource("1_7x0wl")
+shader_parameter/grain_amount = 0.05
+shader_parameter/grain_size = 1.0
