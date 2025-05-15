@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bthrupmx3p70u"
-path.s3tc="res://.godot/imported/Church_Floor_Roof_normal.png-5a4d201efddfdedff8dbac12b2315172.s3tc.ctex"
+path.s3tc="res://.godot/imported/Church_Floor_Roof_normal.png-068324b0d6ff4eaf504b65ff16f77a0c.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/models/church/textures/Church_Floor_Roof_normal.png"
-dest_files=["res://.godot/imported/Church_Floor_Roof_normal.png-5a4d201efddfdedff8dbac12b2315172.s3tc.ctex"]
+source_file="res://assets/models/church/Textures/Church_Floor_Roof_normal.png"
+dest_files=["res://.godot/imported/Church_Floor_Roof_normal.png-068324b0d6ff4eaf504b65ff16f77a0c.s3tc.ctex"]
 
 [params]
 

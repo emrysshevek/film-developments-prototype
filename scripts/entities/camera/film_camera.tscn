@@ -1,3 +1,19 @@
-[gd_scene format=3 uid="uid://detlvyvgx6ibv"]
+[gd_scene load_steps=4 format=3 uid="uid://detlvyvgx6ibv"]
+
+[ext_resource type="Shader" uid="uid://68wxx2ebhqol" path="res://scripts/entities/camera/focus_screen.gdshader" id="1_sjilr"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mt3fo"]
+render_priority = 0
+shader = ExtResource("1_sjilr")
+shader_parameter/blur_strength = 5.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_a3wx6"]
+material = SubResource("ShaderMaterial_mt3fo")
+flip_faces = true
+size = Vector2(2, 2)
 
 [node name="FilmCamera" type="Camera3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+extra_cull_margin = 16384.0
+mesh = SubResource("QuadMesh_a3wx6")

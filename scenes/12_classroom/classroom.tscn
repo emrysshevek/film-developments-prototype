@@ -1,16 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://b0vldm3ne3ed6"]
+[gd_scene load_steps=4 format=3 uid="uid://b0vldm3ne3ed6"]
 
 [ext_resource type="PackedScene" uid="uid://bwgh3lupp0nb8" path="res://scenes/12_classroom/classroom.glb" id="1_qm3yn"]
-[ext_resource type="PackedScene" uid="uid://buthajlvbxwn0" path="res://scripts/entities/player/Player.tscn" id="2_w7yi3"]
-[ext_resource type="Shader" uid="uid://bpuv35bxb4t6a" path="res://assets/shaders/text_sketch/film_grain.gdshader" id="3_7duus"]
+[ext_resource type="PackedScene" uid="uid://detlvyvgx6ibv" path="res://scripts/entities/camera/film_camera.tscn" id="2_7duus"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_7duus"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_202mg"]
-shader = ExtResource("3_7duus")
-shader_parameter/grain_amount = 0.207
-shader_parameter/grain_size = 1.0
-shader_parameter/frame_time = 0.35
 
 [node name="classroom" instance=ExtResource("1_qm3yn")]
 
@@ -159,21 +152,10 @@ bones/88/position = Vector3(8.97072e-06, 23.6829, 5.09609e-06)
 [node name="AnimationPlayer" parent="." index="4"]
 autoplay = "mixamo_com"
 
-[node name="StaticBody3D" type="StaticBody3D" parent="." index="5"]
+[node name="FilmCamera" parent="." index="5" instance=ExtResource("2_7duus")]
+transform = Transform3D(-0.148206, -0.0773995, -0.985923, 0.00311114, 0.996891, -0.0787282, 0.988952, -0.0147353, -0.147505, -1.65737, 1.24759, 3.22325)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="6"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
 shape = SubResource("WorldBoundaryShape3D_7duus")
-
-[node name="Player" parent="." index="6" instance=ExtResource("2_w7yi3")]
-transform = Transform3D(1, 0, 0, 0, 1, -2.84217e-14, 0, 2.84217e-14, 1, -2.55101, 0, 3.06996)
-
-[node name="CanvasLayer" type="CanvasLayer" parent="." index="7"]
-
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer" index="0"]
-material = SubResource("ShaderMaterial_202mg")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2

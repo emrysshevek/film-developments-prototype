@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c3p1tu56qlao7"
-path.s3tc="res://.godot/imported/Church_Beams_Door_metallicRoughness.png-4fb45c94d4748db87b73c3b9939ca856.s3tc.ctex"
+path.s3tc="res://.godot/imported/Church_Beams_Door_metallicRoughness.png-25979a064e420d127f5def926635b480.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/models/church/textures/Church_Beams_Door_metallicRoughness.png"
-dest_files=["res://.godot/imported/Church_Beams_Door_metallicRoughness.png-4fb45c94d4748db87b73c3b9939ca856.s3tc.ctex"]
+source_file="res://assets/models/church/Textures/Church_Beams_Door_metallicRoughness.png"
+dest_files=["res://.godot/imported/Church_Beams_Door_metallicRoughness.png-25979a064e420d127f5def926635b480.s3tc.ctex"]
 
 [params]
 

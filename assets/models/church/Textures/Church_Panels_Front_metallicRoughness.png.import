@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bayhdg30dprqv"
-path.s3tc="res://.godot/imported/Church_Panels_Front_metallicRoughness.png-cc449536ea2232a009f4fa9ed85d99e0.s3tc.ctex"
+path.s3tc="res://.godot/imported/Church_Panels_Front_metallicRoughness.png-2b8c37346053561d587632f9065c1a6b.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/models/church/textures/Church_Panels_Front_metallicRoughness.png"
-dest_files=["res://.godot/imported/Church_Panels_Front_metallicRoughness.png-cc449536ea2232a009f4fa9ed85d99e0.s3tc.ctex"]
+source_file="res://assets/models/church/Textures/Church_Panels_Front_metallicRoughness.png"
+dest_files=["res://.godot/imported/Church_Panels_Front_metallicRoughness.png-2b8c37346053561d587632f9065c1a6b.s3tc.ctex"]
 
 [params]
 
