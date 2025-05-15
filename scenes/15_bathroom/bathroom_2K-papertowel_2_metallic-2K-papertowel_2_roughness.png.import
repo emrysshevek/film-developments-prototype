@@ -1,0 +1,38 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://cccprb0r8hka0"
+path.s3tc="res://.godot/imported/bathroom_2K-papertowel_2_metallic-2K-papertowel_2_roughness.png-5cd807a9de63f776279173d4817c49b9.s3tc.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "0c1f4e5f733d2a0f98e6a852602a8a22"
+}
+
+[deps]
+
+source_file="res://scenes/15_bathroom/bathroom_2K-papertowel_2_metallic-2K-papertowel_2_roughness.png"
+dest_files=["res://.godot/imported/bathroom_2K-papertowel_2_metallic-2K-papertowel_2_roughness.png-5cd807a9de63f776279173d4817c49b9.s3tc.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0

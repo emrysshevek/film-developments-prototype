@@ -1,82 +1,60 @@
-[gd_scene load_steps=14 format=3 uid="uid://buthajlvbxwn0"]
+[gd_scene load_steps=10 format=3 uid="uid://buthajlvbxwn0"]
 
 [ext_resource type="Script" uid="uid://c4lxii56ucocm" path="res://scripts/entities/player/player.gd" id="1_4f3np"]
-[ext_resource type="Shader" uid="uid://ctmpjr30nb0th" path="res://assets/shaders/sketch_post_process/sketch_post_process_sobel.gdshader" id="2_f0hkg"]
-[ext_resource type="Texture2D" uid="uid://cu6vw7surjt4j" path="res://assets/shaders/sketch_post_process/lines.png" id="3_82rqh"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_iof21"]
-albedo_color = Color(0.91806, 0.575202, 0.222449, 1)
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_ucva2"]
-radius = 0.4
-height = 1.8
+[ext_resource type="PackedScene" uid="uid://x240q6ltm0ai" path="res://assets/models/young_alice/scene.gltf" id="4_82rqh"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_iof21"]
-radius = 0.4
-height = 1.8
+radius = 0.261484
+height = 1.20967
+
+[sub_resource type="Gradient" id="Gradient_f0hkg"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_82rqh"]
+gradient = SubResource("Gradient_f0hkg")
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_v6anq"]
+panorama = SubResource("GradientTexture2D_82rqh")
+
+[sub_resource type="Sky" id="Sky_82rqh"]
+sky_material = SubResource("PanoramaSkyMaterial_v6anq")
+
+[sub_resource type="Environment" id="Environment_f0hkg"]
+background_mode = 1
+background_color = Color(1, 1, 1, 1)
+background_energy_multiplier = 1.1
+sky = SubResource("Sky_82rqh")
+ambient_light_source = 2
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_sky_contribution = 0.0
+ssr_enabled = true
+ssao_enabled = true
+adjustment_enabled = true
+adjustment_contrast = 1.08
 
 [sub_resource type="CameraAttributesPhysical" id="CameraAttributesPhysical_f0hkg"]
-auto_exposure_enabled = true
-auto_exposure_speed = 57.08
-frustum_focus_distance = 1.0
-frustum_focal_length = 50.0
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_f0hkg"]
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_v6anq"]
-noise = SubResource("FastNoiseLite_f0hkg")
-
-[sub_resource type="Gradient" id="Gradient_82rqh"]
-offsets = PackedFloat32Array(0.436508, 0.52381)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_kwahd"]
-gradient = SubResource("Gradient_82rqh")
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_v6anq"]
-render_priority = 0
-shader = ExtResource("2_f0hkg")
-shader_parameter/background_color = Color(0.0605303, 0.0605303, 0.0605303, 1)
-shader_parameter/line_color = Color(0.516124, 0.0906327, 4.81308e-08, 1)
-shader_parameter/noise_texture = SubResource("NoiseTexture2D_v6anq")
-shader_parameter/value_gradient = SubResource("GradientTexture1D_kwahd")
-shader_parameter/hatch = ExtResource("3_82rqh")
-shader_parameter/hatch_density = 4.26
-shader_parameter/outline_thickness = 0.4
-shader_parameter/depth_threshold = 0.5
-shader_parameter/rgb_threshold = 0.5
-shader_parameter/normal_threshold = 0.5
-shader_parameter/frame_time = 0.33
-
-[sub_resource type="QuadMesh" id="QuadMesh_vhbqh"]
-material = SubResource("ShaderMaterial_v6anq")
-flip_faces = true
-size = Vector2(2, 2)
+auto_exposure_speed = 2.52
+frustum_focus_distance = 0.5
+frustum_focal_length = 17.0
 
 [node name="Player" type="CharacterBody3D"]
 script = ExtResource("1_4f3np")
 base_speed = 5.0
 sprint_speed = 7.0
 
-[node name="Mesh" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
-material_override = SubResource("StandardMaterial3D_iof21")
-cast_shadow = 0
-mesh = SubResource("CapsuleMesh_ucva2")
+[node name="Sketchfab_Scene" parent="." instance=ExtResource("4_82rqh")]
+transform = Transform3D(1.57074e-07, 0, 0.001, 0, 0.001, 0, -0.001, 0, 1.57074e-07, -0.765821, 0.729396, -1.3293)
 
 [node name="Collider" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.624687, 0)
 shape = SubResource("CapsuleShape3D_iof21")
 
 [node name="Head" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.01091, -0.238302)
 
 [node name="Camera3D" type="Camera3D" parent="Head"]
+environment = SubResource("Environment_f0hkg")
 attributes = SubResource("CameraAttributesPhysical_f0hkg")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Head/Camera3D"]
-visible = false
-extra_cull_margin = 16384.0
-mesh = SubResource("QuadMesh_vhbqh")
 
 [node name="SeeCast" type="RayCast3D" parent="Head"]
 transform = Transform3D(1.91069e-15, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, 0, 0, 0)

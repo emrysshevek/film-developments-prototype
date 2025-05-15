@@ -1,0 +1,38 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://fkh0af2u80d6"
+path.s3tc="res://.godot/imported/bathroom_ceramic_Metallic-ceramic_Roughness.png-11b0b44f5252e4cfcdba22d312e21be2.s3tc.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "6584a04af73a06ee0b0e4a86a8fa7758"
+}
+
+[deps]
+
+source_file="res://scenes/15_bathroom/bathroom_ceramic_Metallic-ceramic_Roughness.png"
+dest_files=["res://.godot/imported/bathroom_ceramic_Metallic-ceramic_Roughness.png-11b0b44f5252e4cfcdba22d312e21be2.s3tc.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=0
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=0
+roughness/src_normal=""
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0

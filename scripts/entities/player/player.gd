@@ -34,12 +34,15 @@ var look_rotation := Vector2.ZERO
 var move_speed := 0.0
 var freeflying := false
 
+@onready var default_basis: Basis = transform.basis
+@onready var head_default_basis: Basis = $Head.transform.basis
 @onready var head: Node3D = $Head
 @onready var collider: CollisionShape3D = $Collider
 
 func _ready():
 	look_rotation.y = rotation.y
 	look_rotation.x = head.rotation.x
+	
 	_capture_mouse()
 	_check_input_mappings()
 
@@ -100,10 +103,10 @@ func _rotate_look(mouse_delta: Vector2):
 	look_rotation.x = clamp(look_rotation.x - mouse_delta.y * look_speed, deg_to_rad(-85), deg_to_rad(85))
 	look_rotation.y -= mouse_delta.x * look_speed
 
-	transform.basis = Basis()
+	transform.basis = default_basis
 	rotate_y(look_rotation.y)
 
-	head.transform.basis = Basis()
+	head.transform.basis = head_default_basis
 	head.rotate_x(look_rotation.x)
 
 func _handle_freefly(delta):

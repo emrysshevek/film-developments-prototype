@@ -26,6 +26,10 @@ AudioManager="*res://globals/audio_manager/audio_manager.tscn"
 MenuManager="*res://globals/menu_manager/menu_manager.tscn"
 Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 
+[debug]
+
+settings/stdout/print_fps=true
+
 [dialogic]
 
 directories/dch_directory={}
@@ -56,6 +60,10 @@ variables={}
 layout/style_list=["res://scenes/default_scene_style.tres", "res://scenes/test_scene_style.tres"]
 layout/default_style="res://scenes/default_scene_style.tres"
 glossary/default_case_sensitive=true
+
+[display]
+
+window/vsync/vsync_mode=0
 
 [dotnet]
 

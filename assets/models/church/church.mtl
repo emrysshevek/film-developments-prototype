@@ -1,0 +1,27 @@
+# Created by Kenney (www.kenney.nl)
+
+newmtl stoneDark(Clone)
+Kd 0.897 0.897 0.897
+map_Kd Textures/stoneDark(Clone).png
+
+newmtl stone(Clone)
+Kd 0.124 0.087 0.045
+
+newmtl wood(Clone)
+Kd 0.84 0.435 0.305
+
+newmtl custom11(Clone)
+Kd 0.938 0.938 0.938
+map_Kd Textures/custom11(Clone).png
+
+newmtl foliage(Clone)
+Kd 0 0.655 0.486
+
+newmtl custom15(Clone)
+Kd 1 1 1
+map_Kd Textures/custom15(Clone).png
+
+newmtl custom14(Clone)
+Kd 0.017 0.283 0.068
+map_Kd Textures/custom14(Clone).png
+

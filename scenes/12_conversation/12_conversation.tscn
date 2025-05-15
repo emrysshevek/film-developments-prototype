@@ -1,0 +1,86 @@
+[gd_scene load_steps=9 format=3 uid="uid://c5iuqekkko23x"]
+
+[ext_resource type="PackedScene" uid="uid://bhlukq7j0aisu" path="res://assets/models/classroom/scene.gltf" id="1_q8jct"]
+[ext_resource type="PackedScene" uid="uid://dhc2mrbfs0kp" path="res://assets/models/conversation/conversation.glb" id="1_wmgg3"]
+[ext_resource type="PackedScene" uid="uid://buthajlvbxwn0" path="res://scripts/entities/player/Player.tscn" id="2_2v10d"]
+[ext_resource type="Shader" uid="uid://bpuv35bxb4t6a" path="res://assets/shaders/text_sketch/film_grain.gdshader" id="3_2v10d"]
+[ext_resource type="PackedScene" uid="uid://dryf4y1o2nkrr" path="res://assets/models/Carla/carla.tscn" id="3_3yoaf"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_q8jct"]
+size = Vector2(1000, 1000)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_q8jct"]
+shader = ExtResource("3_2v10d")
+shader_parameter/grain_amount = 0.05
+shader_parameter/grain_size = 1.0
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_3yoaf"]
+
+[node name="12Conversation" type="Node3D"]
+
+[node name="Classroom" parent="." instance=ExtResource("1_q8jct")]
+transform = Transform3D(0.012, 0, 0, 0, 0.012, 0, 0, 0, 0.012, 0, 0, 0)
+
+[node name="conversation" parent="." instance=ExtResource("1_wmgg3")]
+transform = Transform3D(1.21, 0, 0, 0, 1.21, 0, 0, 0, 1.21, 0, 0.0962856, 4.83299)
+
+[node name="Sketchfab_Scene" parent="." instance=ExtResource("3_3yoaf")]
+transform = Transform3D(-0.609976, 0, 0.0054297, 0, 0.61, 0, -0.0054297, 0, -0.609976, 0, 0, 5.26403)
+
+[node name="Player" parent="." instance=ExtResource("2_2v10d")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.226844, -0.429684, 0.974203)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+visible = false
+mesh = SubResource("PlaneMesh_q8jct")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_q8jct")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.0612837, -0.353932, 0.933261, -0.0231914, 0.935271, 0.353171, -0.997851, 7.46649e-09, -0.0655251, 10.2588, 1.54263, 0)
+light_energy = 0.41
+shadow_enabled = true
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(-0.0665277, -0.470948, 0.879649, -0.0908241, 0.8808, 0.464695, -0.993642, -0.0489782, -0.101371, 4.43301, 2.71879, 4.23529)
+light_energy = 2.0
+shadow_enabled = true
+spot_range = 205.249
+spot_angle = 30.0
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="."]
+transform = Transform3D(-0.0665277, -0.470948, 0.879649, -0.0908241, 0.8808, 0.464695, -0.993642, -0.0489782, -0.101371, 4.43301, 2.71879, 1.51457)
+light_energy = 2.0
+shadow_enabled = true
+spot_range = 26.708
+spot_angle = 30.0
+spot_angle_attenuation = 1.6818
+
+[node name="SpotLight3D3" type="SpotLight3D" parent="."]
+transform = Transform3D(-0.0665277, -0.470948, 0.879649, -0.0908241, 0.8808, 0.464695, -0.993642, -0.0489782, -0.101371, 4.43301, 2.71879, -1.61609)
+light_energy = 2.0
+shadow_enabled = true
+spot_range = 4096.0
+spot_angle = 30.0
+
+[node name="SpotLight3D4" type="SpotLight3D" parent="."]
+transform = Transform3D(-0.0665277, -0.470948, 0.879649, -0.0908241, 0.8808, 0.464695, -0.993642, -0.0489782, -0.101371, 4.43301, 2.71879, -4.1222)
+light_energy = 2.0
+shadow_enabled = true
+spot_range = 650.431
+spot_angle = 30.0
+
+[node name="StaticBody2D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody2D"]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 10, 0, 0, 0)
+shape = SubResource("WorldBoundaryShape3D_3yoaf")
