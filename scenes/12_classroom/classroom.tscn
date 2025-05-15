@@ -153,7 +153,7 @@ bones/88/position = Vector3(8.97072e-06, 23.6829, 5.09609e-06)
 autoplay = "mixamo_com"
 
 [node name="FilmCamera" parent="." index="5" instance=ExtResource("2_7duus")]
-transform = Transform3D(-0.148206, -0.0773995, -0.985923, 0.00311114, 0.996891, -0.0787282, 0.988952, -0.0147353, -0.147505, -1.65737, 1.24759, 3.22325)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.65737, 1.24759, 3.22325)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." index="6"]
 

@@ -5,6 +5,7 @@ uniform sampler2D screen_texture : source_color, hint_screen_texture;
 uniform sampler2D depth_texture : hint_depth_texture;
 
 uniform float blur_strength = 0.0;
+uniform float focus_dist = 1.0;
 
 vec3 get_original(vec2 screen_uv, float lod)
 {
@@ -14,7 +15,6 @@ vec3 get_original(vec2 screen_uv, float lod)
 float get_depth(vec2 screen_uv, mat4 inv_projection_matrix)
 {
 	float depth = texture(depth_texture, screen_uv).r;
-	return mix(0.0, 5.0, depth);
 	#if CURRENT_RENDERER == RENDERER_COMPATIBILITY
 	vec3 ndc = vec3(screen_uv, depth) * 2.0 - 1.0;
 	#else
@@ -31,16 +31,28 @@ void vertex() {
 }
 
 void fragment() {
-	float depth = get_depth(SCREEN_UV, INV_PROJECTION_MATRIX);
-	//float linear_depth = mix(0.0, 5.0, depth);
+	float depth = texture(depth_texture, SCREEN_UV).r;
+	#if CURRENT_RENDERER == RENDERER_COMPATIBILITY
+	vec3 ndc = vec3(SCREEN_UV, depth) * 2.0 - 1.0;
+	#else
+	vec3 ndc = vec3(SCREEN_UV * 2.0 - 1.0, depth);
+	#endif
+	vec4 view = INV_PROJECTION_MATRIX * vec4(ndc, 1.0);
+  	//view.xyz /= -view.w;
+	float dist = (view.xyz / -view.w).z;
+	
+	float val = clamp(abs(dist - focus_dist), 0.0, 1.0);
+	
+	
 
   // Visualize linear depth
-	//ALBEDO = vec3(1.0 - fract(depth));
- 	//ALBEDO = get_original(SCREEN_UV, blur_strength);
-	ALBEDO = get_original(SCREEN_UV, 1.0 - fract(depth));
+	//ALBEDO = vec3(abs(focus_dist));
+	//ALBEDO = get_original(SCREEN_UV, 1.0 - 5.0 / abs(view.z - focus_dist));
+ 	ALBEDO = vec3(val);
+	//ALBEDO = get_original(SCREEN_UV, 1.0 - fract(linear_depth));
 
   // Visualize world coordinates
-  //ALBEDO.rgb = fract(world_position).xyz;
+  //ALBEDO = get_original(SCREEN_UV, 0.0);
 }
 
 //void light() {
