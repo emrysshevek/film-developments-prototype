@@ -13,10 +13,10 @@ render_priority = 0
 shader = ExtResource("1_sjilr")
 shader_parameter/c = 0.003
 shader_parameter/f = 50.0
-shader_parameter/N = 11.0
+shader_parameter/N = 3.2
 shader_parameter/u = 1.0
+shader_parameter/focus_circle_radius = 0.105
 shader_parameter/blur_strength = 0.25
-shader_parameter/focus_dist = 1.0
 
 [sub_resource type="QuadMesh" id="QuadMesh_a3wx6"]
 flip_faces = true

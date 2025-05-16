@@ -10,10 +10,12 @@ func _ready() -> void:
 	focus_shader.set_shader_parameter("u", focus_dist)
 
 func _input(event: InputEvent) -> void:
+	if event.is_action_pressed(&"interact"):
+		pass
+		#take a photo
 	if event is InputEventMouseButton:
 		if event.is_pressed():
 			if event.button_index == MOUSE_BUTTON_WHEEL_UP:
-					
 				focus_dist = clamp(focus_dist + focus_step, focus_range.x, focus_range.y)
 			elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
 				focus_dist = clamp(focus_dist - focus_step, focus_range.x, focus_range.y)

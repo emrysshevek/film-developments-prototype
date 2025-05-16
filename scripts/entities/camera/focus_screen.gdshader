@@ -11,8 +11,9 @@ uniform float f = 50.0; // focal length
 uniform float N = 3.2; // f-number
 uniform float u = 1.0; // distance to subject
 
+uniform float focus_circle_radius = 75.0;
+
 uniform float blur_strength = 1.0;
-uniform float focus_dist = 1.0;
 
 vec3 get_original(vec2 screen_uv, float lod)
 {
@@ -40,21 +41,23 @@ void vertex() {
 void fragment() {
 	float D = get_depth(SCREEN_UV, INV_PROJECTION_MATRIX); // distance to foreground/background
 	
-	// https://en.wikipedia.org/wiki/Depth_of_field#Factors_affecting_depth_of_field
-	float dof = 2.0 * pow(u, 2.0) * N * c / pow(f, 2.0);
-	// https://en.wikipedia.org/wiki/Hyperfocal_distance#Formula
-	float H = pow(f, 2.0) / (N * c) + f; // hyperfocal distance
-	
 	// https://en.wikipedia.org/wiki/Depth_of_field#Foreground_and_background_blur
 	float x_d = D - u;
 	float b = (f / N) * (abs(x_d) / (u + x_d));
-
-  // Visualize linear depth
- 	//ALBEDO = vec3(b * blur_strength);
-	ALBEDO = get_original(SCREEN_UV, min(b * blur_strength, 5.0));
-
-  // Visualize world coordinates
-  //ALBEDO = get_original(SCREEN_UV, 0.0);
+	
+	vec2 uv = SCREEN_UV * 2.0 - 1.0;
+	uv.x *= VIEWPORT_SIZE.x / VIEWPORT_SIZE.y;
+	if (distance(uv, vec2(0)) <= focus_circle_radius)
+	{
+		uv.x += b * sign(SCREEN_UV.y);
+		ALBEDO = vec3(0);
+	}
+	else{
+		ALBEDO = vec3(1);
+	}
+	
+	//Blur based on distance from subject
+	//ALBEDO = get_original(SCREEN_UV, min(b * blur_strength, 3.0));
 }
 
 //void light() {
