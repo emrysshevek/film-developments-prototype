@@ -12,6 +12,7 @@ uniform float N = 3.2; // f-number
 uniform float u = 1.0; // distance to subject
 
 uniform float focus_circle_radius = 75.0;
+uniform float focus_circle_strength = .25;
 
 uniform float blur_strength = 1.0;
 
@@ -38,26 +39,39 @@ void vertex() {
 	POSITION = vec4(VERTEX.xy, 1.0, 1.0);
 }
 
+vec2 uv_normalized_to_proportional(vec2 uv, vec2 view){
+	uv = uv * 2.0 - 1.0;
+	uv.x *= view.x / view.y;
+	return uv;
+}
+
+vec2 uv_proportional_to_normalized(vec2 uv, vec2 view){
+	uv.x *= view.y / view.x;
+	uv = (uv + 1.0) / 2.0;
+	return uv;
+}
+
 void fragment() {
 	float D = get_depth(SCREEN_UV, INV_PROJECTION_MATRIX); // distance to foreground/background
-	
 	// https://en.wikipedia.org/wiki/Depth_of_field#Foreground_and_background_blur
 	float x_d = D - u;
 	float b = (f / N) * (abs(x_d) / (u + x_d));
 	
-	vec2 uv = SCREEN_UV * 2.0 - 1.0;
-	uv.x *= VIEWPORT_SIZE.x / VIEWPORT_SIZE.y;
+	vec2 uv = uv_normalized_to_proportional(SCREEN_UV, VIEWPORT_SIZE);
 	if (distance(uv, vec2(0)) <= focus_circle_radius)
 	{
-		uv.x += b * sign(SCREEN_UV.y);
-		ALBEDO = vec3(0);
-	}
-	else{
-		ALBEDO = vec3(1);
+		uv *= b * sign(x_d) * focus_circle_strength;
 	}
 	
+	uv = uv_proportional_to_normalized(uv, VIEWPORT_SIZE);
+	
+	D = get_depth(uv, INV_PROJECTION_MATRIX); // distance to foreground/background
+	// https://en.wikipedia.org/wiki/Depth_of_field#Foreground_and_background_blur
+	x_d = D - u;
+	b = (f / N) * (abs(x_d) / (u + x_d));
+	
 	//Blur based on distance from subject
-	//ALBEDO = get_original(SCREEN_UV, min(b * blur_strength, 3.0));
+	ALBEDO = get_original(uv, min(b * blur_strength, 3.0));
 }
 
 //void light() {

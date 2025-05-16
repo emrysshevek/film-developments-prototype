@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://detlvyvgx6ibv"]
+[gd_scene load_steps=9 format=3 uid="uid://detlvyvgx6ibv"]
 
 [ext_resource type="Script" uid="uid://brnvo7j5kfjgj" path="res://scripts/entities/camera/film_camera.gd" id="1_mt3fo"]
 [ext_resource type="Shader" uid="uid://68wxx2ebhqol" path="res://scripts/entities/camera/focus_screen.gdshader" id="1_sjilr"]
@@ -6,7 +6,11 @@
 
 [sub_resource type="Environment" id="Environment_mt3fo"]
 ambient_light_source = 2
-ambient_light_energy = 4.71
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_energy = 16.0
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_a3wx6"]
+exposure_multiplier = 2.358
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_a3wx6"]
 render_priority = 0
@@ -15,7 +19,8 @@ shader_parameter/c = 0.003
 shader_parameter/f = 50.0
 shader_parameter/N = 3.2
 shader_parameter/u = 1.0
-shader_parameter/focus_circle_radius = 0.105
+shader_parameter/focus_circle_radius = 0.4
+shader_parameter/focus_circle_strength = 0.07
 shader_parameter/blur_strength = 0.25
 
 [sub_resource type="QuadMesh" id="QuadMesh_a3wx6"]
@@ -29,6 +34,7 @@ shader_parameter/grain_size = 1.0
 
 [node name="FilmCamera" type="Camera3D"]
 environment = SubResource("Environment_mt3fo")
+attributes = SubResource("CameraAttributesPractical_a3wx6")
 fov = 58.1
 script = ExtResource("1_mt3fo")
 
