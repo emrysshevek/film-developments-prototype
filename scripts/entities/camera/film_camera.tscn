@@ -1,22 +1,48 @@
-[gd_scene load_steps=5 format=3 uid="uid://detlvyvgx6ibv"]
+[gd_scene load_steps=8 format=3 uid="uid://detlvyvgx6ibv"]
 
 [ext_resource type="Script" uid="uid://brnvo7j5kfjgj" path="res://scripts/entities/camera/film_camera.gd" id="1_mt3fo"]
 [ext_resource type="Shader" uid="uid://68wxx2ebhqol" path="res://scripts/entities/camera/focus_screen.gdshader" id="1_sjilr"]
+[ext_resource type="Shader" uid="uid://bpuv35bxb4t6a" path="res://assets/shaders/text_sketch/film_grain.gdshader" id="3_a3wx6"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_mt3fo"]
+[sub_resource type="Environment" id="Environment_mt3fo"]
+ambient_light_source = 2
+ambient_light_energy = 4.71
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_a3wx6"]
 render_priority = 0
 shader = ExtResource("1_sjilr")
-shader_parameter/blur_strength = 0.0
+shader_parameter/c = 0.003
+shader_parameter/f = 50.0
+shader_parameter/N = 11.0
+shader_parameter/u = 1.0
+shader_parameter/blur_strength = 0.25
 shader_parameter/focus_dist = 1.0
 
 [sub_resource type="QuadMesh" id="QuadMesh_a3wx6"]
 flip_faces = true
 size = Vector2(2, 2)
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4nds6"]
+shader = ExtResource("3_a3wx6")
+shader_parameter/grain_amount = 0.129
+shader_parameter/grain_size = 1.0
+
 [node name="FilmCamera" type="Camera3D"]
+environment = SubResource("Environment_mt3fo")
+fov = 58.1
 script = ExtResource("1_mt3fo")
 
 [node name="FocusScreen" type="MeshInstance3D" parent="."]
-material_override = SubResource("ShaderMaterial_mt3fo")
+material_override = SubResource("ShaderMaterial_a3wx6")
 extra_cull_margin = 16384.0
 mesh = SubResource("QuadMesh_a3wx6")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="FilmGrain" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_4nds6")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
