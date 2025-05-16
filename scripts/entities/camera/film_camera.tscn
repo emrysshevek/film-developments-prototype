@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://detlvyvgx6ibv"]
+[gd_scene load_steps=14 format=3 uid="uid://detlvyvgx6ibv"]
 
 [ext_resource type="Script" uid="uid://brnvo7j5kfjgj" path="res://scripts/entities/camera/film_camera.gd" id="1_mt3fo"]
 [ext_resource type="Shader" uid="uid://68wxx2ebhqol" path="res://scripts/entities/camera/focus_screen.gdshader" id="1_sjilr"]
@@ -22,10 +22,31 @@ shader_parameter/u = 1.0
 shader_parameter/focus_circle_radius = 0.4
 shader_parameter/focus_circle_strength = 0.07
 shader_parameter/blur_strength = 0.25
+shader_parameter/show_focus_ring = false
 
 [sub_resource type="QuadMesh" id="QuadMesh_a3wx6"]
 flip_faces = true
 size = Vector2(2, 2)
+
+[sub_resource type="Animation" id="Animation_a3wx6"]
+resource_name = "raise"
+
+[sub_resource type="Animation" id="Animation_4nds6"]
+resource_name = "lower"
+
+[sub_resource type="Animation" id="Animation_g77vp"]
+resource_name = "take_photo"
+
+[sub_resource type="Animation" id="Animation_q6qut"]
+length = 0.001
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_q6qut"]
+_data = {
+&"RESET": SubResource("Animation_q6qut"),
+&"lower": SubResource("Animation_4nds6"),
+&"raise": SubResource("Animation_a3wx6"),
+&"take_photo": SubResource("Animation_g77vp")
+}
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4nds6"]
 shader = ExtResource("3_a3wx6")
@@ -43,6 +64,11 @@ material_override = SubResource("ShaderMaterial_a3wx6")
 extra_cull_margin = 16384.0
 mesh = SubResource("QuadMesh_a3wx6")
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_q6qut")
+}
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="FilmGrain" type="ColorRect" parent="CanvasLayer"]
@@ -52,3 +78,12 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Mirror" type="ColorRect" parent="CanvasLayer"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)

@@ -158,6 +158,9 @@ autoplay = "mixamo_com"
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.65737, 1.24759, 3.22325)
 environment = SubResource("Environment_w7yi3")
 
+[node name="FilmGrain" parent="FilmCamera/CanvasLayer" index="0"]
+visible = false
+
 [node name="StaticBody3D" type="StaticBody3D" parent="." index="6"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]

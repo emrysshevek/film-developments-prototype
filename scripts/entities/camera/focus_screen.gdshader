@@ -16,6 +16,8 @@ uniform float focus_circle_strength = .25;
 
 uniform float blur_strength = 1.0;
 
+uniform bool show_focus_ring = true;
+
 vec3 get_original(vec2 screen_uv, float lod)
 {
 	return texture(screen_texture, screen_uv, lod).rgb;
@@ -52,20 +54,24 @@ vec2 uv_proportional_to_normalized(vec2 uv, vec2 view){
 }
 
 void fragment() {
-	float D = get_depth(SCREEN_UV, INV_PROJECTION_MATRIX); // distance to foreground/background
+	vec2 uv = SCREEN_UV;
+	
 	// https://en.wikipedia.org/wiki/Depth_of_field#Foreground_and_background_blur
+	float D = get_depth(uv, INV_PROJECTION_MATRIX); // distance to foreground/background
 	float x_d = D - u;
 	float b = (f / N) * (abs(x_d) / (u + x_d));
 	
-	vec2 uv = uv_normalized_to_proportional(SCREEN_UV, VIEWPORT_SIZE);
-	if (distance(uv, vec2(0)) <= focus_circle_radius)
-	{
-		uv *= b * sign(x_d) * focus_circle_strength;
+	if (show_focus_ring){
+		uv = uv_normalized_to_proportional(SCREEN_UV, VIEWPORT_SIZE);
+		if (distance(uv, vec2(0)) <= focus_circle_radius){
+			uv *= b * sign(x_d) * focus_circle_strength;
+		}
+		
+		uv = uv_proportional_to_normalized(uv, VIEWPORT_SIZE);
+		
+		D = get_depth(uv, INV_PROJECTION_MATRIX); // distance to foreground/background
 	}
 	
-	uv = uv_proportional_to_normalized(uv, VIEWPORT_SIZE);
-	
-	D = get_depth(uv, INV_PROJECTION_MATRIX); // distance to foreground/background
 	// https://en.wikipedia.org/wiki/Depth_of_field#Foreground_and_background_blur
 	x_d = D - u;
 	b = (f / N) * (abs(x_d) / (u + x_d));
