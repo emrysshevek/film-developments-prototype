@@ -12,6 +12,8 @@ signal took_photo(photo: ViewportTexture)
 @onready var grain: ColorRect = $CanvasLayer/FilmGrain
 @onready var mirror: ColorRect = $CanvasLayer/Mirror
 
+var in_photo_mode := false
+
 func _ready() -> void:
 	focus_shader.set_shader_parameter("focal_distance", focus_dist)
 
@@ -26,10 +28,11 @@ func _input(event: InputEvent) -> void:
 			focus_shader.set_shader_parameter("focal_distance", focus_dist)
 
 
-#func _physics_process(delta: float) -> void:
-	#if Input.is_action_just_pressed("interact"):
-		#take_photo()
-
+func _physics_process(delta: float) -> void:
+	if in_photo_mode and Input.is_action_just_pressed(&"interact"):
+		take_photo()
+	if Input.is_action_just_pressed(&"camera"):
+		toggle_photo_mode()
 		
 func take_photo() -> void:
 	#   - hide focus circle (but not the dof blur!) and film grain
@@ -52,3 +55,10 @@ func take_photo() -> void:
 	grain.show()
 	
 	took_photo.emit(photo)
+
+func toggle_photo_mode() -> void:
+	in_photo_mode = not in_photo_mode
+	if in_photo_mode:
+		ap.play(&"raise")
+	else:
+		ap.play(&"lower")

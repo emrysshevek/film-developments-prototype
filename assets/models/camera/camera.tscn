@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://drlossfs4e4xk"]
+
+[ext_resource type="PackedScene" uid="uid://d2p5uaonb2au7" path="res://assets/models/camera/scene.gltf" id="1_u36jv"]
+
+[node name="Camera" instance=ExtResource("1_u36jv")]
+transform = Transform3D(0.48, 0, 0, 0, 0.48, 0, 0, 0, 0.48, 0, 0, 0)
+
+[node name="Sketchfab_model" parent="." index="0"]
+transform = Transform3D(0.05, 0, 0, 0, -2.18557e-09, 0.05, 0, -0.05, -2.18557e-09, 0, 2.03022e-06, 8.64956e-05)

@@ -183,6 +183,9 @@ autoplay = "mixamo_com"
 [node name="FilmCamera" parent="." index="5" instance=ExtResource("2_7duus")]
 transform = Transform3D(-0.99978, -2.17316e-10, -0.0209947, -0.00786475, 0.927184, 0.374524, 0.0194659, 0.374607, -0.92698, 1.02137, 1.28462, -1.52726)
 
+[node name="FocusScreen" parent="FilmCamera" index="0"]
+visible = false
+
 [node name="Player" parent="." index="6" instance=ExtResource("2_w7yi3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0353069)
 

@@ -90,11 +90,12 @@ void fragment() {
 		if (distance(uv, vec2(0)) <= focus_circle_radius){
 			uv *= 1.0 + clamp(c * focus_circle_strength, 0.0, focus_circle_max) * sign(D - focal_distance);
 			uv = uv_proportional_to_normalized(uv, VIEWPORT_SIZE);
-			D = get_depth(uv, INV_PROJECTION_MATRIX);
-			c = coc(D, VIEWPORT_SIZE);
-			ALBEDO = get_blurred(uv, c);
+			float D_shifted = get_depth(uv, INV_PROJECTION_MATRIX);
+			if (D < D_shifted){
+				c = coc(D, VIEWPORT_SIZE);
+				ALBEDO = get_blurred(uv, c);
+			}
 		}
-		
 	}
 		
 	

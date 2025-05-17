@@ -1,0 +1,11 @@
+Model Information:
+* title:	Asahi Pentax Spotmatic F Camera
+* source:	https://sketchfab.com/3d-models/asahi-pentax-spotmatic-f-camera-7605159a1d10491892e58d11b63ce6ba
+* author:	Remco Jacobs (https://sketchfab.com/RemcoJacobs)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Asahi Pentax Spotmatic F Camera" (https://sketchfab.com/3d-models/asahi-pentax-spotmatic-f-camera-7605159a1d10491892e58d11b63ce6ba) by Remco Jacobs (https://sketchfab.com/RemcoJacobs) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
