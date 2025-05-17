@@ -1,44 +1,65 @@
-[gd_scene load_steps=14 format=3 uid="uid://detlvyvgx6ibv"]
+[gd_scene load_steps=16 format=3 uid="uid://detlvyvgx6ibv"]
 
 [ext_resource type="Script" uid="uid://brnvo7j5kfjgj" path="res://scripts/entities/camera/film_camera.gd" id="1_mt3fo"]
 [ext_resource type="Shader" uid="uid://68wxx2ebhqol" path="res://scripts/entities/camera/focus_screen.gdshader" id="1_sjilr"]
 [ext_resource type="Shader" uid="uid://bpuv35bxb4t6a" path="res://assets/shaders/text_sketch/film_grain.gdshader" id="3_a3wx6"]
 
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_a3wx6"]
+sky_top_color = Color(1, 1, 1, 1)
+sky_energy_multiplier = 0.0
+
+[sub_resource type="Sky" id="Sky_4nds6"]
+sky_material = SubResource("ProceduralSkyMaterial_a3wx6")
+
 [sub_resource type="Environment" id="Environment_mt3fo"]
+background_mode = 2
+background_color = Color(0.894922, 0.894922, 0.894922, 1)
+background_energy_multiplier = 0.0
+sky = SubResource("Sky_4nds6")
 ambient_light_source = 2
 ambient_light_color = Color(1, 1, 1, 1)
-ambient_light_energy = 16.0
+ambient_light_energy = 0.1
+reflected_light_source = 2
+ssr_enabled = true
+ssao_enabled = true
+ssil_enabled = true
+sdfgi_enabled = true
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.0316
 
 [sub_resource type="CameraAttributesPhysical" id="CameraAttributesPhysical_a3wx6"]
+exposure_multiplier = 1.337
 auto_exposure_enabled = true
+frustum_focal_length = 46.38
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_a3wx6"]
 render_priority = 0
 shader = ExtResource("1_sjilr")
-shader_parameter/c = 0.003
-shader_parameter/f = 50.0
-shader_parameter/N = 3.2
-shader_parameter/u = 1.465
-shader_parameter/focus_circle_radius = 0.4
-shader_parameter/focus_circle_strength = 0.115
-shader_parameter/blur_strength = 0.25
+shader_parameter/accepted_coc = 0.05
+shader_parameter/focal_length = 50.0
+shader_parameter/f_number = 3.2
+shader_parameter/focal_distance = 101.83
+shader_parameter/focus_circle_radius = 0.25
+shader_parameter/focus_circle_strength = 0.25
+shader_parameter/focus_circle_max = 0.5
+shader_parameter/blur_strength = 1.0
 shader_parameter/show_focus_ring = true
 
 [sub_resource type="QuadMesh" id="QuadMesh_a3wx6"]
 flip_faces = true
 size = Vector2(2, 2)
 
-[sub_resource type="Animation" id="Animation_a3wx6"]
-resource_name = "raise"
+[sub_resource type="Animation" id="Animation_q6qut"]
+length = 0.001
 
 [sub_resource type="Animation" id="Animation_4nds6"]
 resource_name = "lower"
 
+[sub_resource type="Animation" id="Animation_a3wx6"]
+resource_name = "raise"
+
 [sub_resource type="Animation" id="Animation_g77vp"]
 resource_name = "take_photo"
-
-[sub_resource type="Animation" id="Animation_q6qut"]
-length = 0.001
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_q6qut"]
 _data = {

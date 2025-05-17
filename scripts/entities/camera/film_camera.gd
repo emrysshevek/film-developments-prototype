@@ -3,8 +3,8 @@ class_name FilmCamera
 
 signal took_photo(photo: ViewportTexture)
 
-@export var focus_dist := 1.0
-@export var focus_range := Vector2(0.01, 1000.0)
+@export var focus_dist := 2.0
+@export var focus_range := Vector2(0.1, 100.0)
 @export var focus_step := .1
 
 @onready var focus_shader: ShaderMaterial = $FocusScreen.material_override
@@ -13,12 +13,9 @@ signal took_photo(photo: ViewportTexture)
 @onready var mirror: ColorRect = $CanvasLayer/Mirror
 
 func _ready() -> void:
-	focus_shader.set_shader_parameter("u", focus_dist)
+	focus_shader.set_shader_parameter("focal_distance", focus_dist)
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed(&"interact"):
-		pass
-		#take a photo
 	if event is InputEventMouseButton:
 		if event.is_pressed():
 			if event.button_index == MOUSE_BUTTON_WHEEL_UP:
@@ -26,12 +23,12 @@ func _input(event: InputEvent) -> void:
 			elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
 				focus_dist = clamp(focus_dist - focus_step, focus_range.x, focus_range.y)
 			print("updated focus dist: ", focus_dist)
-			focus_shader.set_shader_parameter("u", focus_dist)
+			focus_shader.set_shader_parameter("focal_distance", focus_dist)
 
 
-func _physics_process(delta: float) -> void:
-	if Input.is_action_just_pressed("interact"):
-		take_photo()
+#func _physics_process(delta: float) -> void:
+	#if Input.is_action_just_pressed("interact"):
+		#take_photo()
 
 		
 func take_photo() -> void:
