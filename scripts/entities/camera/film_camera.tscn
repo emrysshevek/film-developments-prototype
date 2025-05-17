@@ -9,8 +9,8 @@ ambient_light_source = 2
 ambient_light_color = Color(1, 1, 1, 1)
 ambient_light_energy = 16.0
 
-[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_a3wx6"]
-exposure_multiplier = 2.358
+[sub_resource type="CameraAttributesPhysical" id="CameraAttributesPhysical_a3wx6"]
+auto_exposure_enabled = true
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_a3wx6"]
 render_priority = 0
@@ -18,11 +18,11 @@ shader = ExtResource("1_sjilr")
 shader_parameter/c = 0.003
 shader_parameter/f = 50.0
 shader_parameter/N = 3.2
-shader_parameter/u = 1.0
+shader_parameter/u = 1.465
 shader_parameter/focus_circle_radius = 0.4
-shader_parameter/focus_circle_strength = 0.07
+shader_parameter/focus_circle_strength = 0.115
 shader_parameter/blur_strength = 0.25
-shader_parameter/show_focus_ring = false
+shader_parameter/show_focus_ring = true
 
 [sub_resource type="QuadMesh" id="QuadMesh_a3wx6"]
 flip_faces = true
@@ -53,10 +53,9 @@ shader = ExtResource("3_a3wx6")
 shader_parameter/grain_amount = 0.129
 shader_parameter/grain_size = 1.0
 
-[node name="FilmCamera" type="Camera3D"]
+[node name="FilmCamera" type="Camera3D" groups=["camera"]]
 environment = SubResource("Environment_mt3fo")
-attributes = SubResource("CameraAttributesPractical_a3wx6")
-fov = 58.1
+attributes = SubResource("CameraAttributesPhysical_a3wx6")
 script = ExtResource("1_mt3fo")
 
 [node name="FocusScreen" type="MeshInstance3D" parent="."]
@@ -78,6 +77,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="Mirror" type="ColorRect" parent="CanvasLayer"]
 visible = false
@@ -86,4 +86,5 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 color = Color(0, 0, 0, 1)

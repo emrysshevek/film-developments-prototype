@@ -1,18 +1,12 @@
-[gd_scene load_steps=10 format=3 uid="uid://b11mpdf0sw1xr"]
+[gd_scene load_steps=9 format=3 uid="uid://b11mpdf0sw1xr"]
 
 [ext_resource type="PackedScene" uid="uid://bkctcb73jwlm" path="res://assets/models/church/scene.gltf" id="1_egtqk"]
 [ext_resource type="ArrayMesh" uid="uid://b17hbojeqfbs8" path="res://assets/models/church/church.obj" id="1_lj3jd"]
 [ext_resource type="PackedScene" uid="uid://drxs0pt1inxfn" path="res://assets/models/tree/scene.gltf" id="2_1jw61"]
 [ext_resource type="PackedScene" uid="uid://buthajlvbxwn0" path="res://scripts/entities/player/Player.tscn" id="2_6xsuj"]
-[ext_resource type="Shader" uid="uid://bpuv35bxb4t6a" path="res://assets/shaders/text_sketch/film_grain.gdshader" id="3_egtqk"]
+[ext_resource type="PackedScene" uid="uid://detlvyvgx6ibv" path="res://scripts/entities/camera/film_camera.tscn" id="5_egtqk"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_1jw61"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_yo5wy"]
-shader = ExtResource("3_egtqk")
-shader_parameter/grain_amount = 0.23
-shader_parameter/grain_size = 1.0
-shader_parameter/frame_time = 0.35
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_egtqk"]
 albedo_color = Color(0.064, 0.32, 0.1536, 1)
@@ -39,18 +33,7 @@ mesh = ExtResource("1_lj3jd")
 shape = SubResource("WorldBoundaryShape3D_1jw61")
 
 [node name="Player" parent="." instance=ExtResource("2_6xsuj")]
-transform = Transform3D(0.7, 0, 0, 0, 0.7, 0, 0, 0, 0.7, 1.58641, 0.486458, 6.20803)
-
-[node name="PostprocessLayer" type="CanvasLayer" parent="."]
-
-[node name="FilmGrain" type="ColorRect" parent="PostprocessLayer"]
-material = SubResource("ShaderMaterial_yo5wy")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
+transform = Transform3D(-0.693472, 0, -0.0953761, 0, 0.7, 0, 0.0953761, 0, -0.693472, 1.58641, 0.0280678, -1.98637)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.964774, 0.263082, 0, -0.263082, 0.964774, 0, 12.4858, 26.311)
@@ -64,5 +47,9 @@ mesh = SubResource("PlaneMesh_1jw61")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.74108, 13.2777)
 light_energy = 7.626
 shadow_enabled = true
+
+[node name="FilmCamera" parent="." instance=ExtResource("5_egtqk")]
+transform = Transform3D(-0.992349, 0, 0.123463, 0, 1, 0, -0.123463, 0, -0.992349, 0, 1.03255, 0)
+current = true
 
 [editable path="Player"]

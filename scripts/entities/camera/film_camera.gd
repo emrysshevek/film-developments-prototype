@@ -1,4 +1,5 @@
 extends Camera3D
+class_name FilmCamera
 
 signal took_photo(photo: ViewportTexture)
 

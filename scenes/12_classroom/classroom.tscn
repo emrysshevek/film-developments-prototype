@@ -1,13 +1,30 @@
-[gd_scene load_steps=5 format=3 uid="uid://b0vldm3ne3ed6"]
+[gd_scene load_steps=6 format=3 uid="uid://b0vldm3ne3ed6"]
 
 [ext_resource type="PackedScene" uid="uid://bwgh3lupp0nb8" path="res://scenes/12_classroom/classroom.glb" id="1_qm3yn"]
 [ext_resource type="PackedScene" uid="uid://detlvyvgx6ibv" path="res://scripts/entities/camera/film_camera.tscn" id="2_7duus"]
-
-[sub_resource type="Environment" id="Environment_w7yi3"]
+[ext_resource type="PackedScene" uid="uid://buthajlvbxwn0" path="res://scripts/entities/player/Player.tscn" id="2_w7yi3"]
+[ext_resource type="Material" uid="uid://dftkqmi5vqftp" path="res://assets/models/materials/dark.tres" id="3_202mg"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_7duus"]
 
 [node name="classroom" instance=ExtResource("1_qm3yn")]
+
+[node name="Sketchfab_model" parent="." index="0"]
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
+[node name="Cube" parent="Sketchfab_model/87f7dcff0ca947309a099b9d6e6d664d_fbx/RootNode" index="29"]
+metadata/_edit_group_ = true
+
+[node name="Cube_003_godray_0" parent="Sketchfab_model/87f7dcff0ca947309a099b9d6e6d664d_fbx/RootNode/Cube_003" index="0"]
+metadata/_edit_lock_ = true
+
+[node name="ground_ground_0" parent="Sketchfab_model/87f7dcff0ca947309a099b9d6e6d664d_fbx/RootNode/ground" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, -5.68434e-14, 0, 5.68434e-14, 1, 0, -0.0097399, 0.0611239)
+
+[node name="Sketchfab_model_001" parent="." index="1"]
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
 
 [node name="rp_carla_rigged_001" parent="Sketchfab_model_001/00ccf7d206834c999240fa18521bc8a3_fbx/Object_2/RootNode_001" index="0"]
 transform = Transform3D(0.999085, -0.0320487, -0.0283335, 0.0362761, 0.985773, 0.164123, 0.0226705, -0.165, 0.986033, 3.36004, -45.1488, 18.4158)
@@ -151,26 +168,65 @@ bones/86/rotation = Quaternion(-6.89179e-08, -4.28408e-08, 0, -1)
 bones/87/position = Vector3(-7.50199e-06, 18.2004, -3.15532e-06)
 bones/88/position = Vector3(8.97072e-06, 23.6829, 5.09609e-06)
 
+[node name="Francine" parent="." index="2"]
+material_override = ExtResource("3_202mg")
+
+[node name="Human Phil" parent="." index="3"]
+material_override = ExtResource("3_202mg")
+
 [node name="AnimationPlayer" parent="." index="4"]
 autoplay = "mixamo_com"
 
 [node name="FilmCamera" parent="." index="5" instance=ExtResource("2_7duus")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.65737, 1.24759, 3.22325)
-environment = SubResource("Environment_w7yi3")
+transform = Transform3D(-0.99978, -2.17316e-10, -0.0209947, -0.00786475, 0.927184, 0.374524, 0.0194659, 0.374607, -0.92698, 1.02137, 1.28462, -1.52726)
 
-[node name="FilmGrain" parent="FilmCamera/CanvasLayer" index="0"]
-visible = false
+[node name="Player" parent="." index="6" instance=ExtResource("2_w7yi3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.37896)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="." index="6"]
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="7"]
+metadata/_edit_lock_ = true
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
 shape = SubResource("WorldBoundaryShape3D_7duus")
 
-[node name="SpotLight3D" type="SpotLight3D" parent="." index="7"]
-transform = Transform3D(-0.0836492, -0.306161, 0.948298, -0.0269019, 0.95198, 0.304976, -0.996132, 0, -0.0878686, 6.50174, 1.47678, -1.03234)
-light_energy = 15.385
+[node name="Lights" type="Node3D" parent="." index="8"]
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Lights" index="0"]
+transform = Transform3D(-0.0389623, -0.896316, 0.4417, -0.0787581, 0.443415, 0.89285, -0.996132, 5.23762e-08, -0.0878687, 3.65394, 2.54472, -3.38807)
+light_energy = 6.405
 shadow_enabled = true
 spot_range = 11.233
-spot_angle = 37.73
+spot_angle = 39.44
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="Lights" index="1"]
+transform = Transform3D(-0.0389623, -0.896316, 0.4417, -0.0787581, 0.443415, 0.89285, -0.996132, 5.23567e-08, -0.0878687, 3.65394, 2.54472, -1.12032)
+light_energy = 6.405
+shadow_enabled = true
+spot_range = 11.233
+spot_angle = 39.44
+
+[node name="SpotLight3D3" type="SpotLight3D" parent="Lights" index="2"]
+transform = Transform3D(-0.0389623, -0.896316, 0.4417, -0.0787581, 0.443415, 0.89285, -0.996132, 5.23566e-08, -0.0878687, 3.65394, 2.54472, 1.28853)
+light_energy = 6.405
+shadow_enabled = true
+spot_range = 11.233
+spot_angle = 39.44
+
+[node name="SpotLight3D4" type="SpotLight3D" parent="Lights" index="3"]
+transform = Transform3D(-0.0389623, -0.896316, 0.4417, -0.0787581, 0.443415, 0.89285, -0.996132, 5.23566e-08, -0.0878687, 3.65394, 2.54472, 3.43962)
+light_energy = 6.405
+shadow_enabled = true
+spot_range = 11.233
+spot_angle = 39.44
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Lights" index="4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.44439, 3.003, 2.6316)
+shadow_enabled = true
+omni_attenuation = 1.202
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Lights" index="5"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.73055, 3.003, 2.51583)
+shadow_enabled = true
+omni_attenuation = 1.202
 
 [editable path="FilmCamera"]

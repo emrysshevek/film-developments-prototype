@@ -45,6 +45,10 @@ func _ready():
 	
 	_capture_mouse()
 	_check_input_mappings()
+	
+	var camera = get_tree().get_first_node_in_group("camera")
+	if camera:
+		$Head/RemoteTransform3D.remote_path = camera.get_path()
 
 func _unhandled_input(event):
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
@@ -132,3 +136,6 @@ func _check_input_mappings():
 func _warn(action: String):
 	push_error("Movement disabled. No InputAction found for %s" % action)
 	can_move = false
+	
+func give_camera(camera: FilmCamera) -> void:
+	$Head/RemoteTransform3D.remote_path = camera.get_path()

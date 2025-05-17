@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://buthajlvbxwn0"]
+[gd_scene load_steps=4 format=3 uid="uid://buthajlvbxwn0"]
 
 [ext_resource type="Script" uid="uid://c4lxii56ucocm" path="res://scripts/entities/player/player.gd" id="1_4f3np"]
 [ext_resource type="PackedScene" uid="uid://x240q6ltm0ai" path="res://assets/models/young_alice/scene.gltf" id="4_82rqh"]
@@ -7,37 +7,7 @@
 radius = 0.261484
 height = 1.20967
 
-[sub_resource type="Gradient" id="Gradient_f0hkg"]
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_82rqh"]
-gradient = SubResource("Gradient_f0hkg")
-
-[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_v6anq"]
-panorama = SubResource("GradientTexture2D_82rqh")
-
-[sub_resource type="Sky" id="Sky_82rqh"]
-sky_material = SubResource("PanoramaSkyMaterial_v6anq")
-
-[sub_resource type="Environment" id="Environment_f0hkg"]
-background_mode = 1
-background_color = Color(1, 1, 1, 1)
-background_energy_multiplier = 1.1
-sky = SubResource("Sky_82rqh")
-ambient_light_source = 2
-ambient_light_color = Color(1, 1, 1, 1)
-ambient_light_sky_contribution = 0.0
-ssr_enabled = true
-ssao_enabled = true
-adjustment_enabled = true
-adjustment_contrast = 1.08
-
-[sub_resource type="CameraAttributesPhysical" id="CameraAttributesPhysical_f0hkg"]
-auto_exposure_speed = 2.52
-frustum_focus_distance = 0.5
-frustum_focal_length = 17.0
-
-[node name="Player" type="CharacterBody3D"]
+[node name="Player" type="CharacterBody3D" groups=["player"]]
 script = ExtResource("1_4f3np")
 base_speed = 5.0
 sprint_speed = 7.0
@@ -52,11 +22,10 @@ shape = SubResource("CapsuleShape3D_iof21")
 [node name="Head" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.01091, -0.238302)
 
-[node name="Camera3D" type="Camera3D" parent="Head"]
-environment = SubResource("Environment_f0hkg")
-attributes = SubResource("CameraAttributesPhysical_f0hkg")
-
 [node name="SeeCast" type="RayCast3D" parent="Head"]
 transform = Transform3D(1.91069e-15, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, 0, 0, 0)
 target_position = Vector3(0, 3, 0)
 collide_with_areas = true
+
+[node name="RemoteTransform3D" type="RemoteTransform3D" parent="Head"]
+update_scale = false
