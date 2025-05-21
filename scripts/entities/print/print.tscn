@@ -6,8 +6,8 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_f1hg5"]
 shader = ExtResource("3_cm08h")
-shader_parameter/fade = 0.0
-shader_parameter/developer_strength = 4.0
+shader_parameter/fade = 1.0
+shader_parameter/strength = 1.0
 
 [node name="Print" type="Control"]
 layout_mode = 3
@@ -48,6 +48,7 @@ offset_right = 635.5
 offset_bottom = 501.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("2_8lx4d")
 expand_mode = 1
 stretch_mode = 5
 
