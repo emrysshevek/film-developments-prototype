@@ -1,13 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://qqi0hkytc5vy"]
+[gd_scene load_steps=3 format=3 uid="uid://qqi0hkytc5vy"]
 
 [ext_resource type="Script" uid="uid://d185xp3kicnke" path="res://scripts/minigames/paper_dev/paper_dev_minigame.gd" id="1_o0wfw"]
-[ext_resource type="Texture2D" uid="uid://mdabeev0ku8y" path="res://assets/photos/chapter 2/NK7A2256.jpg" id="2_c5x7w"]
-[ext_resource type="Shader" uid="uid://cp1rtq8gf6ucr" path="res://scripts/minigames/paper_dev/developer_fade_shader.gdshader" id="2_o3l8g"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_k3tms"]
-shader = ExtResource("2_o3l8g")
-shader_parameter/fade = 1.0
-shader_parameter/developer_strength = 4.0
+[ext_resource type="PackedScene" uid="uid://4x4d10qx0umf" path="res://scripts/entities/print/print.tscn" id="2_o0wfw"]
 
 [node name="PaperDevMinigame" type="Node2D"]
 script = ExtResource("1_o0wfw")
@@ -23,8 +17,9 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(1, 0, 0, 1)
 
-[node name="PhotoTexture" type="Sprite2D" parent="."]
-material = SubResource("ShaderMaterial_k3tms")
-position = Vector2(879, 538)
-scale = Vector2(0.18653, 0.18653)
-texture = ExtResource("2_c5x7w")
+[node name="Print" parent="." instance=ExtResource("2_o0wfw")]
+offset_left = 978.0
+offset_top = 551.0
+offset_right = 978.0
+offset_bottom = 551.0
+scale = Vector2(0.55, 0.55)
