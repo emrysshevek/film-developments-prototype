@@ -1,21 +1,36 @@
-[gd_scene load_steps=6 format=3 uid="uid://bobwiscs3cvd6"]
+[gd_scene load_steps=7 format=3 uid="uid://bldbm8xys6hne"]
 
 [ext_resource type="PackedScene" uid="uid://4x4d10qx0umf" path="res://scripts/entities/print/print.tscn" id="1_lxx3m"]
-[ext_resource type="Shader" uid="uid://df6opphteqjay" path="res://scripts/minigames/paper_dev/tray_rocker.gdshader" id="2_lxx3m"]
-[ext_resource type="Shader" uid="uid://bhjqk4ur2jgsr" path="res://scripts/minigames/paper_dev/wave.gdshader" id="3_qqb6d"]
+[ext_resource type="Script" uid="uid://c65dt8njprsp3" path="res://scripts/minigames/paper_dev/tray.gd" id="1_qqb6d"]
+[ext_resource type="Shader" uid="uid://4nk4ianmw15q" path="res://scripts/minigames/paper_dev/tray.gdshader" id="2_qqb6d"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_guodw"]
-shader = ExtResource("2_lxx3m")
-shader_parameter/tilt = 0.0
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_42tmf"]
+noise_type = 2
+frequency = 0.0198
+fractal_type = 0
+fractal_octaves = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_vx4rm"]
+seamless = true
+bump_strength = 11.0
+noise = SubResource("FastNoiseLite_42tmf")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dedh7"]
+shader = ExtResource("2_qqb6d")
+shader_parameter/debug = false
 shader_parameter/tilt_axis = 0.14
-shader_parameter/tilt_strength = 0.44
-shader_parameter/wave_pos = 0.0
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_42tmf"]
-shader = ExtResource("3_qqb6d")
-shader_parameter/wave_uv = Vector2(0.5, 0.4)
-shader_parameter/wave_length = 39.0
-shader_parameter/max_distortion = 6.0
+shader_parameter/tray_area_min = Vector2(0.34, 0.14)
+shader_parameter/tray_area_max = Vector2(0.65, 0.84)
+shader_parameter/wave_pos = 0.5
+shader_parameter/distortion = 25.0
+shader_parameter/wave_length = 49.0
+shader_parameter/distortion_decay = 21.0
+shader_parameter/wave_length_decay = 7.7
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_vx4rm")
+shader_parameter/noise_strength = 0.013
+shader_parameter/noise_speed = 0.04
+shader_parameter/tilt = 0.0
+shader_parameter/tilt_strength = 0.17
 
 [node name="Tray" type="Control"]
 layout_mode = 3
@@ -24,6 +39,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_qqb6d")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -34,10 +50,11 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -343.0
 offset_top = -441.0
-offset_right = 343.0
-offset_bottom = 441.0
+offset_right = 319.0
+offset_bottom = 410.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 color = Color(1, 0.864333, 0.63, 1)
 
 [node name="Print" parent="ColorRect" instance=ExtResource("1_lxx3m")]
@@ -50,22 +67,12 @@ anchor_bottom = 0.5
 rotation = 1.5708
 scale = Vector2(0.475, 0.475)
 
-[node name="TrayRockShader" type="ColorRect" parent="."]
-material = SubResource("ShaderMaterial_guodw")
+[node name="TrayShader" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_dedh7")
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-metadata/_edit_lock_ = true
-
-[node name="ColorRect2" type="ColorRect" parent="."]
-material = SubResource("ShaderMaterial_42tmf")
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-metadata/_edit_lock_ = true
+mouse_filter = 2
