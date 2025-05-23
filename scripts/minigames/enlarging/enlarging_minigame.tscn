@@ -1,0 +1,86 @@
+[gd_scene load_steps=13 format=3 uid="uid://yffp3pbenbg1"]
+
+[ext_resource type="Script" uid="uid://ct64i58qvp0oi" path="res://scripts/minigames/enlarging/enlarging_minigame.gd" id="1_q1fxy"]
+[ext_resource type="PackedScene" uid="uid://dgiulj5xmffb" path="res://scripts/entities/print/print.tscn" id="2_y64b6"]
+[ext_resource type="Shader" uid="uid://dumrte7sqs0k2" path="res://scripts/minigames/enlarging/enlarger_grain.gdshader" id="3_avhft"]
+[ext_resource type="Shader" uid="uid://15yf8v5imto5" path="res://scripts/minigames/enlarging/enlarger_focus.gdshader" id="4_07jjc"]
+[ext_resource type="Shader" uid="uid://dqux14g1j1lsx" path="res://scripts/minigames/enlarging/enlarger_mask.gdshader" id="5_gncsg"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_clqm3"]
+noise_type = 2
+frequency = 0.5
+fractal_type = 0
+cellular_return_type = 0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_hr8r7"]
+width = 1920
+height = 1080
+seamless = true
+seamless_blend_skirt = 1.0
+noise = SubResource("FastNoiseLite_clqm3")
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_xr4mn"]
+noise_type = 2
+frequency = 0.5
+fractal_octaves = 1
+fractal_lacunarity = 2.78
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_svjf3"]
+width = 1920
+height = 1080
+seamless = true
+seamless_blend_skirt = 1.0
+noise = SubResource("FastNoiseLite_xr4mn")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hr8r7"]
+shader = ExtResource("3_avhft")
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_hr8r7")
+shader_parameter/noise_texture2 = SubResource("NoiseTexture2D_svjf3")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xr4mn"]
+shader = ExtResource("4_07jjc")
+shader_parameter/focus = 0.0
+shader_parameter/min_lod = 0.6
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_clqm3"]
+shader = ExtResource("5_gncsg")
+shader_parameter/radius = 0.7
+
+[node name="EnlargingMinigame" type="Node2D"]
+script = ExtResource("1_q1fxy")
+
+[node name="Print" parent="." instance=ExtResource("2_y64b6")]
+position = Vector2(1519, 375)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Grain" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_hr8r7")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="CanvasLayer3" type="CanvasLayer" parent="."]
+
+[node name="Focus" type="ColorRect" parent="CanvasLayer3"]
+material = SubResource("ShaderMaterial_xr4mn")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="Mask" type="ColorRect" parent="CanvasLayer2"]
+material = SubResource("ShaderMaterial_clqm3")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
