@@ -1,12 +1,141 @@
-[gd_scene load_steps=3 format=3 uid="uid://qqi0hkytc5vy"]
+[gd_scene load_steps=10 format=3 uid="uid://qqi0hkytc5vy"]
 
 [ext_resource type="Script" uid="uid://d185xp3kicnke" path="res://scripts/minigames/paper_dev/paper_dev_minigame.gd" id="1_o0wfw"]
-[ext_resource type="PackedScene" uid="uid://bldbm8xys6hne" path="res://scripts/minigames/paper_dev/tray.tscn" id="3_c5x7w"]
+[ext_resource type="Texture2D" uid="uid://c50x24msww2d1" path="res://assets/photos/chapter 2/NK7A2263.jpg" id="2_o3l8g"]
+[ext_resource type="Shader" uid="uid://cp1rtq8gf6ucr" path="res://scripts/minigames/paper_dev/developer_fade_shader.gdshader" id="3_k3tms"]
+[ext_resource type="Shader" uid="uid://4nk4ianmw15q" path="res://scripts/minigames/paper_dev/tray.gdshader" id="4_2kgb6"]
+[ext_resource type="Script" uid="uid://8d3qg05xc17i" path="res://scripts/entities/print/print.gd" id="4_k3tms"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6e84l"]
+shader = ExtResource("3_k3tms")
+shader_parameter/fade = 0.01
+shader_parameter/strength = 0.0
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_o3l8g"]
+noise_type = 2
+frequency = 0.0251
+fractal_octaves = 3
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_k3tms"]
+seamless = true
+seamless_blend_skirt = 0.406
+noise = SubResource("FastNoiseLite_o3l8g")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qewjq"]
+shader = ExtResource("4_2kgb6")
+shader_parameter/debug = false
+shader_parameter/tilt_axis = 0.12
+shader_parameter/tray_area_min = Vector2(0.325, 0.135)
+shader_parameter/tray_area_max = Vector2(0.675, 0.86)
+shader_parameter/wave_pos = 0.08
+shader_parameter/distortion = 30.0
+shader_parameter/wave_length = 21.0
+shader_parameter/distortion_decay = 55.0
+shader_parameter/wave_length_decay = 11.1
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_k3tms")
+shader_parameter/noise_strength = 0.005
+shader_parameter/noise_speed = 0.05
+shader_parameter/tilt = 0.0
+shader_parameter/tilt_strength = 0.15
 
 [node name="PaperDevMinigame" type="Node2D"]
 script = ExtResource("1_o0wfw")
+wave_travel_time = 0.1
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
 
-[node name="Tray" parent="CanvasLayer" instance=ExtResource("3_c5x7w")]
-wave_travel_time = 3.0
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 550
+theme_override_constants/margin_top = 75
+theme_override_constants/margin_right = 550
+theme_override_constants/margin_bottom = 75
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control/MarginContainer"]
+layout_mode = 2
+color = Color(0.851563, 0.825367, 0.432434, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/MarginContainer/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control/MarginContainer/ColorRect/MarginContainer"]
+layout_mode = 2
+color = Color(0.67, 0.64588, 0.3082, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/MarginContainer/ColorRect/MarginContainer/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control/MarginContainer/ColorRect/MarginContainer/ColorRect/MarginContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/MarginContainer/ColorRect/MarginContainer/ColorRect/MarginContainer/ColorRect"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(310, 365)
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/MarginContainer/ColorRect/MarginContainer/ColorRect/MarginContainer/ColorRect/MarginContainer"]
+visible = false
+layout_mode = 2
+texture = ExtResource("2_o3l8g")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="Print" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_6e84l")
+position = Vector2(959.082, 535.082)
+rotation = 1.5708
+scale = Vector2(0.122102, 0.122102)
+texture = ExtResource("2_o3l8g")
+script = ExtResource("4_k3tms")
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="TrayShader" type="ColorRect" parent="CanvasLayer2"]
+material = SubResource("ShaderMaterial_qewjq")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
