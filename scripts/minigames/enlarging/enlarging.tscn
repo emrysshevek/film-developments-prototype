@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://yffp3pbenbg1"]
+
+[ext_resource type="PackedScene" uid="uid://dgiulj5xmffb" path="res://scripts/entities/print/print.tscn" id="1_5x03w"]
+[ext_resource type="Shader" uid="uid://15yf8v5imto5" path="res://scripts/minigames/enlarging/enlarging_focus.gdshader" id="2_5x03w"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_clqm3"]
+shader = ExtResource("2_5x03w")
+shader_parameter/radius = 0.7
+shader_parameter/lod = 26.405
+
+[node name="Enlarging" type="Node2D"]
+
+[node name="Print" parent="." instance=ExtResource("1_5x03w")]
+scale = Vector2(10, 10)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_clqm3")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

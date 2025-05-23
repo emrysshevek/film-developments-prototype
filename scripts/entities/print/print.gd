@@ -2,13 +2,12 @@ extends Sprite2D
 class_name Print
 
 var developing := false
-var developed := false
+@export var developed := false
 
-var fade := 0.0
-var strength := 0.0
+@export var fade := 0.0
+@export var strength := 0.0
 	
 func _process(_delta: float) -> void:
-	print("fade: ", fade, ", strength: ", strength)
 	material.set_shader_parameter("fade", fade)
 	material.set_shader_parameter("strength", strength)
 		
