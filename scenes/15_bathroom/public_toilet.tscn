@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://hsc1c30df0bk"]
+[gd_scene load_steps=10 format=3 uid="uid://hsc1c30df0bk"]
 
 [ext_resource type="PackedScene" uid="uid://bhx64cakne83s" path="res://scenes/15_bathroom/bathroom.glb" id="1_shgrg"]
 [ext_resource type="PackedScene" uid="uid://buthajlvbxwn0" path="res://scripts/entities/player/Player.tscn" id="2_24eyb"]
 [ext_resource type="PackedScene" uid="uid://dsb5i3qq3yndp" path="res://assets/models/scissors/scene.gltf" id="2_oa65h"]
 [ext_resource type="Shader" uid="uid://bpuv35bxb4t6a" path="res://assets/shaders/text_sketch/film_grain.gdshader" id="3_sl248"]
+[ext_resource type="PackedScene" uid="uid://detlvyvgx6ibv" path="res://scripts/entities/camera/film_camera.tscn" id="5_p3xkv"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_24eyb"]
 metallic = 0.98
@@ -16,6 +17,8 @@ roughness = 0.0
 shader = ExtResource("3_sl248")
 shader_parameter/grain_amount = 0.196
 shader_parameter/grain_size = 1.0
+
+[sub_resource type="Compositor" id="Compositor_p3xkv"]
 
 [node name="Public toilet" instance=ExtResource("1_shgrg")]
 
@@ -61,4 +64,9 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
+[node name="FilmCamera" parent="." index="25" instance=ExtResource("5_p3xkv")]
+compositor = SubResource("Compositor_p3xkv")
+focus_dist = 0.525
+
 [editable path="Player"]
+[editable path="FilmCamera"]

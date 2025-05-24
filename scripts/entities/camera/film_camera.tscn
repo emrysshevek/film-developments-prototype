@@ -31,7 +31,8 @@ volumetric_fog_density = 0.0316
 [sub_resource type="CameraAttributesPhysical" id="CameraAttributesPhysical_a3wx6"]
 exposure_multiplier = 1.337
 auto_exposure_enabled = true
-frustum_focal_length = 18.0
+frustum_focus_distance = 4000.0
+frustum_focal_length = 5.44
 frustum_near = 0.021
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_a3wx6"]
