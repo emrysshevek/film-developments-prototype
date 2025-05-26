@@ -18,7 +18,8 @@ func _physics_process(_delta: float) -> void:
 	if Input.is_action_just_pressed(&"interact"):
 		rock_tray()
 		print.develop(development_time)
-		
+	if Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
+		print._reset()
 
 func _process(_delta: float) -> void:
 	#print(tilt, " ", wave_pos, " ", distortion)

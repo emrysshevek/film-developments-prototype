@@ -1,16 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://c7ckiym7vd03f"]
+[gd_scene load_steps=7 format=3 uid="uid://c7ckiym7vd03f"]
 
 [ext_resource type="PackedScene" uid="uid://dapsjbdix65f7" path="res://assets/models/living_room/scene.gltf" id="1_vrwvx"]
 [ext_resource type="PackedScene" uid="uid://buthajlvbxwn0" path="res://scripts/entities/player/Player.tscn" id="2_l51hx"]
-[ext_resource type="Shader" uid="uid://bpuv35bxb4t6a" path="res://assets/shaders/text_sketch/film_grain.gdshader" id="3_2ywrp"]
+[ext_resource type="PackedScene" uid="uid://detlvyvgx6ibv" path="res://scripts/entities/camera/film_camera.tscn" id="4_st0kr"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_2ywrp"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_st0kr"]
-shader = ExtResource("3_2ywrp")
-shader_parameter/grain_amount = 0.106
-shader_parameter/grain_size = 1.0
-shader_parameter/frame_time = 0.35
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2ywrp"]
 metallic = 1.0
@@ -33,26 +27,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.9459, 0, -6.34491)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
 shape = SubResource("WorldBoundaryShape3D_2ywrp")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." index="3"]
-
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer" index="0"]
-material = SubResource("ShaderMaterial_st0kr")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="4"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." index="3"]
 transform = Transform3D(0.998738, -4.63941e-10, -0.050227, 0.00646119, 0.991691, 0.128477, 0.0498097, -0.12864, 0.99044, -13.313, 2.07592, -8.66989)
 mesh = SubResource("BoxMesh_st0kr")
 
-[node name="SpotLight3D" type="SpotLight3D" parent="." index="5"]
+[node name="SpotLight3D" type="SpotLight3D" parent="." index="4"]
 transform = Transform3D(-0.124866, 0, -0.992174, 0, 1, 0, 0.992174, 0, -0.124866, -16.4722, 2.70734, -6.21589)
 light_energy = 11.313
 shadow_enabled = true
 
-[node name="ReflectionProbe" type="ReflectionProbe" parent="." index="6"]
+[node name="ReflectionProbe" type="ReflectionProbe" parent="." index="5"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.2656, 2.22821, -7.71873)
 update_mode = 1
+
+[node name="FilmCamera" parent="." index="6" instance=ExtResource("4_st0kr")]

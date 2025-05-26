@@ -3,10 +3,12 @@ class_name FilmCamera
 
 signal took_photo(photo: ViewportTexture)
 
+
 @export var focus_dist := 2.0
 @export var focus_range := Vector2(0.1, 100.0)
 @export var focus_step := .1
 
+@export var default_focal_length := 35
 @export var focal_length := 35
 @export var f_stop := 3.2
 
@@ -83,6 +85,13 @@ func take_photo() -> void:
 	grain.show()
 	
 	took_photo.emit(photo)
+	
+func _toggle_focal_length() -> void:
+	var atts = (attributes as CameraAttributesPhysical)
+	if in_photo_mode:
+		atts.frustum_focal_length = focal_length
+	else:
+		atts.frustum_focal_length = default_focal_length
 
 func toggle_photo_mode() -> void:
 	in_photo_mode = not in_photo_mode
