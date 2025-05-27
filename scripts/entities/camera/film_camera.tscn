@@ -1,18 +1,10 @@
-<<<<<<< HEAD
-[gd_scene load_steps=18 format=3 uid="uid://detlvyvgx6ibv"]
-=======
-[gd_scene load_steps=19 format=3 uid="uid://detlvyvgx6ibv"]
->>>>>>> a634ba83f757663bf4895d473147b333f0259227
+[gd_scene load_steps=18 format=3 uid="uid://lfh7bra87afo"]
 
 [ext_resource type="Script" uid="uid://brnvo7j5kfjgj" path="res://scripts/entities/camera/film_camera.gd" id="1_mt3fo"]
 [ext_resource type="Shader" uid="uid://68wxx2ebhqol" path="res://scripts/entities/camera/focus_screen.gdshader" id="1_sjilr"]
 [ext_resource type="PackedScene" uid="uid://drlossfs4e4xk" path="res://assets/models/camera/camera.tscn" id="2_4nds6"]
 [ext_resource type="Shader" uid="uid://bpuv35bxb4t6a" path="res://assets/shaders/text_sketch/film_grain.gdshader" id="3_a3wx6"]
-<<<<<<< HEAD
 [ext_resource type="Texture2D" uid="uid://cs2y4hxrgy7kr" path="res://assets/sprites/camera_overlay.png" id="5_g77vp"]
-=======
-[ext_resource type="Shader" uid="uid://betwt22gd7aj5" path="res://scripts/entities/camera/camera_mask.gdshader" id="5_g77vp"]
->>>>>>> a634ba83f757663bf4895d473147b333f0259227
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_a3wx6"]
 sky_top_color = Color(1, 1, 1, 1)
@@ -257,10 +249,6 @@ shader = ExtResource("3_a3wx6")
 shader_parameter/grain_amount = 0.129
 shader_parameter/grain_size = 1.0
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_q6qut"]
-shader = ExtResource("5_g77vp")
-shader_parameter/corner_scale = 0.146
-
 [node name="FilmCamera" type="Camera3D" groups=["camera"]]
 environment = SubResource("Environment_mt3fo")
 attributes = SubResource("CameraAttributesPhysical_a3wx6")
@@ -301,7 +289,6 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
-<<<<<<< HEAD
 [node name="CameraOverlay" type="TextureRect" parent="CanvasLayer"]
 visible = false
 anchors_preset = 15
@@ -310,19 +297,3 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("5_g77vp")
-=======
-[node name="CanvasLayer2" type="CanvasLayer" parent="."]
-
-[node name="CameraOverlay" type="ColorRect" parent="CanvasLayer2"]
-material = SubResource("ShaderMaterial_q6qut")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 83.0
-offset_top = 72.0
-offset_right = -79.0
-offset_bottom = -52.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 1)
->>>>>>> a634ba83f757663bf4895d473147b333f0259227

@@ -7,6 +7,7 @@ var developing := false
 @export var fade := 0.0
 @export var strength := 0.0
 
+var region = Rect2(265, 75, 1390, 930)
 var tween: Tween
 	
 func _process(_delta: float) -> void:

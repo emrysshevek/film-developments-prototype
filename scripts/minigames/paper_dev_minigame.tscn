@@ -1,16 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://qqi0hkytc5vy"]
+[gd_scene load_steps=11 format=3 uid="uid://qqi0hkytc5vy"]
 
 [ext_resource type="Script" uid="uid://d185xp3kicnke" path="res://scripts/minigames/paper_dev/paper_dev_minigame.gd" id="1_m8isa"]
 [ext_resource type="Texture2D" uid="uid://c50x24msww2d1" path="res://assets/photos/chapter 2/NK7A2263.jpg" id="2_bo53k"]
-[ext_resource type="Shader" uid="uid://cp1rtq8gf6ucr" path="res://scripts/minigames/paper_dev/developer_fade_shader.gdshader" id="3_beyau"]
-[ext_resource type="Script" uid="uid://8d3qg05xc17i" path="res://scripts/entities/print/print.gd" id="4_8ab2p"]
+[ext_resource type="PackedScene" uid="uid://dgiulj5xmffb" path="res://scripts/entities/print/print.tscn" id="3_m8isa"]
+[ext_resource type="Texture2D" uid="uid://jtq4f7gj428f" path="res://assets/photos/in_game/test.jpg" id="4_bo53k"]
 [ext_resource type="Shader" uid="uid://4nk4ianmw15q" path="res://scripts/minigames/paper_dev/tray.gdshader" id="5_d6nts"]
 [ext_resource type="Shader" uid="uid://bmytm3mq6th0r" path="res://scripts/minigames/paper_dev/darkroom_lighting.gdshader" id="6_jx2w3"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_6e84l"]
-shader = ExtResource("3_beyau")
-shader_parameter/fade = 0.01
-shader_parameter/strength = 0.0
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_o3l8g"]
 noise_type = 2
@@ -136,13 +131,11 @@ texture = ExtResource("2_bo53k")
 expand_mode = 5
 stretch_mode = 5
 
-[node name="Print" type="Sprite2D" parent="."]
-material = SubResource("ShaderMaterial_6e84l")
-position = Vector2(959.082, 535.082)
+[node name="Print" parent="." instance=ExtResource("3_m8isa")]
+position = Vector2(960, 540)
 rotation = 1.5708
-scale = Vector2(0.122102, 0.122102)
-texture = ExtResource("2_bo53k")
-script = ExtResource("4_8ab2p")
+scale = Vector2(0.485, 0.485)
+texture = ExtResource("4_bo53k")
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
 

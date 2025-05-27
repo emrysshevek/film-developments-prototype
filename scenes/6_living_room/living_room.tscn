@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dapsjbdix65f7" path="res://assets/models/living_room/scene.gltf" id="1_vrwvx"]
 [ext_resource type="PackedScene" uid="uid://buthajlvbxwn0" path="res://scripts/entities/player/Player.tscn" id="2_l51hx"]
-[ext_resource type="PackedScene" uid="uid://detlvyvgx6ibv" path="res://scripts/entities/camera/film_camera.tscn" id="4_st0kr"]
+[ext_resource type="PackedScene" uid="uid://lfh7bra87afo" path="res://scripts/entities/camera/film_camera.tscn" id="4_st0kr"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_2ywrp"]
 
@@ -20,7 +20,7 @@ size = Vector3(1.25, 1, 1)
 transform = Transform3D(0.0667167, -0.025394, -0.00246413, 1.0333e-05, -0.00687183, 0.0710972, -0.0255133, -0.0664075, -0.00641484, -9.37902, 2.01638, -8.42932)
 
 [node name="Player" parent="." index="1" instance=ExtResource("2_l51hx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.9459, 0, -6.34491)
+transform = Transform3D(1.485, 0, 0, 0, 1.485, 0, 0, 0, 1.485, -11.9459, 0.15311, -6.34491)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." index="2"]
 
@@ -28,7 +28,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.9459, 0, -6.34491)
 shape = SubResource("WorldBoundaryShape3D_2ywrp")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." index="3"]
-transform = Transform3D(0.998738, -4.63941e-10, -0.050227, 0.00646119, 0.991691, 0.128477, 0.0498097, -0.12864, 0.99044, -13.313, 2.07592, -8.66989)
+transform = Transform3D(0.999893, -0.00471609, -0.0138826, 0.00608001, 0.994978, 0.0999059, 0.0133417, -0.0999802, 0.9949, -13.313, 2.07592, -8.69013)
 mesh = SubResource("BoxMesh_st0kr")
 
 [node name="SpotLight3D" type="SpotLight3D" parent="." index="4"]
@@ -37,7 +37,7 @@ light_energy = 11.313
 shadow_enabled = true
 
 [node name="ReflectionProbe" type="ReflectionProbe" parent="." index="5"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.2656, 2.22821, -7.71873)
+transform = Transform3D(0.999727, -0.0233853, 0, 0.0233853, 0.999727, 0, 0, 0, 1, -13.3103, 1.84861, -7.68482)
 update_mode = 1
 
 [node name="FilmCamera" parent="." index="6" instance=ExtResource("4_st0kr")]

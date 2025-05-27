@@ -16,6 +16,7 @@ signal took_photo(photo: ViewportTexture)
 @onready var ap: AnimationPlayer = $AnimationPlayer
 @onready var grain: ColorRect = $CanvasLayer/FilmGrain
 @onready var mirror: ColorRect = $CanvasLayer/Mirror
+@onready var overlay: TextureRect = $CanvasLayer/CameraOverlay
 
 var in_photo_mode := false
 
@@ -67,11 +68,12 @@ func _adjust_f_stop() -> void:
 func take_photo() -> void:
 	#   - hide focus circle (but not the dof blur!) and film grain
 	focus_shader.set_shader_parameter("show_focus_ring", false)
-	grain.hide()
+	#grain.hide()
+	overlay.hide()
 	
 	#   - screenshot current scene
 	await RenderingServer.frame_post_draw
-	var photo: ViewportTexture = get_viewport().get_texture()
+	get_viewport().get_texture().get_image().save_jpg("res://assets/photos/in_game/test.jpg")
 	
 	#   - flash black screen for duration of shutter
 	mirror.show()
@@ -82,9 +84,10 @@ func take_photo() -> void:
 	
 	#   - show focus circle and film grain
 	focus_shader.set_shader_parameter("show_focus_ring", true)
-	grain.show()
+	#grain.show()
+	overlay.show()
 	
-	took_photo.emit(photo)
+	#took_photo.emit(photo)
 	
 func _toggle_focal_length() -> void:
 	var atts = (attributes as CameraAttributesPhysical)

@@ -12,6 +12,8 @@ shader_parameter/strength = 1.0
 [node name="Print" type="Sprite2D"]
 material = SubResource("ShaderMaterial_cm08h")
 texture = ExtResource("1_8lx4d")
+region_enabled = true
+region_rect = Rect2(265, 75, 1390, 930)
 script = ExtResource("1_2ddbo")
 developed = true
 fade = 1.0

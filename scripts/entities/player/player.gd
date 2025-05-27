@@ -104,8 +104,8 @@ func _physics_process(delta):
 		see_cast.debug_shape_custom_color = Color(0, 0, 1, .2) 
 
 func _rotate_look(mouse_delta: Vector2):
-	look_rotation.x = clamp(look_rotation.x - mouse_delta.y * look_speed, deg_to_rad(-85), deg_to_rad(85))
-	look_rotation.y -= mouse_delta.x * look_speed
+	look_rotation.x = clamp(look_rotation.x - mouse_delta.y * look_speed * .5, deg_to_rad(-85), deg_to_rad(85))
+	look_rotation.y -= mouse_delta.x * look_speed * .5
 
 	transform.basis = default_basis
 	rotate_y(look_rotation.y)
