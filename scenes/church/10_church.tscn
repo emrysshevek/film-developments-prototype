@@ -4,7 +4,7 @@
 [ext_resource type="ArrayMesh" uid="uid://b17hbojeqfbs8" path="res://assets/models/church/church.obj" id="1_lj3jd"]
 [ext_resource type="PackedScene" uid="uid://drxs0pt1inxfn" path="res://assets/models/tree/scene.gltf" id="2_1jw61"]
 [ext_resource type="PackedScene" uid="uid://buthajlvbxwn0" path="res://scripts/entities/player/Player.tscn" id="2_6xsuj"]
-[ext_resource type="PackedScene" uid="uid://detlvyvgx6ibv" path="res://scripts/entities/camera/film_camera.tscn" id="5_egtqk"]
+[ext_resource type="PackedScene" uid="uid://lfh7bra87afo" path="res://scripts/entities/camera/film_camera.tscn" id="5_egtqk"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_1jw61"]
 

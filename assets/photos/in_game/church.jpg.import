@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://jtq4f7gj428f"
-path="res://.godot/imported/test.jpg-f2d87a6f8d18b0aa4dd9026265a601ff.ctex"
+path="res://.godot/imported/church.jpg-306fc5776710e639920f1ad41af77abf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/photos/in_game/test.jpg"
-dest_files=["res://.godot/imported/test.jpg-f2d87a6f8d18b0aa4dd9026265a601ff.ctex"]
+source_file="res://assets/photos/in_game/church.jpg"
+dest_files=["res://.godot/imported/church.jpg-306fc5776710e639920f1ad41af77abf.ctex"]
 
 [params]
 

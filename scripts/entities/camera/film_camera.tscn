@@ -1,9 +1,9 @@
 [gd_scene load_steps=18 format=3 uid="uid://lfh7bra87afo"]
 
 [ext_resource type="Script" uid="uid://brnvo7j5kfjgj" path="res://scripts/entities/camera/film_camera.gd" id="1_mt3fo"]
-[ext_resource type="Shader" uid="uid://68wxx2ebhqol" path="res://scripts/entities/camera/focus_screen.gdshader" id="1_sjilr"]
 [ext_resource type="PackedScene" uid="uid://drlossfs4e4xk" path="res://assets/models/camera/camera.tscn" id="2_4nds6"]
-[ext_resource type="Shader" uid="uid://bpuv35bxb4t6a" path="res://assets/shaders/text_sketch/film_grain.gdshader" id="3_a3wx6"]
+[ext_resource type="Shader" uid="uid://68wxx2ebhqol" path="res://scripts/entities/camera/focus_screen.gdshader" id="3_g77vp"]
+[ext_resource type="Shader" uid="uid://bpuv35bxb4t6a" path="res://assets/shaders/text_sketch/film_grain.gdshader" id="4_q6qut"]
 [ext_resource type="Texture2D" uid="uid://cs2y4hxrgy7kr" path="res://assets/sprites/camera_overlay.png" id="5_g77vp"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_a3wx6"]
@@ -23,28 +23,22 @@ ambient_light_color = Color(1, 1, 1, 1)
 ambient_light_energy = 0.1
 reflected_light_source = 2
 ssr_enabled = true
-ssao_enabled = true
-ssil_enabled = true
-sdfgi_enabled = true
 volumetric_fog_enabled = true
 volumetric_fog_density = 0.0316
 
 [sub_resource type="CameraAttributesPhysical" id="CameraAttributesPhysical_a3wx6"]
-exposure_multiplier = 1.337
 auto_exposure_enabled = true
-frustum_focus_distance = 4000.0
-frustum_near = 0.021
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_a3wx6"]
 render_priority = 0
-shader = ExtResource("1_sjilr")
+shader = ExtResource("3_g77vp")
 shader_parameter/accepted_coc = 0.05
-shader_parameter/focal_length = 50.0
+shader_parameter/focal_length = 19.96
 shader_parameter/f_number = 3.2
-shader_parameter/focal_distance = 81.97
+shader_parameter/focal_distance = 1.0
 shader_parameter/focus_circle_radius = 0.25
 shader_parameter/focus_circle_strength = 0.25
-shader_parameter/focus_circle_max = 0.18
+shader_parameter/focus_circle_max = 0.5
 shader_parameter/blur_strength = 1.0
 shader_parameter/show_focus_ring = true
 
@@ -245,8 +239,8 @@ _data = {
 }
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_4nds6"]
-shader = ExtResource("3_a3wx6")
-shader_parameter/grain_amount = 0.129
+shader = ExtResource("4_q6qut")
+shader_parameter/grain_amount = 0.117
 shader_parameter/grain_size = 1.0
 
 [node name="FilmCamera" type="Camera3D" groups=["camera"]]

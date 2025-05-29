@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://b0vldm3ne3ed6"]
 
 [ext_resource type="PackedScene" uid="uid://bwgh3lupp0nb8" path="res://scenes/12_classroom/classroom.glb" id="1_qm3yn"]
-[ext_resource type="PackedScene" uid="uid://detlvyvgx6ibv" path="res://scripts/entities/camera/film_camera.tscn" id="2_7duus"]
+[ext_resource type="PackedScene" uid="uid://lfh7bra87afo" path="res://scripts/entities/camera/film_camera.tscn" id="2_7duus"]
 [ext_resource type="PackedScene" uid="uid://buthajlvbxwn0" path="res://scripts/entities/player/Player.tscn" id="2_w7yi3"]
 [ext_resource type="Material" uid="uid://dftkqmi5vqftp" path="res://assets/models/materials/dark.tres" id="3_202mg"]
 
@@ -197,6 +197,7 @@ shape = SubResource("WorldBoundaryShape3D_7duus")
 [node name="SpotLight3D" type="SpotLight3D" parent="Lights" index="0"]
 transform = Transform3D(-0.0389623, -0.896316, 0.4417, -0.0787581, 0.443415, 0.89285, -0.996132, 5.23762e-08, -0.0878687, 3.65394, 2.54472, -3.38807)
 light_energy = 6.405
+light_volumetric_fog_energy = 2.939
 shadow_enabled = true
 spot_range = 11.233
 spot_angle = 39.44
@@ -204,6 +205,7 @@ spot_angle = 39.44
 [node name="SpotLight3D2" type="SpotLight3D" parent="Lights" index="1"]
 transform = Transform3D(-0.0389623, -0.896316, 0.4417, -0.0787581, 0.443415, 0.89285, -0.996132, 5.23567e-08, -0.0878687, 3.65394, 2.54472, -1.12032)
 light_energy = 6.405
+light_volumetric_fog_energy = 2.778
 shadow_enabled = true
 spot_range = 11.233
 spot_angle = 39.44
@@ -211,6 +213,7 @@ spot_angle = 39.44
 [node name="SpotLight3D3" type="SpotLight3D" parent="Lights" index="2"]
 transform = Transform3D(-0.0389623, -0.896316, 0.4417, -0.0787581, 0.443415, 0.89285, -0.996132, 5.23566e-08, -0.0878687, 3.65394, 2.54472, 1.28853)
 light_energy = 6.405
+light_volumetric_fog_energy = 2.455
 shadow_enabled = true
 spot_range = 11.233
 spot_angle = 39.44
@@ -218,6 +221,7 @@ spot_angle = 39.44
 [node name="SpotLight3D4" type="SpotLight3D" parent="Lights" index="3"]
 transform = Transform3D(-0.0389623, -0.896316, 0.4417, -0.0787581, 0.443415, 0.89285, -0.996132, 5.23566e-08, -0.0878687, 3.65394, 2.54472, 3.43962)
 light_energy = 6.405
+light_volumetric_fog_energy = 1.97
 shadow_enabled = true
 spot_range = 11.233
 spot_angle = 39.44

@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://b7qa4jselv1hj"]
+
+[ext_resource type="PackedScene" uid="uid://dp8x0l0fg4x1y" path="res://assets/models/mirror/scene.gltf" id="1_vi68f"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_vi68f"]
+metallic = 1.0
+metallic_specular = 0.52
+roughness = 0.0
+emission_energy_multiplier = 0.0
+clearcoat_roughness = 0.0
+
+[node name="Sketchfab_Scene" instance=ExtResource("1_vi68f")]
+
+[node name="Struttura" parent="Sketchfab_model/8567aa37c0db472f8eb9574395ab9f1d_fbx/RootNode" index="0"]
+transform = Transform3D(-3.67064e-06, 18.8521, -2.84659e-06, 18.8521, 3.67064e-06, -4.63768e-13, 9.04831e-14, -2.84659e-06, -18.8521, 0, 0, 0)
+
+[node name="Anello" parent="Sketchfab_model/8567aa37c0db472f8eb9574395ab9f1d_fbx/RootNode" index="1"]
+transform = Transform3D(-6.64345, 2.69482e-06, 5.33814, 5.33814, -2.33337e-07, 6.64345, 2.24684e-06, 8.52239, -1.50605e-06, 0, 0, 0)
+
+[node name="Specchio" parent="Sketchfab_model/8567aa37c0db472f8eb9574395ab9f1d_fbx/RootNode" index="2"]
+transform = Transform3D(-3.67064e-06, 18.8521, -2.84659e-06, 18.8521, 3.67064e-06, -4.63768e-13, 9.04831e-14, -2.84659e-06, -18.8521, 0, 0, 0)
+
+[node name="Specchio_Specchio_0" parent="Sketchfab_model/8567aa37c0db472f8eb9574395ab9f1d_fbx/RootNode/Specchio" index="0"]
+transform = Transform3D(1, -7.58252e-22, 3.38813e-21, -7.58251e-22, 1, 0, 6.35275e-21, 0, 1, -6.43503e-16, 1.93494e-08, 0.128145)
+surface_material_override/0 = SubResource("StandardMaterial3D_vi68f")

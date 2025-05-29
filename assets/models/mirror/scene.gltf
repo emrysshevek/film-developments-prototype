@@ -1,0 +1,497 @@
+{
+  "accessors": [
+    {
+      "bufferView": 2,
+      "componentType": 5126,
+      "count": 19218,
+      "max": [
+        5.7183756828308105,
+        0.16144300997257233,
+        1.9059162139892578
+      ],
+      "min": [
+        -2.9688704013824463,
+        -2.5606508255004883,
+        -1.9059160947799683
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 230616,
+      "componentType": 5126,
+      "count": 19218,
+      "max": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "min": [
+        -1.0,
+        -1.0,
+        -1.0
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 1,
+      "componentType": 5126,
+      "count": 19218,
+      "max": [
+        1.000000238418579,
+        1.0
+      ],
+      "min": [
+        0.0,
+        -1.1598533546930412e-06
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "componentType": 5125,
+      "count": 107532,
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 461232,
+      "componentType": 5126,
+      "count": 1784,
+      "max": [
+        4.968360424041748,
+        0.12999998033046722,
+        0.05288159102201462
+      ],
+      "min": [
+        -0.12999998033046722,
+        -0.13000203669071198,
+        -4.091092109680176
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 482640,
+      "componentType": 5126,
+      "count": 1784,
+      "max": [
+        0.9993525147438049,
+        1.0,
+        0.9956465363502502
+      ],
+      "min": [
+        -0.9993525147438049,
+        -1.0,
+        -0.9956480860710144
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 153744,
+      "componentType": 5126,
+      "count": 1784,
+      "max": [
+        1.000000238418579,
+        1.0
+      ],
+      "min": [
+        0.0,
+        -2.220446049250313e-16
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "byteOffset": 430128,
+      "componentType": 5125,
+      "count": 4716,
+      "type": "SCALAR"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 504048,
+      "componentType": 5126,
+      "count": 87,
+      "max": [
+        5.569931983947754,
+        -0.32456421852111816,
+        -0.11231984943151474
+      ],
+      "min": [
+        -0.5523147583007813,
+        -2.080922842025757,
+        -0.11232000589370728
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 2,
+      "byteOffset": 505092,
+      "componentType": 5126,
+      "count": 87,
+      "max": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "min": [
+        0.0,
+        0.0,
+        1.0
+      ],
+      "type": "VEC3"
+    },
+    {
+      "bufferView": 1,
+      "byteOffset": 168016,
+      "componentType": 5126,
+      "count": 87,
+      "max": [
+        0.0,
+        0.0
+      ],
+      "min": [
+        0.0,
+        0.0
+      ],
+      "type": "VEC2"
+    },
+    {
+      "bufferView": 0,
+      "byteOffset": 448992,
+      "componentType": 5125,
+      "count": 336,
+      "type": "SCALAR"
+    }
+  ],
+  "asset": {
+    "extras": {
+      "author": "Antonio Rossini (https://sketchfab.com/Rox3d)",
+      "license": "CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)",
+      "source": "https://sketchfab.com/3d-models/mirror-for-bedroom-2b701b78ee034cd0919e75c41e3afd8e",
+      "title": "Mirror for bedroom"
+    },
+    "generator": "Sketchfab-16.14.0",
+    "version": "2.0"
+  },
+  "bufferViews": [
+    {
+      "buffer": 0,
+      "byteLength": 450336,
+      "name": "floatBufferViews",
+      "target": 34963
+    },
+    {
+      "buffer": 0,
+      "byteLength": 168712,
+      "byteOffset": 450336,
+      "byteStride": 8,
+      "name": "floatBufferViews",
+      "target": 34962
+    },
+    {
+      "buffer": 0,
+      "byteLength": 506136,
+      "byteOffset": 619048,
+      "byteStride": 12,
+      "name": "floatBufferViews",
+      "target": 34962
+    }
+  ],
+  "buffers": [
+    {
+      "byteLength": 1125184,
+      "uri": "scene.bin"
+    }
+  ],
+  "extensionsRequired": [
+    "KHR_materials_pbrSpecularGlossiness"
+  ],
+  "extensionsUsed": [
+    "KHR_materials_pbrSpecularGlossiness"
+  ],
+  "images": [
+    {
+      "uri": "textures/SupportoSpecchio_diffuse.jpeg"
+    }
+  ],
+  "materials": [
+    {
+      "doubleSided": true,
+      "extensions": {
+        "KHR_materials_pbrSpecularGlossiness": {
+          "diffuseFactor": [
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ],
+          "diffuseTexture": {
+            "index": 0
+          },
+          "glossinessFactor": 1.0,
+          "specularFactor": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "name": "SupportoSpecchio"
+    },
+    {
+      "doubleSided": true,
+      "extensions": {
+        "KHR_materials_pbrSpecularGlossiness": {
+          "diffuseFactor": [
+            0.177271,
+            0.177271,
+            0.177271,
+            1.0
+          ],
+          "glossinessFactor": 0.5678197512836576,
+          "specularFactor": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        }
+      },
+      "name": "AnelloFerro"
+    },
+    {
+      "doubleSided": true,
+      "extensions": {
+        "KHR_materials_pbrSpecularGlossiness": {
+          "diffuseFactor": [
+            0.031614291600000004,
+            0.031614291600000004,
+            0.031614291600000004,
+            1.0
+          ],
+          "glossinessFactor": 1.0,
+          "specularFactor": [
+            1.0,
+            1.0,
+            1.0
+          ]
+        }
+      },
+      "name": "Specchio"
+    }
+  ],
+  "meshes": [
+    {
+      "name": "Struttura_SupportoSpecchio_0",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 1,
+            "POSITION": 0,
+            "TEXCOORD_0": 2
+          },
+          "indices": 3,
+          "material": 0,
+          "mode": 4
+        }
+      ]
+    },
+    {
+      "name": "Anello_AnelloFerro_0",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 5,
+            "POSITION": 4,
+            "TEXCOORD_0": 6
+          },
+          "indices": 7,
+          "material": 1,
+          "mode": 4
+        }
+      ]
+    },
+    {
+      "name": "Specchio_Specchio_0",
+      "primitives": [
+        {
+          "attributes": {
+            "NORMAL": 9,
+            "POSITION": 8,
+            "TEXCOORD_0": 10
+          },
+          "indices": 11,
+          "material": 2,
+          "mode": 4
+        }
+      ]
+    }
+  ],
+  "nodes": [
+    {
+      "children": [
+        1
+      ],
+      "matrix": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        2.220446049250313e-16,
+        -1.0,
+        0.0,
+        0.0,
+        1.0,
+        2.220446049250313e-16,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "name": "Sketchfab_model"
+    },
+    {
+      "children": [
+        2
+      ],
+      "matrix": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        -1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "name": "8567aa37c0db472f8eb9574395ab9f1d.fbx"
+    },
+    {
+      "children": [
+        3,
+        5,
+        7
+      ],
+      "name": "RootNode"
+    },
+    {
+      "children": [
+        4
+      ],
+      "matrix": [
+        -3.0713954552598033e-06,
+        18.852090835571037,
+        2.4950534472437085e-22,
+        0.0,
+        18.852090835570824,
+        3.0713954594458083e-06,
+        -2.8465865203820976e-06,
+        0.0,
+        -2.8465865203820604e-06,
+        -4.63767810999101e-13,
+        -18.852090835571072,
+        0.0,
+        198.23004150390625,
+        55.98917007446289,
+        1.3630191197933073e-08,
+        1.0
+      ],
+      "name": "Struttura"
+    },
+    {
+      "mesh": 0,
+      "name": "Struttura_SupportoSpecchio_0"
+    },
+    {
+      "children": [
+        6
+      ],
+      "matrix": [
+        -6.643452046213733,
+        5.338136257956095,
+        2.302605446604885e-06,
+        0.0,
+        2.6646407416034137e-06,
+        -3.5991806645233363e-07,
+        8.522391319274478,
+        0.0,
+        5.338136257955927,
+        6.64345204621412,
+        -1.3884737875640155e-06,
+        0.0,
+        202.5990753173828,
+        102.80872344970703,
+        -8.794604156037167e-08,
+        1.0
+      ],
+      "name": "Anello"
+    },
+    {
+      "mesh": 1,
+      "name": "Anello_AnelloFerro_0"
+    },
+    {
+      "children": [
+        8
+      ],
+      "matrix": [
+        -3.0713954552598033e-06,
+        18.852090835571037,
+        2.4950534472437085e-22,
+        0.0,
+        18.852090835570824,
+        3.0713954594458083e-06,
+        -2.8465865203820976e-06,
+        0.0,
+        -2.8465865203820604e-06,
+        -4.63767810999101e-13,
+        -18.852090835571072,
+        0.0,
+        198.23004150390625,
+        55.98917007446289,
+        1.3630191197933073e-08,
+        1.0
+      ],
+      "name": "Specchio"
+    },
+    {
+      "mesh": 2,
+      "name": "Specchio_Specchio_0"
+    }
+  ],
+  "samplers": [
+    {
+      "magFilter": 9729,
+      "minFilter": 9987,
+      "wrapS": 10497,
+      "wrapT": 10497
+    }
+  ],
+  "scene": 0,
+  "scenes": [
+    {
+      "name": "Sketchfab_Scene",
+      "nodes": [
+        0
+      ]
+    }
+  ],
+  "textures": [
+    {
+      "sampler": 0,
+      "source": 0
+    }
+  ]
+}

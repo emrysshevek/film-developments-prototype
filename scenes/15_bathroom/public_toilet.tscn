@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://buthajlvbxwn0" path="res://scripts/entities/player/Player.tscn" id="2_24eyb"]
 [ext_resource type="PackedScene" uid="uid://dsb5i3qq3yndp" path="res://assets/models/scissors/scene.gltf" id="2_oa65h"]
 [ext_resource type="Shader" uid="uid://bpuv35bxb4t6a" path="res://assets/shaders/text_sketch/film_grain.gdshader" id="3_sl248"]
-[ext_resource type="PackedScene" uid="uid://detlvyvgx6ibv" path="res://scripts/entities/camera/film_camera.tscn" id="5_p3xkv"]
+[ext_resource type="PackedScene" uid="uid://lfh7bra87afo" path="res://scripts/entities/camera/film_camera.tscn" id="5_p3xkv"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_24eyb"]
 metallic = 0.98

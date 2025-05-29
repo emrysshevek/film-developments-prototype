@@ -23,7 +23,8 @@ var in_photo_mode := false
 func _ready() -> void:
 	focus_shader.set_shader_parameter("focal_distance", focus_dist)
 	focus_shader.set_shader_parameter("focal_length", focal_length)
-	(attributes as CameraAttributesPhysical).frustum_focal_length = focal_length
+	#(attributes as CameraAttributesPhysical).frustum_focal_length = focal_length
+	fov = focal_length
 	focus_shader.set_shader_parameter("f_number", f_stop)
 	
 func _physics_process(delta: float) -> void:

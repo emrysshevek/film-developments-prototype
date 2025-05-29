@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://d185xp3kicnke" path="res://scripts/minigames/paper_dev/paper_dev_minigame.gd" id="1_m8isa"]
 [ext_resource type="Texture2D" uid="uid://c50x24msww2d1" path="res://assets/photos/chapter 2/NK7A2263.jpg" id="2_bo53k"]
 [ext_resource type="PackedScene" uid="uid://dgiulj5xmffb" path="res://scripts/entities/print/print.tscn" id="3_m8isa"]
-[ext_resource type="Texture2D" uid="uid://jtq4f7gj428f" path="res://assets/photos/in_game/test.jpg" id="4_bo53k"]
+[ext_resource type="Texture2D" uid="uid://jtq4f7gj428f" path="res://assets/photos/in_game/church.jpg" id="4_bo53k"]
 [ext_resource type="Shader" uid="uid://4nk4ianmw15q" path="res://scripts/minigames/paper_dev/tray.gdshader" id="5_d6nts"]
 [ext_resource type="Shader" uid="uid://bmytm3mq6th0r" path="res://scripts/minigames/paper_dev/darkroom_lighting.gdshader" id="6_jx2w3"]
 
