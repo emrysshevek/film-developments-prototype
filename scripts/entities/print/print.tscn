@@ -1,20 +1,24 @@
-[gd_scene load_steps=5 format=3 uid="uid://dgiulj5xmffb"]
+[gd_scene load_steps=6 format=3 uid="uid://dgiulj5xmffb"]
 
 [ext_resource type="Script" uid="uid://8d3qg05xc17i" path="res://scripts/entities/print/print.gd" id="1_2ddbo"]
-[ext_resource type="Texture2D" uid="uid://de7eo67wgosr0" path="res://assets/photos/chapter 2/NK7A2260.jpg" id="1_8lx4d"]
+[ext_resource type="Texture2D" uid="uid://cc738t3u22y41" path="res://assets/sprites/photo_paper.png" id="1_f1hg5"]
 [ext_resource type="Shader" uid="uid://cp1rtq8gf6ucr" path="res://scripts/minigames/paper_dev/developer_fade_shader.gdshader" id="3_cm08h"]
+[ext_resource type="Texture2D" uid="uid://svkhfbvchf6c" path="res://assets/photos/in_game/church_inside.jpg" id="4_f1hg5"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_cm08h"]
 shader = ExtResource("3_cm08h")
 shader_parameter/fade = 1.0
 shader_parameter/strength = 1.0
 
-[node name="Print" type="Sprite2D"]
+[node name="Image" type="Sprite2D"]
 material = SubResource("ShaderMaterial_cm08h")
-texture = ExtResource("1_8lx4d")
+texture = ExtResource("4_f1hg5")
 region_enabled = true
 region_rect = Rect2(265, 75, 1390, 930)
 script = ExtResource("1_2ddbo")
-developed = true
-fade = 1.0
-strength = 1.0
+
+[node name="Print" type="Sprite2D" parent="."]
+show_behind_parent = true
+rotation = 1.5708
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_f1hg5")

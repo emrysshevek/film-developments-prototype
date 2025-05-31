@@ -27,7 +27,6 @@ volumetric_fog_enabled = true
 volumetric_fog_density = 0.0316
 
 [sub_resource type="CameraAttributesPhysical" id="CameraAttributesPhysical_a3wx6"]
-auto_exposure_enabled = true
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_a3wx6"]
 render_priority = 0

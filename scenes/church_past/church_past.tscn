@@ -1,0 +1,99 @@
+[gd_scene load_steps=11 format=3 uid="uid://cahpqanmn1cdi"]
+
+[ext_resource type="Texture2D" uid="uid://bh0ap2qf71ilw" path="res://assets/sprites/church_outer.png" id="1_qejkp"]
+[ext_resource type="Script" uid="uid://bbdydrlh4843f" path="res://scenes/church_past/church_past.gd" id="1_y5w27"]
+[ext_resource type="Shader" uid="uid://bxurl47j6kp08" path="res://scenes/church_past/wobble.gdshader" id="2_lxo1c"]
+[ext_resource type="Script" uid="uid://c1wx7y6r1gxcd" path="res://scripts/components/interact_area/interact_area.gd" id="2_y5w27"]
+[ext_resource type="Texture2D" uid="uid://btq16sh2lk0d4" path="res://assets/sprites/church_innewr.png" id="4_081j7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_081j7"]
+size = Vector2(238, 212)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y5w27"]
+size = Vector2(542, 382)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_ul0ll"]
+noise_type = 0
+frequency = 0.0247
+offset = Vector3(27.65, 0, 0)
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_y5w27"]
+noise = SubResource("FastNoiseLite_ul0ll")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_081j7"]
+shader = ExtResource("2_lxo1c")
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_y5w27")
+shader_parameter/frame_time = 0.654
+
+[node name="ChurchPast" type="Node2D"]
+script = ExtResource("1_y5w27")
+
+[node name="Background" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="Background"]
+offset_left = -147.0
+offset_top = -207.0
+offset_right = 2107.0
+offset_bottom = 1294.0
+mouse_filter = 2
+
+[node name="Outside" type="Node2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Outside"]
+position = Vector2(960, 540)
+texture = ExtResource("1_qejkp")
+
+[node name="DoorArea" type="Area2D" parent="Outside"]
+script = ExtResource("2_y5w27")
+type = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Outside/DoorArea"]
+position = Vector2(683, 968)
+shape = SubResource("RectangleShape2D_081j7")
+
+[node name="TreeArea" type="Area2D" parent="Outside"]
+script = ExtResource("2_y5w27")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Outside/TreeArea"]
+polygon = PackedVector2Array(1331, 844, 1373, 878, 1391, 546, 1082, 382, 1355, 452, 1259, 180, 1111, 6, 1274, 146, 1318, 263, 1378, 136, 1378, 216, 1316, 307, 1448, 488, 1505, 364, 1679, 255, 1827, 110, 1910, 164, 1821, 304, 1658, 338, 1567, 403, 1474, 579, 1482, 924, 1515, 1075, 1502, 1137, 1388, 1139, 1360, 1005, 1228, 844, 1181, 701, 1036, 714, 919, 631, 976, 473, 1121, 569, 1134, 629)
+
+[node name="Inside" type="Node2D" parent="."]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="Inside"]
+position = Vector2(960, 540)
+texture = ExtResource("4_081j7")
+
+[node name="WallArea" type="Area2D" parent="Inside"]
+script = ExtResource("2_y5w27")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Inside/WallArea"]
+position = Vector2(925, 578)
+shape = SubResource("RectangleShape2D_y5w27")
+
+[node name="UI" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Shaders" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Wobble" type="ColorRect" parent="Shaders"]
+visible = false
+material = SubResource("ShaderMaterial_081j7")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_lock_ = true
+
+[connection signal="interacted" from="Outside/DoorArea" to="." method="_on_door_area_interacted"]
+[connection signal="mouse_entered" from="Outside/DoorArea" to="Outside/DoorArea" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Outside/DoorArea" to="Outside/DoorArea" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="Outside/TreeArea" to="Outside/TreeArea" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Outside/TreeArea" to="Outside/TreeArea" method="_on_mouse_exited"]
+[connection signal="interacted" from="Inside/WallArea" to="." method="_on_wall_area_interacted"]
+[connection signal="mouse_entered" from="Inside/WallArea" to="Inside/WallArea" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Inside/WallArea" to="Inside/WallArea" method="_on_mouse_exited"]

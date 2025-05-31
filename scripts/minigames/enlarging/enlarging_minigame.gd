@@ -6,8 +6,8 @@ class_name EnlargingMinigame
 @onready var focus_shader: ShaderMaterial = $CanvasLayer3/Focus.material
 @onready var focus = randf_range(-3, 3)
 
-func _ready() -> void:
-	focus_shader.set_shader_parameter("focus", focus)
+#func _ready() -> void:
+	#focus_shader.set_shader_parameter("focus", focus)
 
 func _physics_process(delta: float) -> void:
 	var step = focus_step

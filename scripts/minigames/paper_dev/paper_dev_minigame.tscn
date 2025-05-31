@@ -1,0 +1,177 @@
+[gd_scene load_steps=12 format=3 uid="uid://qqi0hkytc5vy"]
+
+[ext_resource type="Script" uid="uid://d185xp3kicnke" path="res://scripts/minigames/paper_dev/paper_dev_minigame.gd" id="1_6e84l"]
+[ext_resource type="Texture2D" uid="uid://dr7ye2wkyv648" path="res://assets/sprites/dev_tray.png" id="2_qewjq"]
+[ext_resource type="PackedScene" uid="uid://dgiulj5xmffb" path="res://scripts/entities/print/print.tscn" id="3_e0o87"]
+[ext_resource type="Texture2D" uid="uid://b4jbce13pw3j1" path="res://assets/photos/in_game/living_room.jpg" id="4_3jorl"]
+[ext_resource type="Texture2D" uid="uid://c50x24msww2d1" path="res://assets/photos/chapter 2/NK7A2263.jpg" id="5_bm4gq"]
+[ext_resource type="Shader" uid="uid://4nk4ianmw15q" path="res://scripts/minigames/paper_dev/tray.gdshader" id="6_1pbmm"]
+[ext_resource type="Shader" path="res://scripts/minigames/paper_dev/darkroom_lighting.gdshader" id="7_8gxb0"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_o3l8g"]
+noise_type = 2
+frequency = 0.0251
+fractal_octaves = 3
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_k3tms"]
+seamless = true
+seamless_blend_skirt = 0.406
+noise = SubResource("FastNoiseLite_o3l8g")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qewjq"]
+shader = ExtResource("6_1pbmm")
+shader_parameter/debug = false
+shader_parameter/tilt_axis = 0.12
+shader_parameter/tray_area_min = Vector2(0.335, 0.105)
+shader_parameter/tray_area_max = Vector2(0.68, 0.935)
+shader_parameter/wave_pos = 0.08
+shader_parameter/distortion = 30.0
+shader_parameter/wave_length = 21.0
+shader_parameter/distortion_decay = 55.0
+shader_parameter/wave_length_decay = 11.1
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_k3tms")
+shader_parameter/noise_strength = 0.005
+shader_parameter/noise_speed = 0.05
+shader_parameter/tilt = 0.0
+shader_parameter/tilt_strength = 0.15
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_e0o87"]
+shader = ExtResource("7_8gxb0")
+shader_parameter/light_color = Color(0.960784, 0.180392, 0, 1)
+
+[node name="PaperDevMinigame" type="Node2D"]
+script = ExtResource("1_6e84l")
+development_time = null
+wave_travel_time = 1.5
+tilt_duration = null
+
+[node name="Tray" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+scale = Vector2(1.10037, 1.10037)
+texture = ExtResource("2_qewjq")
+
+[node name="Print" parent="Tray" instance=ExtResource("3_e0o87")]
+position = Vector2(19.9933, 21.8109)
+rotation = 1.5708
+scale = Vector2(0.39, 0.39)
+texture = ExtResource("4_3jorl")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+visible = false
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.148438, 0.109589, 0.109589, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 550
+theme_override_constants/margin_top = 75
+theme_override_constants/margin_right = 550
+theme_override_constants/margin_bottom = 75
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control/MarginContainer"]
+layout_mode = 2
+color = Color(0.851563, 0.825367, 0.432434, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/MarginContainer/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control/MarginContainer/ColorRect/MarginContainer"]
+layout_mode = 2
+color = Color(0.670588, 0.647059, 0.309804, 0)
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/MarginContainer/ColorRect/MarginContainer/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control/MarginContainer/ColorRect/MarginContainer/ColorRect/MarginContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Control/MarginContainer/ColorRect/MarginContainer/ColorRect/MarginContainer/ColorRect"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 1.5708
+pivot_offset = Vector2(310, 365)
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/MarginContainer/ColorRect/MarginContainer/ColorRect/MarginContainer/ColorRect/MarginContainer"]
+visible = false
+layout_mode = 2
+texture = ExtResource("5_bm4gq")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer2"]
+offset_left = 639.95
+offset_top = 112.0
+offset_right = 1309.39
+offset_bottom = 1010.3
+color = Color(0, 0, 0, 0.360784)
+metadata/_edit_lock_ = true
+
+[node name="TrayShader" type="ColorRect" parent="CanvasLayer2"]
+material = SubResource("ShaderMaterial_qewjq")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="CanvasLayer3" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer3"]
+material = SubResource("ShaderMaterial_e0o87")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true

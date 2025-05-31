@@ -3,8 +3,9 @@
 [ext_resource type="Script" uid="uid://ct64i58qvp0oi" path="res://scripts/minigames/enlarging/enlarging_minigame.gd" id="1_q1fxy"]
 [ext_resource type="PackedScene" uid="uid://dgiulj5xmffb" path="res://scripts/entities/print/print.tscn" id="2_y64b6"]
 [ext_resource type="Shader" uid="uid://dumrte7sqs0k2" path="res://scripts/minigames/enlarging/enlarger_grain.gdshader" id="3_avhft"]
+[ext_resource type="Texture2D" uid="uid://b4jbce13pw3j1" path="res://assets/photos/in_game/living_room.jpg" id="3_y64b6"]
 [ext_resource type="Shader" uid="uid://15yf8v5imto5" path="res://scripts/minigames/enlarging/enlarger_focus.gdshader" id="4_07jjc"]
-[ext_resource type="Shader" uid="uid://dqux14g1j1lsx" path="res://scripts/minigames/enlarging/enlarger_mask.gdshader" id="5_gncsg"]
+[ext_resource type="Texture2D" uid="uid://b487oo08bm7a4" path="res://assets/sprites/enlarger_mask.png" id="5_q1fxy"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_clqm3"]
 noise_type = 2
@@ -42,15 +43,16 @@ shader = ExtResource("4_07jjc")
 shader_parameter/focus = 0.0
 shader_parameter/min_lod = 0.6
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_clqm3"]
-shader = ExtResource("5_gncsg")
-shader_parameter/radius = 0.7
-
 [node name="EnlargingMinigame" type="Node2D"]
 script = ExtResource("1_q1fxy")
 
 [node name="Print" parent="." instance=ExtResource("2_y64b6")]
-position = Vector2(1519, 375)
+position = Vector2(1332, 1461)
+rotation = 3.14159
+scale = Vector2(5, 5)
+texture = ExtResource("3_y64b6")
+fade = 1.0
+strength = 1.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -62,6 +64,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+metadata/_edit_lock_ = true
 
 [node name="CanvasLayer3" type="CanvasLayer" parent="."]
 
@@ -73,14 +76,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+metadata/_edit_lock_ = true
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
 
-[node name="Mask" type="ColorRect" parent="CanvasLayer2"]
-material = SubResource("ShaderMaterial_clqm3")
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer2"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 2
+texture = ExtResource("5_q1fxy")
+metadata/_edit_lock_ = true

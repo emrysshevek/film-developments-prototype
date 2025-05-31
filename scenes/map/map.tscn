@@ -1,0 +1,114 @@
+[gd_scene load_steps=10 format=3 uid="uid://7o7f6alpjl0l"]
+
+[ext_resource type="PackedScene" uid="uid://dgiulj5xmffb" path="res://scripts/entities/print/print.tscn" id="1_ph54e"]
+[ext_resource type="Script" uid="uid://b2nlyae6dbwmr" path="res://scenes/map/map.gd" id="1_sqgf4"]
+[ext_resource type="Texture2D" uid="uid://ck51rkd2uwokt" path="res://assets/photos/in_game/classroom4.jpg" id="2_fcby6"]
+[ext_resource type="Texture2D" uid="uid://jtq4f7gj428f" path="res://assets/photos/in_game/church.jpg" id="3_jcaow"]
+[ext_resource type="Texture2D" uid="uid://cckgdl31jmqwu" path="res://assets/sprites/map.png" id="4_04w0f"]
+[ext_resource type="Script" uid="uid://c1wx7y6r1gxcd" path="res://scripts/components/interact_area/interact_area.gd" id="4_fcby6"]
+[ext_resource type="Texture2D" uid="uid://b4jbce13pw3j1" path="res://assets/photos/in_game/living_room.jpg" id="6_jcaow"]
+[ext_resource type="Texture2D" uid="uid://connttbecvwv" path="res://assets/photos/in_game/toilet.jpg" id="7_04w0f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jcaow"]
+size = Vector2(302, 238)
+
+[node name="Map" type="Node2D"]
+script = ExtResource("1_sqgf4")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer"]
+position = Vector2(960, 540)
+texture = ExtResource("4_04w0f")
+
+[node name="Image" parent="." instance=ExtResource("1_ph54e")]
+position = Vector2(503, 296)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_fcby6")
+fade = 1.0
+strength = 1.0
+
+[node name="Area2D" type="Area2D" parent="Image"]
+position = Vector2(-2645, -370)
+scale = Vector2(5, 5)
+script = ExtResource("4_fcby6")
+type = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Image/Area2D"]
+position = Vector2(-77.0001, 408)
+shape = SubResource("RectangleShape2D_jcaow")
+
+[node name="Image3" parent="." instance=ExtResource("1_ph54e")]
+position = Vector2(1443, 630)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("6_jcaow")
+fade = 1.0
+strength = 1.0
+metadata/_edit_group_ = true
+
+[node name="Area2D2" type="Area2D" parent="Image3"]
+position = Vector2(-7215, -3150)
+scale = Vector2(5, 5)
+script = ExtResource("4_fcby6")
+type = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Image3/Area2D2"]
+position = Vector2(1443, 630)
+shape = SubResource("RectangleShape2D_jcaow")
+
+[node name="Image4" parent="." instance=ExtResource("1_ph54e")]
+position = Vector2(1131, 881)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("7_04w0f")
+fade = 1.0
+strength = 1.0
+metadata/_edit_group_ = true
+
+[node name="Area2D3" type="Area2D" parent="Image4"]
+position = Vector2(-5720, -4245)
+scale = Vector2(5, 5)
+script = ExtResource("4_fcby6")
+type = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Image4/Area2D3"]
+position = Vector2(1144, 846)
+shape = SubResource("RectangleShape2D_jcaow")
+
+[node name="Church" parent="." instance=ExtResource("1_ph54e")]
+position = Vector2(992, 1768)
+scale = Vector2(1.06667, 1.06667)
+texture = ExtResource("3_jcaow")
+fade = 1.0
+strength = 1.0
+metadata/_edit_group_ = true
+
+[node name="Area2D2" type="Area2D" parent="Church"]
+position = Vector2(-7085, -2495)
+scale = Vector2(5, 5)
+script = ExtResource("4_fcby6")
+type = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Church/Area2D2"]
+position = Vector2(1417, 498)
+shape = SubResource("RectangleShape2D_jcaow")
+
+[connection signal="interacted" from="Image/Area2D" to="." method="_on_area_2d_interacted"]
+[connection signal="mouse_entered" from="Image/Area2D" to="Image/Area2D" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Image/Area2D" to="Image/Area2D" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="Image3/Area2D2" to="Image3/Area2D2" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Image3/Area2D2" to="Image3/Area2D2" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="Image4/Area2D3" to="Image4/Area2D3" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Image4/Area2D3" to="Image4/Area2D3" method="_on_mouse_exited"]
+[connection signal="interacted" from="Church/Area2D2" to="." method="_on_area_2d_interacted"]
+[connection signal="mouse_entered" from="Church/Area2D2" to="Church/Area2D2" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="Church/Area2D2" to="Church/Area2D2" method="_on_mouse_exited"]

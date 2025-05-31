@@ -9,8 +9,8 @@ height = 1.20967
 
 [node name="Player" type="CharacterBody3D" groups=["player"]]
 script = ExtResource("1_4f3np")
-look_speed = 0.001
-base_speed = 1.0
+look_speed = 0.003
+base_speed = 2.0
 sprint_speed = 7.0
 
 [node name="Sketchfab_Scene" parent="." instance=ExtResource("4_82rqh")]

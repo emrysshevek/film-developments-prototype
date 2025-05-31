@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://djp81vedrvj65"]
+
+[ext_resource type="PackedScene" uid="uid://yffp3pbenbg1" path="res://scripts/minigames/enlarging/enlarging_minigame.tscn" id="1_nwaph"]
+
+[node name="EnlargingMinigame" instance=ExtResource("1_nwaph")]
+
+[node name="Print" parent="." index="0"]
+position = Vector2(1533, 1311)
+fade = 0.0
+strength = 0.0

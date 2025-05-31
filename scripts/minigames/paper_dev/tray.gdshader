@@ -50,11 +50,11 @@ vec2 get_ripple(vec2 uv, vec2 screen_size){
 	vec2 noise_uv = fract(uv + time);
 	vec2 noise = texture(noise_texture, noise_uv).xy * noise_strength;
 	float shadow = pow(texture(noise_texture, noise_uv).r, 2.0);
-	
+
 	uv = uv_normalized_to_proportional(uv, screen_size);
 	uv += noise;
 	uv = uv_proportional_to_normalized(uv, screen_size);
-	
+
 	return uv;
 }
 
@@ -63,7 +63,7 @@ vec2 get_wave(vec2 uv, vec2 screen_size){
 	vec2 wave_coord = uv_to_pixel_coord(vec2(0.0, wave_pos), screen_size);
 
 	float offset = coord.y - wave_coord.y;
-	
+
 	// increase wavelength over time
 	float wl_decay = 1.0 / exp(-(abs(offset) - wave_length)/wave_length_decay) + 1.0;
 
@@ -94,23 +94,23 @@ vec2 get_tilt(vec2 uv, vec2 screen_uv, vec2 screen_size)
 }
 
 bool is_in_bounding_area(vec2 uv){
-	return 
-		uv.x >= tray_area_min.x 
-		&& uv.y >= tray_area_min.y 
-		&& uv.x <= tray_area_max.x 
+	return
+		uv.x >= tray_area_min.x
+		&& uv.y >= tray_area_min.y
+		&& uv.x <= tray_area_max.x
 		&& uv.y <= tray_area_max.y;
 }
 
 void fragment() {
 	vec2 uv = SCREEN_UV;
-	
+
 	if (is_in_bounding_area(uv)){
 		uv = get_ripple(SCREEN_UV, SCREEN_PIXEL_SIZE);
 		uv = get_wave(uv, SCREEN_PIXEL_SIZE);
 	}
 	uv = get_tilt(uv, SCREEN_UV, SCREEN_PIXEL_SIZE);
 	COLOR = texture(screen_texture, uv);
-	
+
 	if (debug) {
 		if (is_in_bounding_area(SCREEN_UV)){
 			COLOR = mix(COLOR, vec4(0.0, 1.0, 0.0, 1.0), .1);

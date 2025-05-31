@@ -1,42 +1,54 @@
-[gd_scene load_steps=8 format=3 uid="uid://eeuqg37rlmdf"]
+[gd_scene load_steps=7 format=3 uid="uid://eeuqg37rlmdf"]
 
 [ext_resource type="Script" uid="uid://cme1ri4k1tdlb" path="res://scripts/minigames/film_dev/film_dev_minigame.gd" id="1_q0alu"]
 [ext_resource type="Texture2D" uid="uid://3o3bkek6plnl" path="res://assets/sprites/ring.png" id="2_rcv1p"]
-[ext_resource type="PackedScene" uid="uid://dfs060n7a48af" path="res://scripts/minigames/film_dev/tracker.tscn" id="3_bnyg7"]
-[ext_resource type="Script" uid="uid://16pxkp42t3kd" path="res://scripts/components/state_machine/state_machine.gd" id="3_q0alu"]
-[ext_resource type="Script" uid="uid://cc8v2buwd1ojf" path="res://scripts/minigames/film_dev/states/reset.gd" id="4_c2wu0"]
-[ext_resource type="Script" uid="uid://cvm2sm26tda8e" path="res://scripts/minigames/film_dev/states/spin.gd" id="5_rcv1p"]
-[ext_resource type="Script" uid="uid://wjdvx7ooqr3v" path="res://scripts/minigames/film_dev/states/stop.gd" id="6_3dmyw"]
+[ext_resource type="Texture2D" uid="uid://b36nhi0ghym8d" path="res://assets/sprites/circle.png" id="4_ohsyo"]
+[ext_resource type="Shader" path="res://scripts/minigames/paper_dev/darkroom_lighting.gdshader" id="5_c2wu0"]
+[ext_resource type="Texture2D" uid="uid://bxgi1ls8iaep2" path="res://assets/sprites/dev_tank.png" id="8_bnyg7"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3dmyw"]
+shader = ExtResource("5_c2wu0")
+shader_parameter/light_color = Color(0.960784, 0.180392, 0, 1)
 
 [node name="FilmDevMinigame" type="Node2D"]
 script = ExtResource("1_q0alu")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-visible = false
-offset_right = 1152.0
-offset_bottom = 650.0
+[node name="Tank" type="Sprite2D" parent="."]
+modulate = Color(0.791999, 0.791999, 0.791999, 1)
+position = Vector2(919, 524)
+texture = ExtResource("8_bnyg7")
+metadata/_edit_lock_ = true
 
-[node name="Outer" type="Sprite2D" parent="."]
-modulate = Color(0, 0, 0, 1)
-position = Vector2(586, 318)
+[node name="Ring" type="Sprite2D" parent="."]
+modulate = Color(0, 0, 0, 0.658824)
+position = Vector2(960, 540)
 texture = ExtResource("2_rcv1p")
 
-[node name="Targets" type="Node2D" parent="."]
+[node name="Dot" type="Sprite2D" parent="."]
+modulate = Color(0.787759, 0.787759, 0.787759, 1)
+position = Vector2(960, 540)
+texture = ExtResource("4_ohsyo")
+offset = Vector2(0, -199.425)
 
-[node name="Tracker" parent="." instance=ExtResource("3_bnyg7")]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
 
-[node name="StateMachine" type="Node" parent="."]
-script = ExtResource("3_q0alu")
-metadata/_custom_type_script = "uid://16pxkp42t3kd"
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+metadata/_edit_lock_ = true
 
-[node name="Reset" type="Node" parent="StateMachine"]
-script = ExtResource("4_c2wu0")
-metadata/_custom_type_script = "uid://cb1bda7tmxhx6"
+[node name="CanvasLayer3" type="CanvasLayer" parent="."]
 
-[node name="Spin" type="Node" parent="StateMachine"]
-script = ExtResource("5_rcv1p")
-metadata/_custom_type_script = "uid://cb1bda7tmxhx6"
-
-[node name="Stop" type="Node" parent="StateMachine"]
-script = ExtResource("6_3dmyw")
-metadata/_custom_type_script = "uid://cb1bda7tmxhx6"
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer3"]
+material = SubResource("ShaderMaterial_3dmyw")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true

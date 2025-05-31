@@ -9,6 +9,11 @@ var developing := false
 
 var region = Rect2(265, 75, 1390, 930)
 var tween: Tween
+
+#@onready var img_material: ShaderMaterial = $Image.material
+
+#func _ready() -> void:
+	
 	
 func _process(_delta: float) -> void:
 	material.set_shader_parameter("fade", fade)
