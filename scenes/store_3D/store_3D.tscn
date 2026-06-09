@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://ces1ba0lje6m7"]
+
+[ext_resource type="PackedScene" uid="uid://cjmc4l3gqxrx0" path="res://scenes/store_3D/store.tscn" id="1_tsy31"]
+[ext_resource type="PackedScene" uid="uid://buthajlvbxwn0" path="res://scripts/entities/player/Player.tscn" id="2_lardf"]
+[ext_resource type="PackedScene" uid="uid://lfh7bra87afo" path="res://scripts/entities/camera/film_camera.tscn" id="3_wgjci"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_lqmob"]
+
+[node name="Store3d" type="Node3D"]
+
+[node name="Sketchfab_Scene" parent="." instance=ExtResource("1_tsy31")]
+
+[node name="Player" parent="." instance=ExtResource("2_lardf")]
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -5.14, 0.12, -0.25)
+
+[node name="Floor" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+shape = SubResource("WorldBoundaryShape3D_lqmob")
+
+[node name="FilmCamera" parent="." instance=ExtResource("3_wgjci")]

@@ -23,6 +23,10 @@ ambient_light_color = Color(1, 1, 1, 1)
 ambient_light_energy = 0.1
 reflected_light_source = 2
 ssr_enabled = true
+glow_enabled = true
+glow_intensity = 1.14
+glow_strength = 1.15
+glow_bloom = 0.06
 volumetric_fog_enabled = true
 volumetric_fog_density = 0.0316
 

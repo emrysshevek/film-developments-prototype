@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://dowyyksxyu0iy"]
+
+[ext_resource type="PackedScene" uid="uid://ccvcf7oulqmpj" path="res://assets/models/nightclub/scene.gltf" id="1_x0733"]
+
+[node name="Sketchfab_Scene" instance=ExtResource("1_x0733")]

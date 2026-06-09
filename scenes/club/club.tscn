@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://bvxftlgjyd1x7"]
+
+[ext_resource type="PackedScene" uid="uid://dowyyksxyu0iy" path="res://scenes/club/club_model.tscn" id="1_u4nwx"]
+[ext_resource type="PackedScene" uid="uid://buthajlvbxwn0" path="res://scripts/entities/player/Player.tscn" id="2_5wcor"]
+[ext_resource type="PackedScene" uid="uid://lfh7bra87afo" path="res://scripts/entities/camera/film_camera.tscn" id="3_fyxq8"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_ev5nq"]
+
+[node name="Club" type="Node3D"]
+
+[node name="Sketchfab_Scene" parent="." instance=ExtResource("1_u4nwx")]
+
+[node name="Floor" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor"]
+shape = SubResource("WorldBoundaryShape3D_ev5nq")
+
+[node name="Player" parent="." instance=ExtResource("2_5wcor")]
+
+[node name="FilmCamera" parent="." instance=ExtResource("3_fyxq8")]
